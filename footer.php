@@ -231,6 +231,16 @@ $footer_icon_markup = static function ( $url ) use ( $footer_icons_lazy_load ) {
 
 <?php //do_action('adstm_modal'); ?>
 <?php do_action('adstm_footer'); ?>
+<div class="cookie-consent__backdrop" id="cookie-consent" role="dialog" aria-modal="true" aria-labelledby="cookie-consent-title" aria-describedby="cookie-consent-body" aria-hidden="true">
+    <div class="cookie-consent__panel">
+        <h2 class="cookie-consent__headline" id="cookie-consent-title">We value your privacy</h2>
+        <p class="cookie-consent__body" id="cookie-consent-body">We use cookies to enhance your browsing experience, serve personalized offers, and analyze traffic. By clicking “Accept &amp; continue” you agree to our use of cookies as described in our Privacy Policy.</p>
+        <div class="cookie-consent__actions">
+            <button type="button" class="cookie-consent__button cookie-consent__button--primary" id="cookie-consent-accept">Accept &amp; continue</button>
+            <button type="button" class="cookie-consent__button cookie-consent__button--secondary" id="cookie-consent-decline">Only essential cookies</button>
+        </div>
+    </div>
+</div>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     var allFooterHeads = Array.prototype.slice.call(document.querySelectorAll('.footer .footer-head'));
@@ -318,6 +328,75 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+
+    (function () {
+        var consentBackdrop = document.getElementById('cookie-consent');
+        var acceptButton = document.getElementById('cookie-consent-accept');
+        var declineButton = document.getElementById('cookie-consent-decline');
+        var storageKey = 'raphaelCookieConsent';
+
+        if (!consentBackdrop || !acceptButton || !declineButton) {
+            return;
+        }
+
+        var getCookieValue = function () {
+            var pattern = storageKey + '=';
+            return document.cookie.split(';').map(function (part) {
+                return part.trim();
+            }).find(function (cookie) {
+                return cookie.indexOf(pattern) === 0;
+            });
+        };
+
+        var hasDecision = function () {
+            try {
+                var stored = localStorage.getItem(storageKey);
+                if (stored !== null) {
+                    return true;
+                }
+            } catch (e) {
+                // Fallback to cookie check below.
+            }
+
+            return Boolean(getCookieValue());
+        };
+
+        var setDecision = function (value) {
+            var cookieValue = storageKey + '=' + encodeURIComponent(value) + ';path=/;max-age=' + 60 * 60 * 24 * 180;
+
+            try {
+                localStorage.setItem(storageKey, value);
+            } catch (e) {
+                // Ignore localStorage errors and use cookie fallback.
+            }
+
+            document.cookie = cookieValue;
+        };
+
+        var closeConsent = function () {
+            consentBackdrop.style.display = 'none';
+            consentBackdrop.setAttribute('aria-hidden', 'true');
+        };
+
+        var openConsent = function () {
+            consentBackdrop.style.display = 'flex';
+            consentBackdrop.removeAttribute('aria-hidden');
+        };
+
+        if (!hasDecision()) {
+            openConsent();
+        }
+
+        acceptButton.addEventListener('click', function () {
+            setDecision('accepted');
+            closeConsent();
+        });
+
+        declineButton.addEventListener('click', function () {
+            setDecision('essential_only');
+            closeConsent();
+        });
+    })();
 });
 </script>
 <script type="text/javascript"> self != top ? document.body.className+=' is_frame' : '';</script>
