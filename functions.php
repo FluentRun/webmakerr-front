@@ -69,12 +69,27 @@ add_action( 'wp_head', function () {
         <style>
                 .blog-single-data__local-info-author,
                 .blog-single-data__local-info-date-and-comments,
+                .blog-single-data__local-info-views-count,
+                .blog-single-data__social-info,
                 .blog-breadcrumbs,
-                .blog-top-full-screen-block__inner,
                 [class*="breadcrumb"],
+                .blog-top-full-screen-block__inner,
+                .blog-top-category-menu-wrap,
                 #comments,
+                .comments-area,
                 .comment-respond,
-                #respond {
+                #respond,
+                #commentform,
+                .comment-form,
+                .comment-form-comment,
+                .comment-list,
+                .comment,
+                .comment-body,
+                .comment-meta,
+                .comment-notes,
+                .comment-reply-title,
+                .comments-title,
+                .logged-in-as {
                         display: none !important;
                 }
         </style>
