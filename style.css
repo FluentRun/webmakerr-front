@@ -34,4 +34,5 @@ body {
 
 .footer {
     flex-shrink: 0;
+    background-color: #222;
 }
