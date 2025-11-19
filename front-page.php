@@ -64,12 +64,11 @@ get_header();
                 </span>
 
                 <h1 class="fw-semibold display-5 lh-sm text-dark">
-                    The better way to<br>schedule your<br>meetings
+                    Your Business Needs a Website<br><br>That Sells — Not Just Looks Good
                 </h1>
 
                 <p class="mt-3 text-secondary">
-                    A fully customizable scheduling software for individuals, businesses
-                    taking calls, and developers building scheduling platforms where users meet users.
+                    We create fast, clear, conversion-ready websites with custom features built for your exact workflow.
                 </p>
 
                 <button class="mt-4 btn btn-dark btn-lg d-flex align-items-center gap-2 w-100" style="max-width:260px;">
