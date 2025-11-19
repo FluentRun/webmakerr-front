@@ -185,11 +185,11 @@ get_header();
             </span>
 
             <h2 class="fw-semibold display-6 text-dark lh-sm">
-                With us, appointment scheduling is easy
+                Most websites look good but fail to sell
             </h2>
 
             <p class="mt-3 text-secondary">
-                Streamlined scheduling for individuals, teams, and fast-growing companies.
+                Your website becomes a streamlined sales engine: clear message, clean user flow, and functionality built around your business — not templates.
             </p>
 
             <button class="btn btn-dark btn-lg mt-4 shadow-sm">
