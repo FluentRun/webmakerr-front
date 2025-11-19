@@ -316,6 +316,40 @@ get_header();
                         Speed, hosting, optimization, funnels, tracking, security, automations — everything handled end to end.
                     </p>
 
+                    <div class="mt-auto d-flex justify-content-center pt-3">
+                        <div class="position-relative border rounded-circle d-flex justify-content-center align-items-center" style="width: 160px; height: 160px;">
+                            <span class="position-absolute bg-white px-2 py-1 small border rounded-pill shadow">
+                                App
+                            </span>
+
+                            <span class="position-absolute top-0 translate-middle-x bg-white p-2 border rounded-circle small shadow">
+                                📅
+                            </span>
+                            <span class="position-absolute start-0 top-50 translate-middle-y bg-white p-2 border rounded-circle small shadow">
+                                🔄
+                            </span>
+                            <span class="position-absolute bottom-0 translate-middle-x bg-white p-2 border rounded-circle small shadow">
+                                📆
+                            </span>
+                            <span class="position-absolute end-0 top-50 translate-middle-y bg-white p-2 border rounded-circle small shadow">
+                                📈
+                            </span>
+
+                            <div class="text-center">
+                                <svg width="88" height="88" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="10" y="16" width="68" height="52" rx="12" stroke="black" stroke-width="2.5" />
+                                    <rect x="22" y="30" width="44" height="30" rx="6" stroke="black" stroke-width="2.5" />
+                                    <path d="M22 30h44" stroke="black" stroke-width="2.5" />
+                                    <path d="M32 40h20" stroke="black" stroke-width="2.5" />
+                                    <path d="M32 48h20" stroke="black" stroke-width="2.5" />
+                                </svg>
+
+                                <p class="fw-semibold small text-dark mt-2 mb-0">Home page layout</p>
+                                <p class="text-muted small mb-0">Hero CTA above the fold</p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
