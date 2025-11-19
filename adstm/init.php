@@ -71,8 +71,10 @@ if(!defined('ADSTM_HOME')){
 }
 
 if(!defined('ADSTM_T_DOMAIN')){
-	define('ADSTM_T_DOMAIN', 'rap');
+        define('ADSTM_T_DOMAIN', 'rap');
 }
+
+require_once __DIR__ . '/customization/czOptions.php';
 
 include( __DIR__ . '/update.php' );
 include( __DIR__ . '/core.php' );
