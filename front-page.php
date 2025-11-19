@@ -181,7 +181,7 @@ get_header();
     <div class="container-lg">
         <div class="text-center mx-auto" style="max-width: 700px;">
             <span class="d-inline-flex align-items-center bg-white border px-3 py-1 rounded-pill text-secondary small shadow-sm mb-3">
-                How it works
+                What You Get
             </span>
 
             <h2 class="fw-semibold display-6 text-dark lh-sm">
@@ -204,10 +204,10 @@ get_header();
                         <span class="fw-bold text-secondary small">01</span>
                     </span>
 
-                    <h5 class="fw-semibold text-dark">Connect your calendar</h5>
+                    <h5 class="fw-semibold text-dark">A Website Built to Convert</h5>
 
                     <p class="text-muted small mt-2">
-                        We automatically sync everything so you never double-book again.
+                        Clean structure, clear messaging, modern UI, and a guided flow that leads users to take action.
                     </p>
 
                     <div class="mt-auto d-flex justify-content-center pt-3">
@@ -236,10 +236,10 @@ get_header();
                         <span class="fw-bold text-secondary small">02</span>
                     </span>
 
-                    <h5 class="fw-semibold text-dark">Set your availability</h5>
+                    <h5 class="fw-semibold text-dark">Custom Features That Fit Your Business</h5>
 
                     <p class="text-muted small mt-2">
-                        Define your working hours, buffers, and availability preferences.
+                        We extend or modify any plugin so your website works exactly the way you need — no hacks, no limitations.
                     </p>
 
                     <div class="mt-auto pt-3">
@@ -275,10 +275,10 @@ get_header();
                         <span class="fw-bold text-secondary small">03</span>
                     </span>
 
-                    <h5 class="fw-semibold text-dark">Choose how to meet</h5>
+                    <h5 class="fw-semibold text-dark">Technical Setup Done for You</h5>
 
                     <p class="text-muted small mt-2">
-                        Meet via video call, phone, or whatever works best for you.
+                        Speed, hosting, optimization, funnels, tracking, security, automations — everything handled end to end.
                     </p>
 
                     <div class="mt-auto pt-3">
