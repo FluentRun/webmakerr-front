@@ -14,9 +14,17 @@ wp_enqueue_script(
 );
 
 wp_enqueue_script(
-    'lottie-player',
-    'https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js',
+    'lottie-web',
+    'https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js',
     [],
+    '5.12.2',
+    true
+);
+
+wp_enqueue_script(
+    'hero-lottie-animation',
+    get_template_directory_uri() . '/js/hero-animation.js',
+    [ 'lottie-web' ],
     null,
     true
 );
@@ -36,6 +44,21 @@ get_header();
     .hero-animation-shell {
         min-height: 260px;
         background: #0f172a;
+        border-radius: 24px;
+        overflow: hidden;
+    }
+    .hero-animation-shell .hero-lottie-target {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%;
+        background: #0f172a;
+    }
+    .hero-animation-shell .hero-lottie-target svg,
+    .hero-animation-shell .hero-lottie-target canvas {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
     }
     .feature-card {
         width: 180px;
@@ -111,22 +134,12 @@ get_header();
                         </div>
 
                         <div class="position-relative border rounded-3 p-3 shadow-sm hero-animation-shell">
-                            <div class="ratio ratio-16x9 w-100">
-                                <!-- Animation concept for Webmakerr hero explainer:
-                                     Frame 1 (0-1s) – Minimal dashboard cards titled Leads, Bookings, Sales, Automations fade/slide in.
-                                     Frame 2 (1-2s) – Clean checkout card reveals fast amount + CTA button interaction.
-                                     Frame 3 (2-3s) – Flowing dotted lines connect Dashboard → Checkout → CRM → Email → Calendar.
-                                     Frame 4 (3-4s) – Cards align into a unified grid, pulse effect, text "One connected system." appears.
-                                     Style: flat enterprise UI, white/black palette with #01C468 accents, rounded 4-8px corners, soft shadows. -->
-                                <lottie-player
-                                    src="<?php echo esc_url( $theme_dir . '/assets/animations/hero-explainer.json' ); ?>"
-                                    background="#0f172a"
-                                    speed="1"
-                                    class="w-100 h-100"
-                                    loop
-                                    autoplay
-                                    aria-label="Webmakerr hero automation explainer animation">
-                                </lottie-player>
+                            <div
+                                class="hero-lottie-target rounded-4"
+                                data-hero-lottie
+                                data-lottie-src="<?php echo esc_url( $theme_dir . '/assets/animations/hero-explainer.json' ); ?>"
+                                role="img"
+                                aria-label="Webmakerr hero automation explainer animation">
                             </div>
                         </div>
                     </div>
