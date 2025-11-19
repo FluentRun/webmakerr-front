@@ -64,7 +64,7 @@ get_header();
                 </span>
 
                 <h1 class="fw-semibold display-5 lh-sm text-dark">
-                    Your Business Needs a Website<br><br>That Sells — Not Just Looks Good
+                    Your Website Must Sell. Not Just Look Nice.<br>
                 </h1>
 
                 <p class="mt-3 text-secondary">
