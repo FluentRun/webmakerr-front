@@ -10,6 +10,15 @@
     $post_date            = date_i18n( 'M j, Y', strtotime( get_the_date() ) );
     $post_comments_number = get_comments_number( $post_id );
     $post_views_count     = getPostViews($post->ID);
+    $is_item_single_post  = get_query_var( 'raphael_is_item_single_post', null );
+
+    if ( null === $is_item_single_post || '' === $is_item_single_post ) {
+        $is_item_single_post = (
+            is_single()
+            && $post instanceof WP_Post
+            && $post->post_name === 'item'
+        );
+    }
 
     ?>
 
@@ -21,28 +30,30 @@
 
         <div class="blog-single-data">
 
-            <div class="blog-single-data__local-info">
+            <?php if ( ! $is_item_single_post ): ?>
+                <div class="blog-single-data__local-info">
 
-                <div class="blog-single-data__local-info-author">
-                    <span class="blog-single-data__author-span-by">
-                        <?php _e( 'by', 'rap' ) ?>
-                    </span>
-                    <?php echo $post_author; ?>
+                    <div class="blog-single-data__local-info-author">
+                        <span class="blog-single-data__author-span-by">
+                            <?php _e( 'by', 'rap' ) ?>
+                        </span>
+                        <?php echo $post_author; ?>
+                    </div>
+
+                    <div class="blog-single-data__local-info-date-and-comments">
+
+                        <span class="blog-single-data__local-info-date">
+                            <?php echo $post_date; ?> /
+                        </span>
+
+                        <a href="#blog-single-comments-section" class="blog-single-data__local-info-comments-count">
+                            <?php echo $post_comments_number; ?> <?php _e( 'comments', 'rap' ) ?>
+                        </a>
+
+                    </div>
+
                 </div>
-
-                <div class="blog-single-data__local-info-date-and-comments">
-
-                    <span class="blog-single-data__local-info-date">
-                        <?php echo $post_date; ?> /
-                    </span>
-
-                    <a href="#blog-single-comments-section" class="blog-single-data__local-info-comments-count">
-                        <?php echo $post_comments_number; ?> <?php _e( 'comments', 'rap' ) ?>
-                    </a>
-
-                </div>
-
-            </div>
+            <?php endif; ?>
 
             <div class="blog-single-data__social-info">
 
@@ -68,11 +79,13 @@
 
         </div>
 
-        <div class="blog-single-comments-section" id="blog-single-comments-section">
+        <?php if ( ! $is_item_single_post ): ?>
+            <div class="blog-single-comments-section" id="blog-single-comments-section">
 
-            <?php if( ( comments_open() || get_comments_number() ) ) { comments_template(); } ?>
+                <?php if( ( comments_open() || get_comments_number() ) ) { comments_template(); } ?>
 
-        </div>
+            </div>
+        <?php endif; ?>
 
         <?php get_template_part( 'template/blog/tpl/_related_posts' ); ?>
 

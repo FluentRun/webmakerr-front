@@ -1,6 +1,11 @@
 <?php
 
 $cats = get_the_category();
+
+if ( empty( $cats ) || ! isset( $cats[0]->term_id ) ) {
+    return;
+}
+
 $args = array(
     'post_type' => 'post',
     'post__not_in' => array( get_the_ID() ),

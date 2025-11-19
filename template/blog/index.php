@@ -5,6 +5,16 @@ get_template_part( 'template/blog/tpl/_print_blog_post_item' );
 $is_blog_single_page = is_single();
 $blog_page_title = get_the_title( get_option('page_for_posts', true) );
 
+global $post;
+$current_post = get_post();
+$is_item_single_post = (
+    $is_blog_single_page
+    && $current_post instanceof WP_Post
+    && $current_post->post_name === 'item'
+);
+
+set_query_var( 'raphael_is_item_single_post', $is_item_single_post );
+
 ?>
 
 <style>
@@ -33,9 +43,11 @@ $blog_page_title = get_the_title( get_option('page_for_posts', true) );
 
 <div class="blog-wrapper">
 
-    <!-- BREADCRUMBS -->
-    <?php get_template_part( 'template/blog/tpl/_breadcrumbs' ); ?>
-    <!-- BREADCRUMBS -->
+    <?php if ( ! $is_item_single_post ): ?>
+        <!-- BREADCRUMBS -->
+        <?php get_template_part( 'template/blog/tpl/_breadcrumbs' ); ?>
+        <!-- BREADCRUMBS -->
+    <?php endif; ?>
 
     <?php if ( !$is_blog_single_page ): ?>
 
@@ -360,21 +372,23 @@ $blog_page_title = get_the_title( get_option('page_for_posts', true) );
 
     <?php elseif( $is_blog_single_page ):  ?>
 
-        <a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>" class="blog-top-full-screen-block" style="background-image: url(<?php echo cz('blog_top_full_screen_block_img'); ?>)">
-            <div class="blog-top-full-screen-block__inner">
-                <div class="container">
+        <?php if ( ! $is_item_single_post ): ?>
+            <a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>" class="blog-top-full-screen-block" style="background-image: url(<?php echo cz('blog_top_full_screen_block_img'); ?>)">
+                <div class="blog-top-full-screen-block__inner">
+                    <div class="container">
 
-                    <div class="blog-top-full-screen-block__info-wrap">
+                        <div class="blog-top-full-screen-block__info-wrap">
 
-                        <div class="blog-top-full-screen-block__single-top-text">
-                            <?php echo $blog_page_title; ?>
+                            <div class="blog-top-full-screen-block__single-top-text">
+                                <?php echo $blog_page_title; ?>
+                            </div>
+
                         </div>
 
                     </div>
-
                 </div>
-            </div>
-        </a>
+            </a>
+        <?php endif; ?>
 
         <div class="container">
             <div class="blog-top-category-menu-wrap">
