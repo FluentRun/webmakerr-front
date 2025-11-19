@@ -4,13 +4,19 @@ $cats            = get_the_category();
 $primary_term    = null;
 $primary_term_id = null;
 
-if ( ! empty( $cats ) && is_array( $cats ) ) {
-    foreach ( $cats as $term ) {
-        if ( $term instanceof WP_Term ) {
-            $primary_term = $term;
-            break;
-        }
+if ( empty( $cats ) || ! is_array( $cats ) ) {
+    return;
+}
+
+foreach ( $cats as $term ) {
+    if ( $term instanceof WP_Term ) {
+        $primary_term = $term;
+        break;
     }
+}
+
+if ( null === $primary_term && isset( $cats[0] ) && $cats[0] instanceof WP_Term ) {
+    $primary_term = $cats[0];
 }
 
 if ( $primary_term instanceof WP_Term && ! empty( $primary_term->term_id ) ) {
