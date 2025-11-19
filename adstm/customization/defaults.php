@@ -7,8 +7,21 @@
 
 if( ! defined( 'ADSTM_HOME' ) ) define( 'ADSTM_HOME', home_url() );
 $cur_website = parse_url(ADSTM_HOME, PHP_URL_HOST);
-$TEMPLATE_URL = str_replace('//'.$cur_website,'',TEMPLATE_URL);
-$IMG_DIR = str_replace('//'.$cur_website,'',IMG_DIR);
+
+if ( defined( 'TEMPLATE_URL' ) ) {
+    $template_url = TEMPLATE_URL;
+} else {
+    $template_url = function_exists( 'get_template_directory_uri' ) ? get_template_directory_uri() : '';
+}
+
+if ( defined( 'IMG_DIR' ) ) {
+    $img_dir = IMG_DIR;
+} else {
+    $img_dir = trailingslashit( $template_url ) . 'images/';
+}
+
+$TEMPLATE_URL = str_replace( '//' . $cur_website, '', $template_url );
+$IMG_DIR = str_replace( '//' . $cur_website, '', $img_dir );
 return [
 	'tp_head'                => '',
 	'tp_style'               => '',
