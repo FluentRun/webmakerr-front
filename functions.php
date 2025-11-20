@@ -33,8 +33,15 @@ include( __DIR__ . '/inc/review.php' );
 include( __DIR__ . '/inc/instagram.php' );
 
 add_action('wp_enqueue_scripts', function () {
-    wp_enqueue_style('global-styles', get_template_directory_uri() . '/assets/css/global.css', [], '1.0');
-});
+    $version = (string) time();
+
+    wp_enqueue_style(
+        'global-styles',
+        get_template_directory_uri() . '/assets/css/global.css',
+        [],
+        $version
+    );
+}, PHP_INT_MAX);
 
 
 if ( ! function_exists( 'raphael_is_item_permalink' ) ) {
