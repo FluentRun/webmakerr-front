@@ -1,0 +1,98 @@
+* {
+    font-family: "Inter", sans-serif !important;
+}
+
+body {
+    background: #F9FAFB !important;
+    color: #111827 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #111827 !important;
+    font-weight: 700 !important;
+}
+
+p {
+    color: #6B7280 !important;
+}
+
+a,
+li,
+span,
+strong,
+small,
+label,
+input,
+textarea,
+select {
+    color: #111827 !important;
+}
+
+.btn,
+button,
+input[type=submit],
+input[type=button],
+input[type=reset] {
+    background: #111827 !important;
+    border-color: #111827 !important;
+    color: #fff !important;
+    border-radius: 8px !important;
+    padding: 12px 22px !important;
+    font-weight: 600 !important;
+}
+
+.btn:hover,
+button:hover,
+input[type=submit]:hover,
+input[type=button]:hover,
+input[type=reset]:hover {
+    background: #0b1220 !important;
+    border-color: #0b1220 !important;
+    color: #fff !important;
+}
+
+input,
+textarea,
+select,
+option,
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=number],
+input[type=search],
+input[type=tel],
+input[type=url] {
+    border: 1px solid #E5E7EB !important;
+    background: #fff !important;
+    border-radius: 8px !important;
+    padding: 12px 14px !important;
+    color: #111827 !important;
+    box-shadow: none !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid #111827 !important;
+    box-shadow: 0 0 0 1px #111827 !important;
+}
+
+.card,
+.codex-offcanvas-card,
+.product-card,
+.blog-card {
+    border: 1px solid #E5E7EB !important;
+    border-radius: 12px !important;
+    background: #fff !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04) !important;
+}
+
+section,
+div,
+article,
+header,
+footer,
+main,
+aside {
+    background-color: transparent !important;
+}

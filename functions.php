@@ -41,7 +41,16 @@ add_action('wp_enqueue_scripts', function () {
         [],
         $version
     );
-}, PHP_INT_MAX);
+}, 999998);
+
+add_action('wp_enqueue_scripts', function() {
+    wp_enqueue_style(
+        'override-styles',
+        get_template_directory_uri() . '/assets/css/override.css',
+        [],
+        time()
+    );
+}, 999999);
 
 
 if ( ! function_exists( 'raphael_is_item_permalink' ) ) {
