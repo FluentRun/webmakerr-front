@@ -60,10 +60,37 @@ if ( ! function_exists( 'raphael_is_item_permalink' ) ) {
         }
 }
 
-add_action( 'wp_head', function () {
-        if ( ! raphael_is_item_permalink() ) {
-                return;
+add_filter(
+        'single_template',
+        function ( $template ) {
+                if ( ! is_singular( 'post' ) ) {
+                        return $template;
+                }
+
+                $post = get_queried_object();
+
+                if ( ! $post instanceof WP_Post ) {
+                        return $template;
+                }
+
+                $product = \FluentCart\App\Modules\Data\ProductDataSetup::getProductModel( $post->ID );
+
+                if ( $product && $product->detail ) {
+                        $single_product_template = locate_template( 'single-post.php' );
+
+                        if ( $single_product_template ) {
+                                return $single_product_template;
+                        }
+                }
+
+                return $template;
         }
+);
+
+add_action( 'wp_head', function () {
+if ( ! raphael_is_item_permalink() ) {
+return;
+}
 
         ?>
         <style>
