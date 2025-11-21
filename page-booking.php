@@ -435,13 +435,7 @@ get_header();
                             </span>
 
                             <div class="text-center">
-                                <svg width="88" height="88" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="10" y="16" width="68" height="52" rx="12" stroke="black" stroke-width="2.5" />
-                                    <rect x="22" y="30" width="44" height="30" rx="6" stroke="black" stroke-width="2.5" />
-                                    <path d="M22 30h44" stroke="black" stroke-width="2.5" />
-                                    <path d="M32 40h20" stroke="black" stroke-width="2.5" />
-                                    <path d="M32 48h20" stroke="black" stroke-width="2.5" />
-                                </svg>
+                                <img src="https://via.placeholder.com/320x88" alt="Campaign command center placeholder graphic" class="w-100" style="height: 88px; object-fit: cover;" />
 
                                 <p class="fw-semibold small text-dark mt-2 mb-0">Campaign command center</p>
                                 <p class="text-muted small mb-0">Daily actions prioritized for ROAS</p>
