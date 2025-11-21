@@ -209,6 +209,11 @@ get_header();
         fill: none;
     }
 
+    .more-feature-grid {
+        --bs-gutter-x: 1.25rem;
+        --bs-gutter-y: 1.25rem;
+    }
+
     .mobile-sticky-bar {
         display: none;
         position: fixed;
@@ -426,7 +431,7 @@ get_header();
             ...plus everything needed for a professional booking engine
         </h2>
 
-        <div class="row g-4 justify-content-center">
+        <div class="row g-4 justify-content-center more-feature-grid">
             <?php
             $icons = [
                 '<svg viewBox="0 0 64 64" aria-hidden="true"><rect x="10" y="18" width="44" height="28" rx="6"></rect><path d="M18 26h12"></path><path d="M18 34h8"></path><path d="M42 34h8"></path><path d="M38 22h14"></path><path d="M32 42l4 4 8-8"></path></svg>',
