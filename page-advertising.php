@@ -19,7 +19,7 @@ wp_enqueue_script(
 );
 
 $theme_dir = get_template_directory_uri();
-$checkout_url = 'https://webmakerr.com/?fluent-cart=instant_checkout&item_id=21&quantity=1';
+$checkout_url = 'https://webmakerr.com/?fluent-cart=instant_checkout&item_id=22&quantity=1';
 
 get_header();
 ?>
@@ -577,7 +577,7 @@ get_header();
                             <div class="ratio ratio-16x9 w-100">
                                 <video
                                     class="w-100 h-100 rounded-3"
-                                    data-src="https://cdn.webmakerr.com/website/booking.mp4"
+                                    data-src="https:/cdn.webmakerr.com/Learn/FacebookAds/intro.mp4"
                                     autoplay
                                     muted
                                     playsinline
@@ -1065,7 +1065,7 @@ get_header();
         var errorAlert = modalBackdrop ? modalBackdrop.querySelector('[data-trial-error]') : null;
         var spinner = modalBackdrop ? modalBackdrop.querySelector('[data-trial-spinner]') : null;
         var submitBtn = modalBackdrop ? modalBackdrop.querySelector('[data-trial-submit]') : null;
-        var webhookUrl = 'https://webmakerr.com/?fluentcrm=1&route=contact&hash=fb919fc9-b574-4847-8d03-014249a2767e';
+        var webhookUrl = 'https://webmakerr.com/?fluentcrm=1&route=contact&hash=f4146b0f-34b7-4677-8b3c-9628b056387b';
 
         if (!modalBackdrop || !form || !nameInput || !emailInput) {
             return;
