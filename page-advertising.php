@@ -810,7 +810,7 @@ get_header();
                         Swipe proven hooks and headlines, then plug them into ready-to-launch ad angles so every campaign starts with conversion-focused creative.
                     </p>
 
-                    <img src="https://cdn.webmakerr.com/website/booking1.png" alt="Facebook ads creative frameworks graphic" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
+                    <img src="https://cdn.webmakerr.com/website/facebook-ads-3.png" alt="Facebook ads creative frameworks graphic" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
                 </div>
             </div>
 
@@ -826,7 +826,7 @@ get_header();
                         Follow weekly optimization checklists that tighten targeting, refresh creatives, and steadily raise ROAS without guesswork.
                     </p>
 
-                    <img src="https://alidrives.b-cdn.net/website/booking2.png" alt="Optimization checklist graphic" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
+                    <img src="https://cdn.webmakerr.com/website/facebook-ads-1.png" alt="Optimization checklist graphic" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
                 </div>
             </div>
 
@@ -842,7 +842,7 @@ get_header();
                         Use budget and bid calculators, tracking templates, and retargeting scripts to scale spend confidently and keep pipelines full.
                     </p>
 
-                    <img src="https://alidrives.b-cdn.net/website/booking3.png" alt="Measurement and retargeting toolkit graphic" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
+                    <img src="https://cdn.webmakerr.com/website/facebook-ads-2.png" alt="Measurement and retargeting toolkit graphic" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
 
                 </div>
             </div>
