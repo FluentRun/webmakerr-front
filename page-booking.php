@@ -1071,17 +1071,17 @@ get_header();
                 submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Submitting...';
             }
 
-            var payload = {
-                email: emailValue,
-                first_name: nameValue
-            };
+            var payload = new URLSearchParams();
+            payload.append('email', emailValue);
+            payload.append('first_name', nameValue);
 
+            // FluentCRM webhooks do not send CORS headers. Use a simple POST request with
+            // "no-cors" mode so the request is delivered even when the browser blocks
+            // reading the response. The request becomes opaque but still reaches the webhook.
             var requestConfig = {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(payload)
+                mode: 'no-cors',
+                body: payload
             };
 
             var handleSuccess = function () {
@@ -1112,8 +1112,11 @@ get_header();
 
                     if (navigator && typeof navigator.sendBeacon === 'function') {
                         try {
-                            var beaconPayload = new Blob([JSON.stringify(payload)], { type: 'application/json' });
-                            didSendBeacon = navigator.sendBeacon(webhookEndpoint, beaconPayload);
+                            var beaconPayload = payload.toString();
+                            didSendBeacon = navigator.sendBeacon(
+                                webhookEndpoint,
+                                new Blob([beaconPayload], { type: 'application/x-www-form-urlencoded' })
+                            );
                         } catch (beaconError) {
                             didSendBeacon = false;
                         }
