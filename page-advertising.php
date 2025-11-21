@@ -577,7 +577,7 @@ get_header();
                             <div class="ratio ratio-16x9 w-100">
                                 <video
                                     class="w-100 h-100 rounded-3"
-                                    data-src="https:/cdn.webmakerr.com/Learn/FacebookAds/intro.mp4"
+                                    data-src="https://cdn.webmakerr.com/Learn/FacebookAds/intro.mp4"
                                     autoplay
                                     muted
                                     playsinline
