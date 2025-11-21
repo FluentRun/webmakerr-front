@@ -344,7 +344,7 @@ get_header();
                         Replace back-and-forth emails with branded booking pages that qualify visitors and lock in the best time with no double-bookings.
                     </p>
 
-                    <img src="https://cdn.webmakerr.com/website/booking1.png/320x160" alt="Scheduling that books itself graphic" class="mt-auto pt-3 w-100" style="height: 160px; object-fit: cover;" />
+                    <img src="https://cdn.webmakerr.com/website/booking1.png" alt="Scheduling that books itself graphic" class="mt-auto pt-3 w-100" style="height: 160px; object-fit: cover;" />
                 </div>
             </div>
 
