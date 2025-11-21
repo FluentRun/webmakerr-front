@@ -318,7 +318,7 @@ get_header();
                         </div>
 
                         <div class="position-relative border rounded-3 shadow-sm hero-animation-shell hero-media-card">
-                            <video class="w-100 h-100" src="https://alidrives.b-cdn.net/Intro.mp4" autoplay muted playsinline loop controls></video>
+                            <video class="w-100 h-100" src="https://cdn.webmakerr.com/website/webdesign.mp4" autoplay muted playsinline loop controls></video>
                         </div>
                     </div>
                 </div>
