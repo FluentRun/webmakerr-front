@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Custom Development Landing
+ * Template Name: Custom Booking Plugin
  * Template Post Type: page
  */
 
