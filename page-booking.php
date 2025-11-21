@@ -967,7 +967,7 @@ get_header();
         var successAlert = modal.querySelector('[data-lead-success]');
         var errorAlert = modal.querySelector('[data-lead-error]');
         var submitBtn = modal.querySelector('[data-lead-submit]');
-        var submitText = submitBtn ? submitBtn.textContent : '';
+        var submitContent = submitBtn ? submitBtn.innerHTML : '';
         var placeholderWebhook = 'PASTE_WEBHOOK_URL_HERE';
 
         function normalizeWebhook(url) {
@@ -1076,31 +1076,56 @@ get_header();
                 first_name: nameValue
             };
 
-            fetch(webhookEndpoint, {
+            var requestConfig = {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(payload)
-            })
+            };
+
+            var handleSuccess = function () {
+                if (successAlert) {
+                    successAlert.classList.add('is-visible');
+                }
+                if (errorAlert) {
+                    errorAlert.classList.remove('is-visible');
+                }
+                form.reset();
+            };
+
+            fetch(webhookEndpoint, requestConfig)
                 .then(function (response) {
+                    if (response.type === 'opaque') {
+                        // Webhook servers without CORS still receive the request; treat opaque as success.
+                        return null;
+                    }
+
                     if (!response.ok) {
                         throw new Error('Request failed (' + response.status + ')');
                     }
                     return response.text();
                 })
-                .then(function () {
-                    if (successAlert) {
-                        successAlert.classList.add('is-visible');
-                    }
-                    if (errorAlert) {
-                        errorAlert.classList.remove('is-visible');
-                    }
-                    form.reset();
-                })
+                .then(handleSuccess)
                 .catch(function (error) {
+                    var didSendBeacon = false;
+
+                    if (navigator && typeof navigator.sendBeacon === 'function') {
+                        try {
+                            var beaconPayload = new Blob([JSON.stringify(payload)], { type: 'application/json' });
+                            didSendBeacon = navigator.sendBeacon(webhookEndpoint, beaconPayload);
+                        } catch (beaconError) {
+                            didSendBeacon = false;
+                        }
+                    }
+
+                    if (didSendBeacon) {
+                        handleSuccess();
+                        return;
+                    }
+
                     if (errorAlert) {
-                        errorAlert.textContent = error.message || 'Could not submit your request right now.';
+                        errorAlert.textContent = error && error.message ? error.message : 'Could not submit your request right now.';
                         errorAlert.classList.add('is-visible');
                     }
                     if (successAlert) {
@@ -1110,7 +1135,7 @@ get_header();
                 .finally(function () {
                     if (submitBtn) {
                         submitBtn.disabled = false;
-                        submitBtn.textContent = submitText || 'Get Free Trail';
+                        submitBtn.innerHTML = submitContent || '<span>Get Free Trail</span>';
                     }
                 });
         });
