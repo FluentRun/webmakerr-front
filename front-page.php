@@ -130,9 +130,8 @@ get_header();
         background: linear-gradient(135deg, #1877F2 50%, #000000 50%);
         border-radius: 4px;
         overflow: hidden;
-        padding: 24px;
-        display: flex;
-        align-items: center;
+        padding: 0;
+        position: relative;
     }
     .hero-feature-grid {
         display: grid;
@@ -176,7 +175,7 @@ get_header();
         gap: 1rem;
     }
     .hero-media-card {
-        padding: 20px;
+        padding: 0;
     }
     .feature-card {
         width: 180px;
@@ -211,7 +210,7 @@ get_header();
 
     @media (max-width: 991.98px) {
         .hero-animation-shell {
-            padding: 16px;
+            padding: 0;
             min-height: 220px;
         }
         .hero-feature-card svg {
@@ -225,7 +224,7 @@ get_header();
             max-width: none;
         }
         .hero-media-card {
-            padding: 12px;
+            padding: 0;
         }
     }
 
@@ -248,8 +247,16 @@ get_header();
             width: 100%;
         }
         .hero-media-card {
-            padding: 10px;
+            padding: 0;
         }
+    }
+
+    .hero-animation-shell video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 </style>
 
@@ -310,16 +317,8 @@ get_header();
                             <span class="border rounded-pill px-3 py-1">Timezone aware</span>
                         </div>
 
-                        <div class="position-relative border rounded-3 p-3 shadow-sm hero-animation-shell hero-media-card">
-                            <div class="ratio ratio-16x9 w-100 mb-3">
-                                <video class="w-100 h-100 rounded-3" src="https://alidrives.b-cdn.net/Intro.mp4" autoplay muted playsinline loop controls></video>
-                            </div>
-                            <a href="/page-explanier-video.php" class="btn btn-dark d-flex align-items-center justify-content-center gap-2 w-100">
-                                <span>Watch the full workflow</span>
-                                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.4">
-                                    <path d="M4 2l6 5-6 5" />
-                                </svg>
-                            </a>
+                        <div class="position-relative border rounded-3 shadow-sm hero-animation-shell hero-media-card">
+                            <video class="w-100 h-100" src="https://alidrives.b-cdn.net/Intro.mp4" autoplay muted playsinline loop controls></video>
                         </div>
                     </div>
                 </div>
