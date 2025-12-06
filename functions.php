@@ -495,3 +495,36 @@ function wm_disable_gutenberg_for_posts_pages( $use_block_editor, $post ) {
 add_filter( 'use_block_editor_for_post', 'wm_disable_gutenberg_for_posts_pages', 10, 2 );
 add_filter( 'use_block_editor_for_post_type', 'wm_disable_gutenberg_for_posts_pages', 10, 2 );
 
+// plugin updates disable start
+add_action( 'init', 'wmf_disable_all_plugin_updates', 5 );
+
+function wmf_disable_all_plugin_updates() {
+    remove_action( 'admin_init', '_maybe_update_plugins' );
+    remove_action( 'wp_update_plugins', 'wp_update_plugins' );
+    remove_action( 'load-plugins.php', 'wp_update_plugins' );
+    remove_action( 'load-update.php', 'wp_update_plugins' );
+
+    add_filter( 'pre_site_transient_update_plugins', 'wmf_disable_plugin_update_checks' );
+    add_filter( 'site_transient_update_plugins', 'wmf_disable_plugin_update_checks' );
+    add_filter( 'plugins_api', 'wmf_block_plugin_information_requests', 10, 3 );
+    add_filter( 'auto_update_plugin', '__return_false' );
+}
+
+function wmf_disable_plugin_update_checks( $value ) {
+    return (object) array(
+        'last_checked' => time(),
+        'response'     => array(),
+        'translations' => array(),
+        'no_update'    => array(),
+    );
+}
+
+function wmf_block_plugin_information_requests( $result, $action, $args ) {
+    if ( 'plugin_information' === $action ) {
+        return new WP_Error( 'plugin_info_disabled', __( 'Plugin updates are disabled.' ) );
+    }
+
+    return $result;
+}
+// plugin updates disable end
+
