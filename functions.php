@@ -528,3 +528,101 @@ function wmf_block_plugin_information_requests( $result, $action, $args ) {
 }
 // plugin updates disable end
 
+// admin notices disable start
+add_action( 'admin_init', 'wmf_disable_plugin_admin_notices', 1 );
+
+function wmf_disable_plugin_admin_notices() {
+    $notice_hooks = array(
+        'admin_notices',
+        'all_admin_notices',
+        'user_admin_notices',
+        'admin_head',
+        'admin_footer',
+    );
+
+    foreach ( $notice_hooks as $hook_name ) {
+        wmf_remove_plugin_callbacks_from_hook( $hook_name );
+    }
+}
+
+function wmf_remove_plugin_callbacks_from_hook( $hook_name ) {
+    global $wp_filter;
+
+    if ( empty( $wp_filter[ $hook_name ] ) ) {
+        return;
+    }
+
+    $hook = $wp_filter[ $hook_name ];
+    $callbacks = $hook instanceof WP_Hook ? $hook->callbacks : $hook;
+
+    if ( empty( $callbacks ) || ! is_array( $callbacks ) ) {
+        return;
+    }
+
+    foreach ( $callbacks as $priority => $priority_callbacks ) {
+        foreach ( $priority_callbacks as $callback ) {
+            if ( empty( $callback['function'] ) ) {
+                continue;
+            }
+
+            if ( wmf_is_plugin_callback( $callback['function'] ) ) {
+                remove_action( $hook_name, $callback['function'], $priority );
+            }
+        }
+    }
+}
+
+function wmf_is_plugin_callback( $callback ) {
+    $file = wmf_get_callback_file( $callback );
+
+    if ( empty( $file ) ) {
+        return false;
+    }
+
+    $file       = wp_normalize_path( $file );
+    $plugin_dir = wp_normalize_path( WP_PLUGIN_DIR );
+    $mu_dir     = defined( 'WPMU_PLUGIN_DIR' ) ? wp_normalize_path( WPMU_PLUGIN_DIR ) : '';
+
+    if ( strpos( $file, $plugin_dir ) === 0 ) {
+        return true;
+    }
+
+    if ( $mu_dir && strpos( $file, $mu_dir ) === 0 ) {
+        return true;
+    }
+
+    return false;
+}
+
+function wmf_get_callback_file( $callback ) {
+    try {
+        if ( is_string( $callback ) ) {
+            if ( strpos( $callback, '::' ) !== false ) {
+                list( $class, $method ) = explode( '::', $callback );
+                $reflection              = new ReflectionMethod( $class, $method );
+            } else {
+                $reflection = new ReflectionFunction( $callback );
+            }
+
+            return $reflection->getFileName();
+        }
+
+        if ( is_array( $callback ) && count( $callback ) === 2 ) {
+            $reflection = new ReflectionMethod( $callback[0], $callback[1] );
+
+            return $reflection->getFileName();
+        }
+
+        if ( $callback instanceof Closure ) {
+            $reflection = new ReflectionFunction( $callback );
+
+            return $reflection->getFileName();
+        }
+    } catch ( ReflectionException $exception ) {
+        return '';
+    }
+
+    return '';
+}
+// admin notices disable end
+
