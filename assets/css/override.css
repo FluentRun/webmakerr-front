@@ -1,7 +1,59 @@
 /* GLOBAL FONT */
-body, * {
+body {
     font-family: "Inter", sans-serif !important;
     letter-spacing: -0.01em !important;
+}
+
+/* Preserve icon font faces and sizing */
+.fa,
+.fas,
+.far,
+.fal,
+.fab,
+.fa-solid,
+.fa-regular,
+.fa-light,
+.fa-duotone,
+.fa-brands {
+    font-family: "FontAwesome" !important;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: normal !important;
+}
+
+.dashicons,
+.dashicons-before:before,
+#wpadminbar .ab-icon:before,
+#wpadminbar .ab-item:before {
+    font-family: "dashicons" !important;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: normal !important;
+}
+
+[class^="icon-"],
+[class*=" icon-"],
+.icon {
+    font-family: profil !important;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: normal !important;
+}
+
+i,
+svg {
+    width: auto;
+    height: auto;
+    font-style: normal;
+    overflow: visible;
+}
+
+.contact-footer .item a i,
+.contact-footer .item a svg {
+    font-size: 16px;
+    color: #fff;
+    vertical-align: middle;
+    line-height: 1;
 }
 
 /* HEADINGS */
