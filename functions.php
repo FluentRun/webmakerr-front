@@ -558,7 +558,7 @@ function wmf_remove_plugin_callbacks_from_hook( $hook_name ) {
         return;
     }
 
-    $hook = $wp_filter[ $hook_name ];
+    $hook      = $wp_filter[ $hook_name ];
     $callbacks = $hook instanceof WP_Hook ? $hook->callbacks : $hook;
 
     if ( empty( $callbacks ) || ! is_array( $callbacks ) ) {
@@ -573,7 +573,7 @@ function wmf_remove_plugin_callbacks_from_hook( $hook_name ) {
 
             $callback_file = wmf_get_callback_file( $callback['function'] );
 
-            if ( wmf_is_rank_math_file( $callback_file ) ) {
+            if ( wmf_is_rank_math_file( $callback_file ) || wmf_is_updraftplus_file( $callback_file ) ) {
                 continue;
             }
 
@@ -625,6 +625,18 @@ function wmf_is_rank_math_file( $file ) {
     }
 
     return false;
+}
+
+function wmf_is_updraftplus_file( $file ) {
+    if ( empty( $file ) ) {
+        return false;
+    }
+
+    $file = wp_normalize_path( $file );
+
+    $updraftplus_path = wp_normalize_path( WP_PLUGIN_DIR . '/updraftplus' );
+
+    return strpos( $file, $updraftplus_path ) === 0;
 }
 
 function wmf_get_callback_file( $callback ) {
