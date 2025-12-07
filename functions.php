@@ -32,6 +32,7 @@ include( __DIR__ . '/inc/breadcrumbs.php' );
 include( __DIR__ . '/inc/review.php' );
 include( __DIR__ . '/inc/instagram.php' );
 include( __DIR__ . '/inc/hardening.php' );
+include( __DIR__ . '/inc/asset-privacy.php' );
 
 
 if ( ! function_exists( 'raphael_is_item_permalink' ) ) {
