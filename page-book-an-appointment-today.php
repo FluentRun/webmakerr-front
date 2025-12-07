@@ -81,9 +81,7 @@ get_header();
         align-items: center;
         justify-content: center;
         padding: 10px 14px;
-        border: 1px solid #e5e7eb;
         border-radius: 12px;
-        background: #fff;
     }
 
     .appointment-logo img {
@@ -169,7 +167,7 @@ get_header();
         .appointment-card { padding: 18px; }
         .appointment-header { gap: 10px; }
         .appointment-logo { padding: 8px 12px; }
-        .appointment-logo img { max-height: 36px; }
+        .appointment-logo img { max-height: 30px; }
     }
 </style>
 
