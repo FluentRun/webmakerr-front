@@ -653,3 +653,41 @@ function wmf_get_callback_file( $callback ) {
 }
 // admin notices disable end
 
+add_filter( 'rest_endpoints', function ( $endpoints ) {
+    unset( $endpoints['/wp/v2/themes'] );
+    unset( $endpoints['/wp/v2/plugins'] );
+
+    return $endpoints;
+} );
+
+function webmakerr_remove_versions( $src ) {
+    return remove_query_arg( 'ver', $src );
+}
+
+add_filter( 'script_loader_src', 'webmakerr_remove_versions', 999 );
+add_filter( 'style_loader_src', 'webmakerr_remove_versions', 999 );
+
+remove_action( 'wp_head', 'wp_generator' );
+
+function webmakerr_get_generic_asset_id( $handle, $type ) {
+    return sprintf( 'asset-%s-%s', substr( md5( $handle ), 0, 8 ), $type );
+}
+
+function webmakerr_anonymize_style_tag( $html, $handle ) {
+    $generic_id = webmakerr_get_generic_asset_id( $handle, 'css' );
+    $updated    = preg_replace( '/id="[^"]+"/', 'id="' . esc_attr( $generic_id ) . '"', $html, 1 );
+
+    return $updated ? $updated : $html;
+}
+
+add_filter( 'style_loader_tag', 'webmakerr_anonymize_style_tag', 10, 2 );
+
+function webmakerr_anonymize_script_tag( $tag, $handle ) {
+    $generic_id = webmakerr_get_generic_asset_id( $handle, 'js' );
+    $updated    = preg_replace( '/id="[^"]+"/', 'id="' . esc_attr( $generic_id ) . '"', $tag, 1 );
+
+    return $updated ? $updated : $tag;
+}
+
+add_filter( 'script_loader_tag', 'webmakerr_anonymize_script_tag', 10, 2 );
+
