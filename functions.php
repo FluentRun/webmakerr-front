@@ -565,6 +565,12 @@ function wmf_remove_plugin_callbacks_from_hook( $hook_name ) {
                 continue;
             }
 
+            $callback_file = wmf_get_callback_file( $callback['function'] );
+
+            if ( wmf_is_rank_math_file( $callback_file ) ) {
+                continue;
+            }
+
             if ( wmf_is_plugin_callback( $callback['function'] ) ) {
                 remove_action( $hook_name, $callback['function'], $priority );
             }
@@ -589,6 +595,27 @@ function wmf_is_plugin_callback( $callback ) {
 
     if ( $mu_dir && strpos( $file, $mu_dir ) === 0 ) {
         return true;
+    }
+
+    return false;
+}
+
+function wmf_is_rank_math_file( $file ) {
+    if ( empty( $file ) ) {
+        return false;
+    }
+
+    $file = wp_normalize_path( $file );
+
+    $rank_math_paths = array(
+        wp_normalize_path( WP_PLUGIN_DIR . '/seo-by-rank-math' ),
+        wp_normalize_path( WP_PLUGIN_DIR . '/seo-by-rank-math-pro' ),
+    );
+
+    foreach ( $rank_math_paths as $path ) {
+        if ( strpos( $file, $path ) === 0 ) {
+            return true;
+        }
     }
 
     return false;
