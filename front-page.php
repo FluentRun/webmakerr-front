@@ -528,11 +528,11 @@ get_header();
                 </span>
 
                 <h1 class="fw-semibold lh-sm text-dark hero-title">
-                    Grow Faster with Proven Digital Services That Deliver Results
+                    Grow Faster With Services Built to Increase Traffic, Leads & Sales
                 </h1>
 
                 <p class="mt-3 text-secondary">
-                    We help businesses scale traffic, leads, and sales using battle-tested SEO, paid ads, video production, and high-converting websites.
+                    We deliver proven SEO, ads management, video production, and conversion-first websites—everything you need to scale without the guesswork.
                 </p>
 
                 <div class="d-flex flex-wrap hero-actions mt-4">
@@ -807,7 +807,7 @@ get_header();
                     <h5 class="fw-semibold text-dark">SEO Content & Authority Backlinks</h5>
 
                     <p class="text-muted small mt-2">
-                        Ranking brings predictable revenue. We create optimized content and build authority backlinks that move your pages to the top—safely and sustainably.
+                        Rank higher, attract buyers, and build lasting authority with content and backlinks engineered to move your most valuable pages.
                     </p>
 
                     <img src="https://cdn.webmakerr.com/website/facebook-ads-3.png" alt="SEO content strategy" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
@@ -823,7 +823,7 @@ get_header();
                     <h5 class="fw-semibold text-dark">Facebook & Google Ads Management</h5>
 
                     <p class="text-muted small mt-2">
-                        Get profitable, scalable campaigns managed by experts. From setup to ongoing optimization, we drive leads and purchases while lowering costs.
+                        Launch, optimize, and scale profitable campaigns that keep sales and leads coming while your acquisition costs trend down.
                     </p>
 
                     <img src="https://cdn.webmakerr.com/website/facebook-ads-1.png" alt="Paid ads optimization" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
@@ -839,7 +839,7 @@ get_header();
                     <h5 class="fw-semibold text-dark">Explainer Video Production</h5>
 
                     <p class="text-muted small mt-2">
-                        Brands rely on us for clean, compelling explainer videos that convert. Perfect for ads, landing pages, and social media performance.
+                        Get scroll-stopping videos that simplify your message and lift conversions across ads, landing pages, and product launches.
                     </p>
 
                     <img src="https://cdn.webmakerr.com/website/facebook-ads-2.png" alt="Explainer video storyboard" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
@@ -853,10 +853,10 @@ get_header();
                         <span class="fw-bold text-secondary small">04</span>
                     </span>
 
-                    <h5 class="fw-semibold text-dark">Conversion-Optimized Website & Landing Page Design</h5>
+                    <h5 class="fw-semibold text-dark">Conversion-Optimized Websites & Landing Pages</h5>
 
                     <p class="text-muted small mt-2">
-                        Your website should sell—not just look good. We build pages engineered for conversions, clarity, and performance.
+                        Turn more visitors into customers with pages built for speed, clarity, and conversion—not just aesthetics.
                     </p>
 
                     <img src="https://cdn.webmakerr.com/website/booking-footer.mp4" alt="High-converting landing pages" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
@@ -866,51 +866,145 @@ get_header();
     </div>
 </section>
 
-<section class="py-5 bg-light">
+<section class="py-5 bg-light border-top">
     <div class="container-lg">
-        <h2 class="text-center fw-semibold lh-sm text-dark mb-3" style="font-size: 2.5rem;">
-            Everything you need in one growth platform
-        </h2>
+        <div class="text-center mx-auto" style="max-width: 700px;">
+            <span class="d-inline-flex align-items-center bg-white border px-3 py-1 rounded-pill text-secondary small shadow-sm mb-3">
+                How it works
+            </span>
 
-        <p class="text-center text-secondary small mb-5" style="max-width: 820px; margin-left: auto; margin-right: auto;">
-            Our platform makes it easy for businesses to get the exact marketing service they need—SEO, ads, video production, or landing pages—all in one place, delivered by specialists.
-        </p>
+            <h2 class="fw-semibold display-6 text-dark lh-sm">
+                Three steps to predictable growth
+            </h2>
 
-        <div class="row g-4 justify-content-center more-feature-grid">
-            <?php
-            $icons = [
-                '<svg viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="14" width="44" height="30" rx="6"></rect><path d="M10 26h44"></path><path d="M22 8v12"></path><path d="M42 8v12"></path><path d="M20 38h16"></path><path d="M36 38l4 6 8-10"></path></svg>',
-                '<svg viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="12" width="28" height="32" rx="6"></rect><path d="M18 20h12"></path><path d="M18 28h12"></path><path d="M18 36h12"></path><rect x="38" y="18" width="16" height="28" rx="4"></rect><path d="M38 30h16"></path><path d="M38 26l4-4"></path><path d="M54 38l-4 4"></path></svg>',
-                '<svg viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 16h24l6 10-18 22-18-22z"></path><path d="M20 16l12 16 12-16"></path><path d="M24 46h16"></path></svg>',
-                '<svg viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M32 12c9.941 0 18 6.716 18 15 0 4.542-2.13 8.766-5.7 11.7L44 46H20l-0.3-7.3C16.13 35.766 14 31.542 14 27c0-8.284 8.059-15 18-15z"></path><path d="M26 46v4a6 6 0 0 0 12 0v-4"></path><path d="M27 30h10"></path><path d="M32 24v12"></path><path d="M40 34l4 4 6-8"></path></svg>',
-                '<svg viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="16" width="40" height="26" rx="5"></rect><path d="M12 26h40"></path><path d="M22 18v6"></path><path d="M42 18v6"></path><path d="M24 38h8"></path><path d="M36 32h6"></path><path d="M20 32h8"></path></svg>',
-                '<svg viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14a6 6 0 1 1-6 6 6 6 0 0 1 6-6z"></path><path d="M46 12a6 6 0 1 1-6 6 6 6 0 0 1 6-6z"></path><path d="M48 38a6 6 0 1 1-6 6 6 6 0 0 1 6-6z"></path><path d="M22 38a6 6 0 1 1-6 6 6 6 0 0 1 6-6z"></path><path d="M24 22 38 18"></path><path d="M46 18 50 32"></path><path d="M22 38l18 6"></path></svg>',
-                '<svg viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 44c0-8.836 7.164-16 16-16h12"></path><path d="M44 16h-8c-8.836 0-16 7.164-16 16v16"></path><path d="M46 28 54 20"></path><path d="M46 28l8 8"></path><circle cx="22" cy="48" r="4"></circle></svg>',
-                '<svg viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 42l8-18 8 10 10-18 10 26"></path><path d="M14 52h36"></path><path d="M22 22h-6"></path><path d="M46 18h-8"></path><circle cx="24" cy="50" r="2"></circle><circle cx="40" cy="50" r="2"></circle><path d="M18 12h12l-2 6h-8z"></path><path d="M34 34l6 6"></path></svg>',
-            ];
+            <p class="mt-3 text-secondary">
+                Tell us your goals, we map the fastest path, then execute the SEO, ads, video, and conversion work so you see consistent wins—not more tasks.
+            </p>
+        </div>
 
-            $labels = [
-                'SEO audits & keyword maps',
-                'Revenue-focused content briefs',
-                'Cross-channel ad strategy',
-                'Creative & landing page testing',
-                'Retargeting & nurture journeys',
-                'Video scripts & storyboards',
-                'Fast, conversion-first buildouts',
-                'Analytics, reporting & QA'
-            ];
+        <div class="row g-4 mt-5">
+            <div class="col-md-4">
+                <div class="bg-white border rounded-4 shadow-sm p-4 h-100 d-flex flex-column">
+                    <span class="d-flex justify-content-center align-items-center bg-light rounded-3 shadow-sm mb-3" style="width: 48px; height: 48px;">
+                        <span class="fw-bold text-secondary small">01</span>
+                    </span>
 
-            foreach ($labels as $index => $label):
-                ?>
-                <div class="col-6 col-md-3 d-flex justify-content-center">
-                    <div class="feature-card more-feature-card bg-white border rounded-4 shadow-sm d-flex flex-column align-items-center justify-content-center p-3">
-                        <div class="feature-icon-box d-flex align-items-center justify-content-center position-relative mb-3">
-                            <?php echo $icons[$index]; ?>
+                    <h5 class="fw-semibold text-dark">Tell us what you want to achieve</h5>
+
+                    <p class="text-muted small mt-2">
+                        Share your revenue targets, audiences, and offers. We translate them into clear channel priorities and quick wins.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="bg-white border rounded-4 shadow-sm p-4 h-100 d-flex flex-column">
+                    <span class="d-flex justify-content-center align-items-center bg-light rounded-3 shadow-sm mb-3" style="width: 48px; height: 48px;">
+                        <span class="fw-bold text-secondary small">02</span>
+                    </span>
+
+                    <h5 class="fw-semibold text-dark">We build the strategy & deliver the work</h5>
+
+                    <p class="text-muted small mt-2">
+                        Our specialists produce the content, creatives, tracking, and landing pages while you review progress from one dashboard.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="bg-white border rounded-4 shadow-sm p-4 h-100 d-flex flex-column">
+                    <span class="d-flex justify-content-center align-items-center bg-light rounded-3 shadow-sm mb-3" style="width: 48px; height: 48px;">
+                        <span class="fw-bold text-secondary small">03</span>
+                    </span>
+
+                    <h5 class="fw-semibold text-dark">You get predictable growth</h5>
+
+                    <p class="text-muted small mt-2">
+                        See traffic, leads, and sales compound as every channel works together—without hiring multiple agencies.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-white border-top">
+    <div class="container-lg">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="text-center mb-4">
+                    <span class="d-inline-flex align-items-center bg-light border px-3 py-1 rounded-pill text-secondary small mb-3">Frequently Asked Questions</span>
+                    <h2 class="fw-semibold text-dark">Answers that help you move forward fast</h2>
+                    <p class="text-secondary mt-2">Still deciding? These quick answers explain how we work, when you see results, and how we tailor everything to your goals.</p>
+                </div>
+
+                <div class="accordion" id="faqsAccordion">
+                    <div class="accordion-item border rounded-3 mb-3">
+                        <h2 class="accordion-header" id="faqOneHeading">
+                            <button class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne" aria-expanded="true" aria-controls="faqOne">
+                                How fast will I see traction?
+                            </button>
+                        </h2>
+                        <div id="faqOne" class="accordion-collapse collapse show" aria-labelledby="faqOneHeading" data-bs-parent="#faqsAccordion">
+                            <div class="accordion-body text-secondary">
+                                Quick wins typically land in the first 30 days from new ads, refreshed landing pages, or priority SEO fixes. Longer-term compounding comes from ongoing content and retargeting.
+                            </div>
                         </div>
-                        <p class="fw-medium text-dark small mb-0"><?php echo $label; ?></p>
+                    </div>
+
+                    <div class="accordion-item border rounded-3 mb-3">
+                        <h2 class="accordion-header" id="faqTwoHeading">
+                            <button class="accordion-button fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwo" aria-expanded="false" aria-controls="faqTwo">
+                                Do I need to commit long term?
+                            </button>
+                        </h2>
+                        <div id="faqTwo" class="accordion-collapse collapse" aria-labelledby="faqTwoHeading" data-bs-parent="#faqsAccordion">
+                            <div class="accordion-body text-secondary">
+                                No rigid contracts. We plan quarterly sprints with clear deliverables so you can scale up or pause based on results and seasonality.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item border rounded-3 mb-3">
+                        <h2 class="accordion-header" id="faqThreeHeading">
+                            <button class="accordion-button fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqThree" aria-expanded="false" aria-controls="faqThree">
+                                What makes your approach different?
+                            </button>
+                        </h2>
+                        <div id="faqThree" class="accordion-collapse collapse" aria-labelledby="faqThreeHeading" data-bs-parent="#faqsAccordion">
+                            <div class="accordion-body text-secondary">
+                                Strategy and execution live under one roof. The same team plans, writes, designs, and optimizes—so channels stay aligned and decisions move faster.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item border rounded-3 mb-3">
+                        <h2 class="accordion-header" id="faqFourHeading">
+                            <button class="accordion-button fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqFour" aria-expanded="false" aria-controls="faqFour">
+                                Can you customize a package for my business?
+                            </button>
+                        </h2>
+                        <div id="faqFour" class="accordion-collapse collapse" aria-labelledby="faqFourHeading" data-bs-parent="#faqsAccordion">
+                            <div class="accordion-body text-secondary">
+                                Yes. We tailor scope, deliverables, and pacing to your goals—whether you need a focused campaign build, ongoing SEO, or full-funnel support.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item border rounded-3">
+                        <h2 class="accordion-header" id="faqFiveHeading">
+                            <button class="accordion-button fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqFive" aria-expanded="false" aria-controls="faqFive">
+                                What happens after I sign up?
+                            </button>
+                        </h2>
+                        <div id="faqFive" class="accordion-collapse collapse" aria-labelledby="faqFiveHeading" data-bs-parent="#faqsAccordion">
+                            <div class="accordion-body text-secondary">
+                                You get a kickoff call, an initial roadmap, and the first deliverables scheduled immediately. We share timelines, metrics, and wins inside your dashboard each week.
+                            </div>
+                        </div>
                     </div>
                 </div>
-            <?php endforeach; ?>
+            </div>
         </div>
     </div>
 </section>
