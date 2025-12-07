@@ -487,6 +487,12 @@ add_action( 'wp_ajax_nopriv_load_webp_png', 'do_webp_to_png' );
 // Disable the Gutenberg block editor and related features globally.
 // Disable Gutenberg only for pages and posts
 function wm_disable_gutenberg_for_posts_pages( $use_block_editor, $post ) {
+    // Ensure we have a post object before trying to read post_type to avoid warnings on
+    // requests where $post can unexpectedly be a string (e.g., during page creation).
+    if ( ! is_object( $post ) || ! isset( $post->post_type ) ) {
+        return $use_block_editor;
+    }
+
     if ( $post->post_type === 'page' || $post->post_type === 'post' ) {
         return false; // Force Classic Editor
     }
