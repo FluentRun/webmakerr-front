@@ -521,35 +521,35 @@ get_header();
         <div class="p-4 p-md-5 bg-white border rounded-4 shadow-sm row g-4 align-items-center hero-row">
             <div class="col-lg-6 hero-copy">
                 <span class="d-inline-flex align-items-center small bg-light text-secondary px-3 py-1 rounded-pill mb-3">
-                    WordPress booking & scheduling automation
+                    Full-Funnel Growth Services
                     <svg width="12" height="12" class="ms-2" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M4 2l4 4-4 4" />
                     </svg>
                 </span>
 
                 <h1 class="fw-semibold lh-sm text-dark hero-title">
-                    Turn every inquiry into a confirmed booking—automatically.<br>
+                    Grow Faster with Proven Digital Services That Deliver Results
                 </h1>
 
                 <p class="mt-3 text-secondary">
-                    FluentBooking keeps calendars synchronized, collects payments, sends reminders, and routes appointments without manual back-and-forth—so teams look polished and close more revenue.
+                    We help businesses scale traffic, leads, and sales using battle-tested SEO, paid ads, video production, and high-converting websites.
                 </p>
 
                 <div class="d-flex flex-wrap hero-actions mt-4">
                     <a href="<?php echo esc_url( $checkout_url ); ?>" class="btn btn-dark btn-lg d-flex align-items-center gap-2 w-100" style="max-width:260px;">
                         <img src="<?php echo esc_url( $theme_dir . '/images/home/user3.png' ); ?>" width="18" alt="Google icon">
-                        Order Plugin Now
+                        Get Started — It’s Free
                     </a>
 
                     <a href="#get-free-trial" class="btn btn-light border btn-lg d-flex align-items-center justify-content-between w-100" data-trial-open style="max-width:260px;">
-                        <span class="text-dark">Get Free Trail</span>
+                        <span class="text-dark">Book a Strategy Call</span>
                         <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.4">
                             <path d="M4 2l6 5-6 5" />
                         </svg>
                     </a>
                 </div>
 
-                <p class="small text-muted mt-2">Be live in minutes—claim your onboarding slot today</p>
+                <p class="small text-muted mt-2">Talk with specialists who plan, build, and optimize every channel for you.</p>
 
                 <div class="d-flex gap-4 mt-4">
                     <img src="<?php echo esc_url( $theme_dir . '/images/trustf/sslupf.svg' ); ?>" height="20" alt="Trustpilot">
@@ -561,23 +561,23 @@ get_header();
                     <div class="p-4 position-relative" style="z-index:2; min-height:350px;">
                         <div class="d-flex justify-content-between align-items-start mb-3 hero-info-row">
                             <div>
-                                <p class="fw-semibold text-dark mb-1">Booking System Launch Call</p>
-                                <p class="small text-muted mb-0">Plan the calendars, payment steps, and automations that stop no-shows, cut admin time, and increase closed deals.</p>
+                                <p class="fw-semibold text-dark mb-1">Growth plan built for your funnel</p>
+                                <p class="small text-muted mb-0">See exactly how SEO, ads, video, and conversion design work together to drive measurable revenue—without adding internal lift.</p>
                             </div>
-                            <span class="small text-muted fw-normal hero-pill">Done-for-you delivery</span>
+                            <span class="small text-muted fw-normal hero-pill">Specialist-led execution</span>
                         </div>
 
                         <div class="d-flex flex-wrap gap-2 small text-muted mb-3">
-                            <span class="border rounded-pill px-3 py-1">90-min rollout plan</span>
-                            <span class="border rounded-pill px-3 py-1">Calendar + funnel mapping</span>
-                            <span class="border rounded-pill px-3 py-1">Revenue impact forecast</span>
+                            <span class="border rounded-pill px-3 py-1">SEO & content roadmap</span>
+                            <span class="border rounded-pill px-3 py-1">Ad budget & creative plan</span>
+                            <span class="border rounded-pill px-3 py-1">Conversion-first landing pages</span>
                         </div>
 
                         <div class="position-relative border rounded-3 p-3 shadow-sm hero-animation-shell">
                             <div class="ratio ratio-16x9 w-100">
                                 <video
                                     class="w-100 h-100 rounded-3"
-                                    data-src="https://cdn.webmakerr.com/website/booking.mp4"
+                                    data-src="https://cdn.webmakerr.com/website/facebook-ads-1.mp4"
                                     autoplay
                                     muted
                                     playsinline
@@ -608,10 +608,10 @@ get_header();
                     <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
                         <path d="M4 10.5l3 3 9-9" />
                     </svg>
-                    Verified onboarding request
+                    Verified strategy request
                 </span>
-                <h3 class="fw-semibold text-dark mt-3 mb-1" style="font-size: 1.6rem;">Try Our Booking Plugin</h3>
-                <p class="trial-modal__subtitle small mb-0">Tell us where to send your onboarding link and setup steps.</p>
+                <h3 class="fw-semibold text-dark mt-3 mb-1" style="font-size: 1.6rem;">Claim Your Free Growth Plan</h3>
+                <p class="trial-modal__subtitle small mb-0">Tell us where to send your channel audit, sample assets, and next best steps.</p>
             </div>
 
             <div class="trial-modal__body">
@@ -623,8 +623,8 @@ get_header();
                             </svg>
                         </span>
                         <div>
-                            <h6 class="fw-semibold">Priority onboarding</h6>
-                            <p class="mb-0">We reserve a specialist to configure calendars, reminders, and payments for you.</p>
+                            <h6 class="fw-semibold">Channel-by-channel plan</h6>
+                            <p class="mb-0">We map SEO, ads, video, and conversion updates into a clear growth sequence.</p>
                         </div>
                     </div>
 
@@ -635,8 +635,8 @@ get_header();
                             </svg>
                         </span>
                         <div>
-                            <h6 class="fw-semibold">White-glove support</h6>
-                            <p class="mb-0">Real humans guide you through installation and answer every question in minutes.</p>
+                            <h6 class="fw-semibold">Specialists on demand</h6>
+                            <p class="mb-0">Talk directly with the strategists and creatives who will own your campaigns.</p>
                         </div>
                     </div>
                 </div>
@@ -675,19 +675,19 @@ get_header();
     document.addEventListener('DOMContentLoaded', function () {
         var testimonials = [
             {
-                quote: '“FluentBooking runs every consult slot for us—no email tag, no conflicts. Demo bookings jumped 38% in month one.”',
+                quote: '“SEO and paid combined finally clicked. Pipeline grew 42% without increasing headcount.”',
                 name: 'Noah Patel',
                 title: 'Marketing Ops Lead, Horizon Creative',
                 initial: 'N'
             },
             {
-                quote: '“The booking-to-payment flow replaced three tools and two contractors. It paid for itself in two weeks.”',
+                quote: '“Their landing pages and ad management paid for the engagement in the first month.”',
                 name: 'Melissa Grant',
                 title: 'VP Growth, Northwind Legal',
                 initial: 'M'
             },
             {
-                quote: '“Clients self-schedule coaching, get automatic reminders, and pay on the spot. Our team stopped chasing invoices.”',
+                quote: '“The explainer video and content program lifted demo requests by 55%.”',
                 name: 'Sofia Alvarez',
                 title: 'Head of Growth, Latitude Labs',
                 initial: 'S'
@@ -781,69 +781,85 @@ get_header();
     <div class="container-lg">
         <div class="text-center mx-auto" style="max-width: 700px;">
             <span class="d-inline-flex align-items-center bg-white border px-3 py-1 rounded-pill text-secondary small shadow-sm mb-3">
-                Why teams choose FluentBooking
+                Core services
             </span>
 
             <h2 class="fw-semibold display-6 text-dark lh-sm">
-                Everything you need to run bookings on autopilot
+                Four services that compound your growth
             </h2>
 
             <p class="mt-3 text-secondary">
-                Install once and let FluentBooking capture leads, qualify them, and schedule the right meeting with the right person—while your team focuses on closing deals and serving customers.
+                Every engagement pairs strategy with hands-on delivery across SEO, paid media, video, and conversion-focused web experiences—so you get one cohesive engine instead of scattered vendors.
             </p>
 
             <a href="<?php echo esc_url( $checkout_url ); ?>" class="btn btn-dark btn-lg mt-4 shadow-sm">
-                Order Plugin Now
+                Get Started — It’s Free
             </a>
         </div>
 
         <div class="row g-4 mt-5">
-            <div class="col-md-4">
+            <div class="col-lg-3 col-md-6">
                 <div class="bg-white border rounded-4 shadow-sm p-4 h-100 d-flex flex-column">
                     <span class="d-flex justify-content-center align-items-center bg-light rounded-3 shadow-sm mb-3" style="width: 48px; height: 48px;">
                         <span class="fw-bold text-secondary small">01</span>
                     </span>
 
-                    <h5 class="fw-semibold text-dark">Scheduling that books itself</h5>
+                    <h5 class="fw-semibold text-dark">SEO Content & Authority Backlinks</h5>
 
                     <p class="text-muted small mt-2">
-                        Replace back-and-forth emails with branded booking pages that qualify visitors and lock in the best time with no double-bookings.
+                        Ranking brings predictable revenue. We create optimized content and build authority backlinks that move your pages to the top—safely and sustainably.
                     </p>
 
-                    <img src="https://cdn.webmakerr.com/website/booking1.png" alt="Scheduling that books itself graphic" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
+                    <img src="https://cdn.webmakerr.com/website/facebook-ads-3.png" alt="SEO content strategy" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-lg-3 col-md-6">
                 <div class="bg-white border rounded-4 shadow-sm p-4 h-100 d-flex flex-column">
                     <span class="d-flex justify-content-center align-items-center bg-light rounded-3 shadow-sm mb-3" style="width: 48px; height: 48px;">
                         <span class="fw-bold text-secondary small">02</span>
                     </span>
 
-                    <h5 class="fw-semibold text-dark">Automated follow-up that converts</h5>
+                    <h5 class="fw-semibold text-dark">Facebook & Google Ads Management</h5>
 
                     <p class="text-muted small mt-2">
-                        Trigger confirmations, reminders, and post-meeting nurture sequences that keep prospects engaged and reduce no-shows.
+                        Get profitable, scalable campaigns managed by experts. From setup to ongoing optimization, we drive leads and purchases while lowering costs.
                     </p>
 
-                    <img src="https://alidrives.b-cdn.net/website/booking2.png" alt="Automated follow-up graphic" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
+                    <img src="https://cdn.webmakerr.com/website/facebook-ads-1.png" alt="Paid ads optimization" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-lg-3 col-md-6">
                 <div class="bg-white border rounded-4 shadow-sm p-4 h-100 d-flex flex-column">
                     <span class="d-flex justify-content-center align-items-center bg-light rounded-3 shadow-sm mb-3" style="width: 48px; height: 48px;">
                         <span class="fw-bold text-secondary small">03</span>
                     </span>
 
-                    <h5 class="fw-semibold text-dark">Integrations built for revenue teams</h5>
+                    <h5 class="fw-semibold text-dark">Explainer Video Production</h5>
 
                     <p class="text-muted small mt-2">
-                        Sync calendars, CRMs, payment gateways, and automation tools so every booking, payment, and pipeline update stays in one flow.
+                        Brands rely on us for clean, compelling explainer videos that convert. Perfect for ads, landing pages, and social media performance.
                     </p>
 
-                    <img src="https://alidrives.b-cdn.net/website/booking3.png" alt="Integrations built for revenue teams graphic" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
+                    <img src="https://cdn.webmakerr.com/website/facebook-ads-2.png" alt="Explainer video storyboard" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
 
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="bg-white border rounded-4 shadow-sm p-4 h-100 d-flex flex-column">
+                    <span class="d-flex justify-content-center align-items-center bg-light rounded-3 shadow-sm mb-3" style="width: 48px; height: 48px;">
+                        <span class="fw-bold text-secondary small">04</span>
+                    </span>
+
+                    <h5 class="fw-semibold text-dark">Conversion-Optimized Website & Landing Page Design</h5>
+
+                    <p class="text-muted small mt-2">
+                        Your website should sell—not just look good. We build pages engineered for conversions, clarity, and performance.
+                    </p>
+
+                    <img src="https://cdn.webmakerr.com/website/booking-footer.mp4" alt="High-converting landing pages" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
                 </div>
             </div>
         </div>
@@ -852,9 +868,13 @@ get_header();
 
 <section class="py-5 bg-light">
     <div class="container-lg">
-        <h2 class="text-center fw-semibold lh-sm text-dark mb-5" style="font-size: 2.5rem;">
-            ...plus everything needed for a professional booking engine
+        <h2 class="text-center fw-semibold lh-sm text-dark mb-3" style="font-size: 2.5rem;">
+            Everything you need in one growth platform
         </h2>
+
+        <p class="text-center text-secondary small mb-5" style="max-width: 820px; margin-left: auto; margin-right: auto;">
+            Our platform makes it easy for businesses to get the exact marketing service they need—SEO, ads, video production, or landing pages—all in one place, delivered by specialists.
+        </p>
 
         <div class="row g-4 justify-content-center more-feature-grid">
             <?php
@@ -870,14 +890,14 @@ get_header();
             ];
 
             $labels = [
-                'Branded booking pages',
-                'Round-robin & pooled calendars',
-                'Conversion-optimized intake',
-                'Instant confirmations & reminders',
-                'Payments, invoices & receipts',
-                'CRM & marketing automation sync',
-                'Availability rules & routing',
-                'Analytics, QA & launch checklists'
+                'SEO audits & keyword maps',
+                'Revenue-focused content briefs',
+                'Cross-channel ad strategy',
+                'Creative & landing page testing',
+                'Retargeting & nurture journeys',
+                'Video scripts & storyboards',
+                'Fast, conversion-first buildouts',
+                'Analytics, reporting & QA'
             ];
 
             foreach ($labels as $index => $label):
@@ -902,11 +922,11 @@ get_header();
         </span>
 
         <h2 class="fw-semibold lh-sm text-dark" style="font-size: 2.5rem;">
-            Teams booking more revenue on autopilot
+            Teams compounding traffic, leads, and revenue
         </h2>
 
         <p class="mt-3 text-secondary small mx-auto" style="max-width: 620px;">
-            See how FluentBooking eliminates manual scheduling, speeds up follow-up, and gives every team a polished, conversion-focused booking flow.
+            See how integrated SEO, ads, video, and web design deliver predictable growth with one partner leading strategy and execution.
         </p>
 
         <div class="d-none d-md-flex justify-content-center align-items-center gap-4 mt-5" data-testimonial-container="desktop">
@@ -984,16 +1004,16 @@ get_header();
                     </span>
 
                 <h2 class="fw-semibold lh-sm text-dark mb-3" style="font-size: 2.25rem;">
-                    Launch bookings without guesswork.
+                    Launch growth without guesswork.
                 </h2>
 
                 <p class="text-muted small mb-4" style="max-width: 420px;">
-                    We set up availability, routing, payments, and automations with weekly updates—so leadership knows exactly what’s live, what’s next, and when revenue hits.
+                    We build the roadmap, launch the assets, and optimize weekly—so leadership knows exactly what’s live, what’s next, and when results hit.
                 </p>
 
                 <div class="d-flex flex-wrap gap-2 justify-content-center justify-content-md-start w-100" style="max-width: 420px;">
-                    <a href="<?php echo esc_url( $checkout_url ); ?>" class="btn btn-dark btn-lg shadow-sm">Order Plugin Now</a>
-                    <a href="#get-free-trial" class="btn btn-light border btn-lg" data-trial-open>Get Free Trail</a>
+                    <a href="<?php echo esc_url( $checkout_url ); ?>" class="btn btn-dark btn-lg shadow-sm">Get Started — It’s Free</a>
+                    <a href="#get-free-trial" class="btn btn-light border btn-lg" data-trial-open>Book a Strategy Call</a>
                 </div>
             </div>
 
@@ -1028,13 +1048,13 @@ get_header();
 
             <div class="position-relative" style="z-index:2;">
                 <h2 class="fw-semibold lh-sm text-dark mx-auto" style="font-size: 2.25rem; max-width: 700px;">
-                    Give customers a fast, professional way to book you—every time.
-                    <br class="d-none d-sm-block">Secure your onboarding slot before the calendar fills up.
+                    Your Growth Starts Here
+                    <br class="d-none d-sm-block">Get a unified plan for SEO, ads, video, and conversion design.
                 </h2>
 
                 <div class="mt-4">
                     <a href="<?php echo esc_url( $checkout_url ); ?>" class="btn btn-dark btn-lg shadow-sm">
-                        Order Plugin Now
+                        Start for Free
                     </a>
                 </div>
             </div>
@@ -1046,7 +1066,7 @@ get_header();
     <div class="container-lg">
         <div class="d-flex gap-2">
             <a href="<?php echo esc_url( $checkout_url ); ?>" class="btn btn-dark btn-lg w-100">
-                Order Plugin Now
+                Start for Free
             </a>
             <a href="#get-free-trial" class="btn btn-light border btn-lg w-100 text-dark" data-trial-open>
                 Get Free Trail
