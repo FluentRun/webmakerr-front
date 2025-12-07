@@ -1,0 +1,9 @@
+<Files "style.css">
+  Require all denied
+</Files>
+
+Options -Indexes
+
+<FilesMatch "(readme|changelog|license)\.(txt|html)">
+  Require all denied
+</FilesMatch>
