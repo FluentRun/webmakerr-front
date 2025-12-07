@@ -19,13 +19,6 @@ get_header();
             radial-gradient(circle at 50% 80%, rgba(16, 185, 129, 0.08), transparent 40%);
     }
 
-    .page-404-card {
-        background: #fff;
-        border: 1px solid #e5e7eb;
-        border-radius: 4px;
-        box-shadow: 0 15px 30px rgba(15, 23, 42, 0.08);
-    }
-
     .page-404-badge {
         display: inline-flex;
         align-items: center;
@@ -56,10 +49,10 @@ get_header();
 </style>
 
 <main class="page-404-shell py-5 py-lg-6">
-    <div class="container-lg">
+    <div class="container-xl">
         <div class="row justify-content-center">
-            <div class="col-lg-11 col-xl-10">
-                <div class="page-404-card p-4 p-lg-5">
+            <div class="col-xl-10">
+                <div class="page-404-card bg-white border rounded-4 shadow-sm p-4 p-lg-5">
                     <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
                         <div class="page-404-badge">
                             <svg xmlns="http://www.w3.org/2000/svg" class="page-404-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -118,7 +111,7 @@ get_header();
         </div>
 
         <div class="row justify-content-center mt-4 mt-lg-5">
-            <div class="col-lg-10">
+            <div class="col-xl-10">
                 <div class="bg-white border rounded-4 shadow-sm p-4 p-md-5">
                     <div class="text-center mb-4">
                         <span class="d-inline-flex align-items-center bg-light border px-3 py-1 rounded-pill text-secondary small mb-3"><?php esc_html_e( 'Frequently Asked Questions', 'rap' ); ?></span>
@@ -198,14 +191,10 @@ get_header();
             </div>
         </div>
 
-        <section class="py-5 bg-light mt-4 mt-lg-5">
-            <div class="container-lg">
-                <div class="position-relative bg-white border rounded-4 shadow-sm p-4 p-md-5 text-center overflow-hidden">
-                    <div class="position-absolute top-0 bottom-0 start-0 end-0 opacity-25"
-                         style="background-image: radial-gradient(circle at center, #000 1px, transparent 1px), radial-gradient(circle at center, #000 1px, transparent 1px); background-size: 34px 34px; background-position: 0 0, 17px 17px; pointer-events: none;">
-                    </div>
-
-                    <div class="position-relative" style="z-index:2;">
+        <section class="py-5 mt-4 mt-lg-5">
+            <div class="row justify-content-center">
+                <div class="col-xl-10">
+                    <div class="bg-white border rounded-4 shadow-sm p-4 p-md-5 text-center">
                         <h2 class="fw-semibold lh-sm text-dark mx-auto" style="font-size: 2.25rem; max-width: 720px;">
                             <?php esc_html_e( 'Need help finding the right page?', 'rap' ); ?>
                             <br class="d-none d-sm-block"><?php esc_html_e( 'Tell us what you were looking for and we will guide you.', 'rap' ); ?>
