@@ -73,6 +73,57 @@ get_header();
         height: 100%;
     }
 
+    .thankyou-next-steps {
+        width: 100%;
+    }
+
+    .thankyou-next-steps h2 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .thankyou-next-step {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        padding: 12px 0;
+        border-top: 1px solid #e5e7eb;
+    }
+
+    .thankyou-next-step:first-of-type {
+        padding-top: 0;
+        border-top: none;
+    }
+
+    .thankyou-next-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 6px;
+        background: linear-gradient(135deg, #f9fafb, #eef2f7);
+        border: 1px solid #e2e8f0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .thankyou-next-icon svg {
+        width: 20px;
+        height: 20px;
+        stroke: #0f172a;
+    }
+
+    .thankyou-next-step h5 {
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
+    .thankyou-next-step p {
+        margin-bottom: 0;
+        color: #475569;
+    }
+
     @media (min-width: 992px) {
         .thankyou-step-card {
             padding: 22px 24px;
@@ -158,6 +209,57 @@ get_header();
                         <a class="btn btn-dark btn-lg fw-semibold" href="https://webmakerr.com">
                             <?php esc_html_e('Go to Homepage', 'rap'); ?>
                         </a>
+                    </div>
+                    <div class="thankyou-next-steps mt-4 text-start">
+                        <h2 class="fw-semibold">What Happens Next?</h2>
+                        <div class="thankyou-next-step">
+                            <div class="thankyou-next-icon">
+                                <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M7 8.5 12 12 17 8.5M7 12.5 12 16 17 12.5" stroke="#0f172a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M5 5h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" stroke="#0f172a" stroke-width="1.5" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h5 class="fw-semibold">Design Phase</h5>
+                                <p>Our team begins creating the first website draft tailored to your business and goals.</p>
+                            </div>
+                        </div>
+                        <div class="thankyou-next-step">
+                            <div class="thankyou-next-icon">
+                                <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M9.5 11h5M9.5 14h5M12 6.5A1.5 1.5 0 1 1 10.5 8 1.5 1.5 0 0 1 12 6.5Z" stroke="#0f172a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M6 4h12a2 2 0 0 1 2 2v12l-4-3H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" stroke="#0f172a" stroke-width="1.5" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h5 class="fw-semibold">Review Together</h5>
+                                <p>During your scheduled meeting, we will walk you through the draft and discuss improvements.</p>
+                            </div>
+                        </div>
+                        <div class="thankyou-next-step">
+                            <div class="thankyou-next-icon">
+                                <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M6 15.5 9 18l3.5-4M8 6h8a2 2 0 0 1 2 2v8.5L16.5 14H8a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" stroke="#0f172a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h5 class="fw-semibold">Refinement</h5>
+                                <p>We implement your feedback and polish the design until everything aligns perfectly.</p>
+                            </div>
+                        </div>
+                        <div class="thankyou-next-step">
+                            <div class="thankyou-next-icon">
+                                <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M4 11h11M4 8h11M4 14h7" stroke="#0f172a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M15 5.5h3a2 2 0 0 1 2 2v9.5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5.5h11Z" stroke="#0f172a" stroke-width="1.5" stroke-linejoin="round" />
+                                    <path d="m14 12 2 2 4-4" stroke="#0f172a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h5 class="fw-semibold">Final Delivery</h5>
+                                <p>Once complete, you will receive full access, files, and a complete project handover.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
