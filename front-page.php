@@ -785,20 +785,20 @@ get_header();
             </span>
 
             <h2 class="fw-semibold display-6 text-dark lh-sm">
-                Four services that compound your growth
+                Three services that compound your growth
             </h2>
 
             <p class="mt-3 text-secondary">
-                Every engagement pairs strategy with hands-on delivery across SEO, paid media, video, and conversion-focused web experiences—so you get one cohesive engine instead of scattered vendors.
+                Every engagement pairs strategy with hands-on delivery across SEO, paid media, and video—so you get one cohesive engine instead of scattered vendors.
             </p>
 
-            <a href="<?php echo esc_url( $checkout_url ); ?>" class="btn btn-dark btn-lg mt-4 shadow-sm">
-                Get Started — It’s Free
+            <a href="/book-an-appointment-today" class="btn btn-dark btn-lg mt-4 shadow-sm">
+                Get Started – It’s Free
             </a>
         </div>
 
         <div class="row g-4 mt-5">
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-4 col-md-6">
                 <div class="bg-white border rounded-4 shadow-sm p-4 h-100 d-flex flex-column">
                     <span class="d-flex justify-content-center align-items-center bg-light rounded-3 shadow-sm mb-3" style="width: 48px; height: 48px;">
                         <span class="fw-bold text-secondary small">01</span>
@@ -807,14 +807,14 @@ get_header();
                     <h5 class="fw-semibold text-dark">SEO Content & Authority Backlinks</h5>
 
                     <p class="text-muted small mt-2">
-                        Rank higher, attract buyers, and build lasting authority with content and backlinks engineered to move your most valuable pages.
+                        Earn rankings that stick with conversion-minded content and authoritative backlinks aligned to your highest-value pages.
                     </p>
 
                     <img src="https://cdn.webmakerr.com/website/facebook-ads-3.png" alt="SEO content strategy" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
                 </div>
             </div>
 
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-4 col-md-6">
                 <div class="bg-white border rounded-4 shadow-sm p-4 h-100 d-flex flex-column">
                     <span class="d-flex justify-content-center align-items-center bg-light rounded-3 shadow-sm mb-3" style="width: 48px; height: 48px;">
                         <span class="fw-bold text-secondary small">02</span>
@@ -823,14 +823,14 @@ get_header();
                     <h5 class="fw-semibold text-dark">Facebook & Google Ads Management</h5>
 
                     <p class="text-muted small mt-2">
-                        Launch, optimize, and scale profitable campaigns that keep sales and leads coming while your acquisition costs trend down.
+                        Launch, iterate, and scale profitable campaigns that keep qualified leads and sales flowing while acquisition costs trend down.
                     </p>
 
                     <img src="https://cdn.webmakerr.com/website/facebook-ads-1.png" alt="Paid ads optimization" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
                 </div>
             </div>
 
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-4 col-md-6">
                 <div class="bg-white border rounded-4 shadow-sm p-4 h-100 d-flex flex-column">
                     <span class="d-flex justify-content-center align-items-center bg-light rounded-3 shadow-sm mb-3" style="width: 48px; height: 48px;">
                         <span class="fw-bold text-secondary small">03</span>
@@ -839,27 +839,11 @@ get_header();
                     <h5 class="fw-semibold text-dark">Explainer Video Production</h5>
 
                     <p class="text-muted small mt-2">
-                        Get scroll-stopping videos that simplify your message and lift conversions across ads, landing pages, and product launches.
+                        Win attention fast with concise explainer videos that clarify your offer and boost conversions across ads, landing pages, and launches.
                     </p>
 
                     <img src="https://cdn.webmakerr.com/website/facebook-ads-2.png" alt="Explainer video storyboard" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
 
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-                <div class="bg-white border rounded-4 shadow-sm p-4 h-100 d-flex flex-column">
-                    <span class="d-flex justify-content-center align-items-center bg-light rounded-3 shadow-sm mb-3" style="width: 48px; height: 48px;">
-                        <span class="fw-bold text-secondary small">04</span>
-                    </span>
-
-                    <h5 class="fw-semibold text-dark">Conversion-Optimized Websites & Landing Pages</h5>
-
-                    <p class="text-muted small mt-2">
-                        Turn more visitors into customers with pages built for speed, clarity, and conversion—not just aesthetics.
-                    </p>
-
-                    <img src="https://cdn.webmakerr.com/website/booking-footer.mp4" alt="High-converting landing pages" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
                 </div>
             </div>
         </div>
@@ -1147,8 +1131,8 @@ get_header();
                 </h2>
 
                 <div class="mt-4">
-                    <a href="<?php echo esc_url( $checkout_url ); ?>" class="btn btn-dark btn-lg shadow-sm">
-                        Start for Free
+                    <a href="/book-an-appointment-today" class="btn btn-dark btn-lg shadow-sm">
+                        Start For Free
                     </a>
                 </div>
             </div>
@@ -1159,8 +1143,8 @@ get_header();
 <div class="mobile-sticky-bar d-md-none">
     <div class="container-lg">
         <div class="d-flex gap-2">
-            <a href="<?php echo esc_url( $checkout_url ); ?>" class="btn btn-dark btn-lg w-100">
-                Start for Free
+            <a href="/book-an-appointment-today" class="btn btn-dark btn-lg w-100">
+                Start For Free
             </a>
             <a href="#get-free-trial" class="btn btn-light border btn-lg w-100 text-dark" data-trial-open>
                 Get Free Trail
