@@ -19,6 +19,10 @@ wp_enqueue_script(
 );
 
 $theme_dir = get_template_directory_uri();
+$logo_src = cz('tp_logo_img');
+$logo_src = $logo_src ? set_url_scheme($logo_src, is_ssl() ? 'https' : 'http') : '';
+$logo_src = esc_url($logo_src);
+$logo_alt = esc_attr(get_bloginfo('name'));
 
 get_header();
 ?>
@@ -52,9 +56,9 @@ get_header();
 
     .appointment-card {
         background: #ffffff;
-        border: 1px solid #e2e8f0;
+        border: 1px solid #e5e7eb;
         border-radius: 12px;
-        box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+        box-shadow: none;
         padding: clamp(22px, 3vw, 34px);
         width: 100%;
     }
@@ -62,47 +66,30 @@ get_header();
     .appointment-header {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        gap: clamp(10px, 2vw, 20px);
-        padding-bottom: 14px;
+        justify-content: center;
+        gap: 12px;
+        padding-bottom: clamp(16px, 2vw, 20px);
         margin-bottom: clamp(18px, 3vw, 30px);
         border-bottom: 1px solid #e5e7eb;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
         min-width: 0;
+        text-align: center;
+    }
+
+    .appointment-logo {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 14px;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        background: #fff;
     }
 
     .appointment-logo img {
         max-height: 42px;
         width: auto;
         display: block;
-    }
-
-    .rating-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 10px 14px;
-        border-radius: 999px;
-        background: #0f172a;
-        border: 1px solid #0f172a;
-        color: #ffffff;
-        font-weight: 600;
-        white-space: nowrap;
-        box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
-    }
-
-    .rating-pill .rating-stars {
-        display: inline-flex;
-        gap: 4px;
-        align-items: center;
-        color: #ff9900;
-    }
-
-    .rating-pill .rating-stars svg {
-        width: 18px;
-        height: 18px;
-        fill: #ff9900;
-        stroke: #ff9900;
     }
 
     .appointment-form {
@@ -120,8 +107,8 @@ get_header();
         align-items: center;
         gap: 12px;
         padding: 14px 16px;
-        border: 1px solid #e2e8f0;
-        border-radius: 10px;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
         background: #f9fafb;
     }
 
@@ -130,11 +117,10 @@ get_header();
         height: 44px;
         border-radius: 10px;
         background: #ffffff;
-        border: 1px solid #e2e8f0;
+        border: 1px solid #e5e7eb;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 10px 20px rgba(15, 23, 42, 0.06);
         flex-shrink: 0;
     }
 
@@ -182,9 +168,8 @@ get_header();
     @media (max-width: 575.98px) {
         .appointment-card { padding: 18px; }
         .appointment-header { gap: 10px; }
+        .appointment-logo { padding: 8px 12px; }
         .appointment-logo img { max-height: 36px; }
-        .rating-pill { padding: 8px 12px; font-size: 0.875rem; }
-        .rating-pill .rating-stars svg { width: 16px; height: 16px; }
     }
 </style>
 
@@ -194,19 +179,11 @@ get_header();
             <div class="col-12 col-xxl-10">
                 <div class="appointment-card">
                     <div class="appointment-header">
-                        <div class="appointment-logo" aria-label="Webmakerr">
-                            <?php do_action('adstm_logo_header'); ?>
-                        </div>
-                        <div class="rating-pill" aria-label="5-Star Rating">
-                            <div class="rating-stars" aria-hidden="true">
-                                <svg viewBox="0 0 24 24"><path d="M12 3.5 14.35 8.27 19.5 9.02l-3.72 3.63.88 5.12L12 15.96 7.34 17.77l.88-5.12L4.5 9.02l5.15-.75L12 3.5Z"/></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 3.5 14.35 8.27 19.5 9.02l-3.72 3.63.88 5.12L12 15.96 7.34 17.77l.88-5.12L4.5 9.02l5.15-.75L12 3.5Z"/></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 3.5 14.35 8.27 19.5 9.02l-3.72 3.63.88 5.12L12 15.96 7.34 17.77l.88-5.12L4.5 9.02l5.15-.75L12 3.5Z"/></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 3.5 14.35 8.27 19.5 9.02l-3.72 3.63.88 5.12L12 15.96 7.34 17.77l.88-5.12L4.5 9.02l5.15-.75L12 3.5Z"/></svg>
-                                <svg viewBox="0 0 24 24"><path d="M12 3.5 14.35 8.27 19.5 9.02l-3.72 3.63.88 5.12L12 15.96 7.34 17.77l.88-5.12L4.5 9.02l5.15-.75L12 3.5Z"/></svg>
+                        <?php if ($logo_src): ?>
+                            <div class="appointment-logo" aria-label="Webmakerr">
+                                <img src="<?php echo $logo_src; ?>" alt="<?php echo $logo_alt; ?>" loading="eager" decoding="async">
                             </div>
-                            <span>Rated</span>
-                        </div>
+                        <?php endif; ?>
                     </div>
 
                     <div class="appointment-form">
