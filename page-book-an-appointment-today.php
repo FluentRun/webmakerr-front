@@ -205,7 +205,7 @@ get_header();
                                 <svg viewBox="0 0 24 24"><path d="M12 3.5 14.35 8.27 19.5 9.02l-3.72 3.63.88 5.12L12 15.96 7.34 17.77l.88-5.12L4.5 9.02l5.15-.75L12 3.5Z"/></svg>
                                 <svg viewBox="0 0 24 24"><path d="M12 3.5 14.35 8.27 19.5 9.02l-3.72 3.63.88 5.12L12 15.96 7.34 17.77l.88-5.12L4.5 9.02l5.15-.75L12 3.5Z"/></svg>
                             </div>
-                            <span>Rated 5.0 by our clients</span>
+                            <span>Rated</span>
                         </div>
                     </div>
 
