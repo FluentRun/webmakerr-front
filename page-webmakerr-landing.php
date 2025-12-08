@@ -5,209 +5,313 @@
  */
 
 wp_enqueue_style(
-    'webmakerr-landing',
-    get_template_directory_uri() . '/assets/css/webmakerr-landing.css',
+    'bootstrap-5-landing',
+    'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css',
     [],
-    '1.0.0'
+    '5.3.3'
 );
+wp_enqueue_script(
+    'bootstrap-5-landing',
+    'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js',
+    [],
+    '5.3.3',
+    true
+);
+
+$register_url = 'https://beta.webmakerr.com/register';
+$call_url = 'https://cal.com/webmakerr';
 
 get_header();
 ?>
 
-<main class="wm-landing">
-    <section class="wm-hero section-padding">
-        <div class="container">
-            <div class="row align-items-center gy-4">
-                <div class="col-lg-6">
-                    <div class="wm-badge mb-3">Webmakerr for Growth Teams</div>
-                    <h1 class="display-4 fw-bold mb-3">High-converting websites, built for bold businesses.</h1>
-                    <p class="lead text-muted mb-4">Launch a conversion-optimized site that tells your story, books more calls, and turns every visit into revenue—without slowing down your team.</p>
-                    <div class="d-flex flex-wrap gap-3">
-                        <a class="btn wm-btn" href="https://beta.webmakerr.com/register">Register – Start for Free</a>
-                        <a class="btn wm-btn ghost" href="https://cal.com/webmakerr">Book a Call</a>
-                    </div>
-                    <div class="d-flex align-items-center gap-3 mt-4 flex-wrap text-muted">
-                        <span class="fw-semibold text-dark">Avg. +38% lift in conversions</span>
-                        <span class="vr"></span>
-                        <span>Live in under 3 weeks</span>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="wm-hero-media">
-                        <div class="wm-hero-video" aria-label="Website preview video placeholder"></div>
-                        <div class="wm-hero-cards">
-                            <div class="wm-metric">
-                                <span class="label">Speed Score</span>
-                                <strong>99/100</strong>
-                                <small>Core Web Vitals ready</small>
-                            </div>
-                            <div class="wm-metric">
-                                <span class="label">Conversion Boost</span>
-                                <strong>+38%</strong>
-                                <small>Average across launches</small>
-                            </div>
-                            <div class="wm-metric">
-                                <span class="label">Pages Delivered</span>
-                                <strong>1200+</strong>
-                                <small>Across SaaS & services</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<style>
+    :root {
+        --bs-border-radius: 4px;
+        --bs-border-radius-sm: 4px;
+        --bs-border-radius-lg: 4px;
+        --bs-border-radius-xl: 4px;
+        --bs-border-radius-xxl: 4px;
+        --bs-border-radius-pill: 4px;
+    }
 
-    <section class="wm-trusted section-padding bg-light">
-        <div class="container">
-            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
-                <h2 class="h5 text-uppercase text-muted mb-0">Trusted by teams shipping fast</h2>
-                <span class="text-muted">Delivery, SaaS, agencies, and B2B leaders</span>
+    body {
+        background: #f8fafc;
+    }
+
+    .wm-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: #f8fafc;
+        border: 1px solid #e5e7eb;
+        color: #0f172a;
+        font-weight: 600;
+        box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    .wm-hero-grid {
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 4px;
+        box-shadow: 0 18px 50px rgba(15, 23, 42, 0.12);
+    }
+
+    .wm-hero-media {
+        background: linear-gradient(135deg, #111827, #2563eb);
+        border-radius: 4px;
+        min-height: 260px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .wm-hero-media::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08), transparent 40%),
+            radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.08), transparent 40%);
+    }
+
+    .wm-hero-media .badge {
+        position: relative;
+        z-index: 2;
+    }
+
+    .wm-icon-box {
+        width: 50px;
+        height: 50px;
+        border-radius: 4px;
+        background: linear-gradient(135deg, #eef2f7, #f9fafb);
+        border: 1px solid #e5e7eb;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .wm-grid-card,
+    .wm-case-card,
+    .wm-step-card,
+    .wm-testimonial-card,
+    .wm-cta-card {
+        border: 1px solid #e5e7eb;
+        background: #ffffff;
+        border-radius: 4px;
+        box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+    }
+
+    .wm-muted {
+        color: #475569;
+    }
+
+    .wm-divider {
+        border-top: 1px solid #e5e7eb;
+    }
+
+    .wm-section-heading {
+        max-width: 760px;
+    }
+
+    .wm-step-card .step-number {
+        width: 40px;
+        height: 40px;
+        border-radius: 4px;
+        background: #0f172a;
+        color: #ffffff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+    }
+
+    .wm-case-metric {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #0f172a;
+    }
+
+    .wm-cta-card {
+        background: linear-gradient(120deg, #0f172a, #111827);
+        color: #ffffff;
+        border: 1px solid #0f172a;
+    }
+
+    .wm-cta-card p {
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .wm-logo-tile {
+        border: 1px solid #e5e7eb;
+        border-radius: 4px;
+        padding: 14px 18px;
+        background: #ffffff;
+        font-weight: 600;
+        color: #0f172a;
+        text-align: center;
+        box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .wm-video-frame {
+        width: 100%;
+        border-radius: 4px;
+        min-height: 320px;
+        border: 1px solid #e5e7eb;
+        background: linear-gradient(135deg, #0f172a, #2563eb);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .wm-video-frame::before,
+    .wm-video-frame::after {
+        content: '';
+        position: absolute;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        filter: blur(18px);
+    }
+
+    .wm-video-frame::before {
+        width: 140px;
+        height: 140px;
+        top: 12%;
+        left: 6%;
+    }
+
+    .wm-video-frame::after {
+        width: 180px;
+        height: 180px;
+        bottom: 10%;
+        right: 8%;
+    }
+
+    .wm-play-button {
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: #ffffff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #0f172a;
+        box-shadow: 0 16px 30px rgba(15, 23, 42, 0.18);
+        border: 1px solid #e5e7eb;
+        z-index: 2;
+    }
+
+    .wm-cta-btn {
+        border-radius: 4px;
+        box-shadow: 0 12px 26px rgba(15, 23, 42, 0.12);
+    }
+</style>
+
+<main class="py-5">
+    <div class="container-lg">
+        <section class="p-4 p-md-5 wm-hero-grid row g-4 align-items-center">
+            <div class="col-lg-6">
+                <div class="d-inline-flex align-items-center gap-2 mb-3">
+                    <span class="wm-pill">Webmakerr Studio</span>
+                    <span class="badge text-bg-dark rounded-pill">Loftflow inspired</span>
+                </div>
+                <h1 class="display-5 fw-semibold text-dark lh-sm mb-3">
+                    Cinematic landing experiences engineered to convert every scroll.
+                </h1>
+                <p class="lead wm-muted mb-4">
+                    Loftfilm’s flow, powered by Webmakerr. We choreograph your story across every section so visitors glide from intrigue to action without losing speed.
+                </p>
+                <div class="d-flex flex-wrap gap-3 align-items-center">
+                    <a class="btn btn-dark btn-lg wm-cta-btn" href="<?php echo esc_url( $register_url ); ?>">Start for free</a>
+                    <a class="btn btn-outline-dark btn-lg wm-cta-btn" href="<?php echo esc_url( $call_url ); ?>">Book a walkthrough</a>
+                    <span class="wm-pill">Live sites in 3 weeks</span>
+                </div>
+                <div class="d-flex flex-wrap gap-4 align-items-center mt-4 wm-muted">
+                    <div>
+                        <div class="fw-semibold text-dark">+38% conversion lift</div>
+                        <small>Average across new launches</small>
+                    </div>
+                    <div class="vr d-none d-md-block"></div>
+                    <div>
+                        <div class="fw-semibold text-dark">Core Web Vitals ready</div>
+                        <small>Speed scores in the high 90s</small>
+                    </div>
+                </div>
             </div>
-            <div class="row g-4 text-center">
-                <div class="col-6 col-md-3"><div class="wm-logo-tile">Nexa Freight</div></div>
+            <div class="col-lg-6">
+                <div class="wm-hero-media text-center text-white p-4">
+                    <div class="position-relative z-2">
+                        <div class="mb-3">Play the story your buyers expect.</div>
+                        <div class="badge bg-white text-dark fw-semibold">Scroll choreography · Conversion beats · Analytics ready</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="py-5 border-top bg-light mt-5">
+        <div class="container-lg">
+            <div class="text-center mb-4">
+                <h2 class="h5 text-uppercase text-secondary">Teams that choose Webmakerr for Loft-level polish</h2>
+            </div>
+            <div class="row g-3 justify-content-center">
                 <div class="col-6 col-md-3"><div class="wm-logo-tile">Brightline CRM</div></div>
                 <div class="col-6 col-md-3"><div class="wm-logo-tile">Northwind Solar</div></div>
                 <div class="col-6 col-md-3"><div class="wm-logo-tile">Atlas Legal</div></div>
+                <div class="col-6 col-md-3"><div class="wm-logo-tile">Peakline AI</div></div>
             </div>
         </div>
     </section>
 
-    <section class="wm-value section-padding">
-        <div class="container">
-            <div class="row gy-4 align-items-center">
+    <section class="py-5 bg-light border-top">
+        <div class="container-lg">
+            <div class="row g-4 align-items-center">
                 <div class="col-lg-6">
-                    <p class="eyebrow">Value Proposition</p>
-                    <h2 class="display-6 fw-semibold mb-3">Every section crafted to convert.</h2>
-                    <p class="text-muted mb-4">Webmakerr blends sharp storytelling with conversion science—so your site keeps customers moving from scroll to signup. We handle UX, copy, development, analytics, and QA in one streamlined build.</p>
-                    <div class="d-flex flex-wrap gap-3">
-                        <div class="wm-chip">UX research built-in</div>
-                        <div class="wm-chip">SEO-optimized launches</div>
-                        <div class="wm-chip">Analytics instrumentation</div>
-                        <div class="wm-chip">CMS you can edit</div>
+                    <div class="wm-video-frame">
+                        <div class="wm-play-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="wm-card-grid">
-                        <article class="wm-card">
-                            <h3 class="h6">Story-first messaging</h3>
-                            <p class="text-muted">Copy crafted to win trust, highlight outcomes, and push clear next steps.</p>
-                        </article>
-                        <article class="wm-card">
-                            <h3 class="h6">Performance engineering</h3>
-                            <p class="text-muted">Lightweight builds, CDN ready, and Core Web Vitals tuned before launch.</p>
-                        </article>
-                        <article class="wm-card">
-                            <h3 class="h6">Experiment ready</h3>
-                            <p class="text-muted">Reusable modules and A/B friendly layouts make iteration fast.</p>
-                        </article>
-                        <article class="wm-card">
-                            <h3 class="h6">Launch without chaos</h3>
-                            <p class="text-muted">Managed sprints, clear QA, and production handoff with playbooks.</p>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="wm-explainer section-padding bg-light">
-        <div class="container">
-            <div class="row gy-4 align-items-center">
-                <div class="col-lg-6">
-                    <div class="wm-media-block" aria-label="Explainer video placeholder"></div>
                 </div>
                 <div class="col-lg-6">
-                    <p class="eyebrow">How Webmakerr works</p>
-                    <h2 class="display-6 fw-semibold mb-3">Websites that sell, shipped with your team.</h2>
-                    <p class="text-muted mb-4">We translate your positioning into a high-velocity site. From kickoff to go-live, our strategists, designers, and engineers work as an extension of your crew—so you keep momentum while we build.</p>
-                    <div class="d-flex flex-wrap gap-3">
-                        <a class="btn wm-btn" href="https://beta.webmakerr.com/register">Start for Free</a>
-                        <a class="btn wm-btn ghost" href="https://cal.com/webmakerr">Book a Call</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="wm-services section-padding">
-        <div class="container">
-            <div class="d-flex justify-content-between flex-wrap align-items-center gap-3 mb-4">
-                <h2 class="display-6 fw-semibold mb-0">Services tuned for revenue.</h2>
-                <p class="text-muted mb-0">Each engagement is outcomes-first, with Webmakerr experts embedded alongside your team.</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <article class="wm-service-card">
-                        <h3 class="h5">Conversion Landing Pages</h3>
-                        <p class="text-muted">Campaign-ready pages built to capture leads and accelerate paid performance.</p>
-                        <ul class="list-unstyled mb-0 text-muted">
-                            <li>• Speed scores in the 90s</li>
-                            <li>• CRO-informed hero layouts</li>
-                            <li>• Integrated forms & CRM</li>
-                        </ul>
-                    </article>
-                </div>
-                <div class="col-md-4">
-                    <article class="wm-service-card">
-                        <h3 class="h5">Sales Websites</h3>
-                        <p class="text-muted">Positioning, narrative, and proof that help your reps close faster.</p>
-                        <ul class="list-unstyled mb-0 text-muted">
-                            <li>• Modular messaging blocks</li>
-                            <li>• Resource hubs & calculators</li>
-                            <li>• Analytics and heatmap ready</li>
-                        </ul>
-                    </article>
-                </div>
-                <div class="col-md-4">
-                    <article class="wm-service-card">
-                        <h3 class="h5">Full-Site Revamps</h3>
-                        <p class="text-muted">From IA to launch, we rebuild your site to match the way you sell today.</p>
-                        <ul class="list-unstyled mb-0 text-muted">
-                            <li>• UX research & wireframes</li>
-                            <li>• SEO migration plan</li>
-                            <li>• Training & handoff</li>
-                        </ul>
-                    </article>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="wm-portfolio section-padding bg-light">
-        <div class="container">
-            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
-                <div>
-                    <p class="eyebrow mb-1">Recent work</p>
-                    <h2 class="display-6 fw-semibold mb-0">Examples engineered to convert.</h2>
-                </div>
-                <a class="btn wm-btn ghost" href="https://beta.webmakerr.com/register">View more</a>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="wm-portfolio-card">
-                        <img src="https://via.placeholder.com/640x420" alt="Portfolio placeholder 1" class="img-fluid">
-                        <div class="wm-portfolio-body">
-                            <h3 class="h6 mb-1">B2B SaaS Launch</h3>
-                            <p class="text-muted mb-0">Product storytelling with in-app proof points.</p>
+                    <div class="wm-section-heading">
+                        <span class="wm-pill mb-3">Narrative Showreel</span>
+                        <h2 class="display-6 fw-semibold text-dark lh-sm mb-3">Every scene keeps momentum.</h2>
+                        <p class="wm-muted mb-4">We map your offer like a film sequence: open strong, build proof, deliver the payoff. Visitors experience the same Loftfilm pacing—only it’s fully Webmakerr in tone, technology, and brand.</p>
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <div class="wm-grid-card p-3 h-100">
+                                    <div class="wm-icon-box mb-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                            <path d="M3 5h18M3 12h18M3 19h18" />
+                                        </svg>
+                                    </div>
+                                    <h5 class="mb-2">Story arcs for SaaS & services</h5>
+                                    <p class="wm-muted mb-0">Hero, proof, offer, and urgency stitched together with purposeful scroll cues.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="wm-grid-card p-3 h-100">
+                                    <div class="wm-icon-box mb-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                            <circle cx="12" cy="12" r="9" />
+                                            <path d="m10 9 5 3-5 3V9Z" />
+                                        </svg>
+                                    </div>
+                                    <h5 class="mb-2">Video-ready moments</h5>
+                                    <p class="wm-muted mb-0">Screens, animation, and motion placeholders planned for your creative assets.</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="wm-portfolio-card">
-                        <img src="https://via.placeholder.com/640x420" alt="Portfolio placeholder 2" class="img-fluid">
-                        <div class="wm-portfolio-body">
-                            <h3 class="h6 mb-1">Services Rebrand</h3>
-                            <p class="text-muted mb-0">Credibility-driven design for a nationwide firm.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="wm-portfolio-card">
-                        <img src="https://via.placeholder.com/640x420" alt="Portfolio placeholder 3" class="img-fluid">
-                        <div class="wm-portfolio-body">
-                            <h3 class="h6 mb-1">Campaign Microsite</h3>
-                            <p class="text-muted mb-0">High-speed landing system for paid acquisition.</p>
+                        <div class="d-flex flex-wrap gap-3 mt-4">
+                            <a class="btn btn-dark wm-cta-btn" href="<?php echo esc_url( $register_url ); ?>">See the Webmakerr flow</a>
+                            <a class="btn btn-outline-dark wm-cta-btn" href="<?php echo esc_url( $call_url ); ?>">Schedule a live demo</a>
                         </div>
                     </div>
                 </div>
@@ -215,110 +319,251 @@ get_header();
         </div>
     </section>
 
-    <section class="wm-process section-padding">
-        <div class="container">
-            <div class="row align-items-center gy-4">
-                <div class="col-lg-5">
-                    <p class="eyebrow">Our process</p>
-                    <h2 class="display-6 fw-semibold mb-3">Fast, focused, and accountable.</h2>
-                    <p class="text-muted mb-4">Every sprint keeps you close to progress with clear approvals. We own the build; you keep moving on the rest of your roadmap.</p>
-                </div>
-                <div class="col-lg-7">
-                    <div class="wm-steps">
-                        <div class="wm-step">
-                            <div class="step-num">1</div>
-                            <div>
-                                <h3 class="h6 mb-1">Discovery & goals</h3>
-                                <p class="text-muted mb-0">We align on outcomes, audience, and KPIs to guide every decision.</p>
-                            </div>
-                        </div>
-                        <div class="wm-step">
-                            <div class="step-num">2</div>
-                            <div>
-                                <h3 class="h6 mb-1">Experience design</h3>
-                                <p class="text-muted mb-0">Wireframes, copy, and design systems shaped for conversion.</p>
-                            </div>
-                        </div>
-                        <div class="wm-step">
-                            <div class="step-num">3</div>
-                            <div>
-                                <h3 class="h6 mb-1">Build & QA</h3>
-                                <p class="text-muted mb-0">Performance-engineered builds with accessibility and device testing.</p>
-                            </div>
-                        </div>
-                        <div class="wm-step">
-                            <div class="step-num">4</div>
-                            <div>
-                                <h3 class="h6 mb-1">Launch & iterate</h3>
-                                <p class="text-muted mb-0">Analytics installed, dashboards ready, and quick iteration baked in.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="wm-testimonials section-padding bg-light">
-        <div class="container">
-            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
-                <div>
-                    <p class="eyebrow mb-1">Testimonials</p>
-                    <h2 class="display-6 fw-semibold mb-0">Teams that launch with Webmakerr.</h2>
-                </div>
-                <a class="btn wm-btn ghost" href="https://beta.webmakerr.com/register">See pricing</a>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <article class="wm-testimonial-card">
-                        <div class="d-flex align-items-center mb-3 gap-3">
-                            <img class="avatar" src="https://via.placeholder.com/64" alt="Avatar placeholder 1">
-                            <div>
-                                <div class="fw-semibold">Jamie Lee</div>
-                                <small class="text-muted">VP Marketing, Brightline</small>
-                            </div>
-                        </div>
-                        <p class="mb-0">“Webmakerr rebuilt our site in weeks and doubled demo requests. Their team treated conversions like a science.”</p>
-                    </article>
-                </div>
-                <div class="col-md-4">
-                    <article class="wm-testimonial-card">
-                        <div class="d-flex align-items-center mb-3 gap-3">
-                            <img class="avatar" src="https://via.placeholder.com/64" alt="Avatar placeholder 2">
-                            <div>
-                                <div class="fw-semibold">Carlos Mendoza</div>
-                                <small class="text-muted">Founder, Atlas Legal</small>
-                            </div>
-                        </div>
-                        <p class="mb-0">“Clear process, sharp copy, and a site our sales reps actually use. We saw lift within the first month.”</p>
-                    </article>
-                </div>
-                <div class="col-md-4">
-                    <article class="wm-testimonial-card">
-                        <div class="d-flex align-items-center mb-3 gap-3">
-                            <img class="avatar" src="https://via.placeholder.com/64" alt="Avatar placeholder 3">
-                            <div>
-                                <div class="fw-semibold">Priya Raman</div>
-                                <small class="text-muted">COO, Northwind Solar</small>
-                            </div>
-                        </div>
-                        <p class="mb-0">“They handled messaging, design, and build seamlessly. The new site is faster and easier for our team to update.”</p>
-                    </article>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="wm-cta section-padding">
-        <div class="container">
-            <div class="row justify-content-between align-items-center gy-3">
+    <section class="py-5 border-top">
+        <div class="container-lg">
+            <div class="row g-4 align-items-center mb-4">
                 <div class="col-lg-8">
-                    <h2 class="display-6 fw-semibold mb-2">Ready for a site that converts?</h2>
-                    <p class="text-muted mb-0">Launch with Webmakerr and turn every page into a sales engine.</p>
+                    <h2 class="display-6 fw-semibold text-dark lh-sm mb-2">What we build in the Webmakerr Loft.</h2>
+                    <p class="wm-muted mb-0">High-converting landing pages, cinematic storytelling, and proof-rich sections that mirror Loftfilm’s cadence while keeping your brand unmistakably Webmakerr.</p>
                 </div>
-                <div class="col-lg-4 d-flex justify-content-lg-end gap-3">
-                    <a class="btn wm-btn" href="https://beta.webmakerr.com/register">Register – Start for Free</a>
-                    <a class="btn wm-btn ghost" href="https://cal.com/webmakerr">Book a Call</a>
+                <div class="col-lg-4 text-lg-end">
+                    <a class="btn btn-dark wm-cta-btn" href="<?php echo esc_url( $register_url ); ?>">Launch a page</a>
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="wm-grid-card p-4 h-100">
+                        <h5 class="mb-2">Conversion-first hero beats</h5>
+                        <p class="wm-muted mb-3">Instant clarity, social proof, and dual CTAs that set the tone for the scroll.</p>
+                        <ul class="list-unstyled wm-muted mb-0">
+                            <li>• Story-driven headlines</li>
+                            <li>• Speed-optimized imagery</li>
+                            <li>• Mobile-first microcopy</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wm-grid-card p-4 h-100">
+                        <h5 class="mb-2">Proof-led sections</h5>
+                        <p class="wm-muted mb-3">Case snippets, metrics, and logos that appear exactly when intent peaks.</p>
+                        <ul class="list-unstyled wm-muted mb-0">
+                            <li>• Sequential credibility</li>
+                            <li>• Structured stat reveals</li>
+                            <li>• Embedded calculators</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wm-grid-card p-4 h-100">
+                        <h5 class="mb-2">Action-centered finales</h5>
+                        <p class="wm-muted mb-3">CTA panels with crisp pricing signals, contact forms, and booking links.</p>
+                        <ul class="list-unstyled wm-muted mb-0">
+                            <li>• CRM & calendar ready</li>
+                            <li>• Accessibility checked</li>
+                            <li>• Analytics & heatmaps</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light border-top">
+        <div class="container-lg">
+            <div class="row g-4 align-items-center mb-4">
+                <div class="col-lg-8">
+                    <h2 class="display-6 fw-semibold text-dark lh-sm mb-2">Featured launches with Loft-level pacing.</h2>
+                    <p class="wm-muted mb-0">Each project follows the same scroll choreography: tease, prove, educate, and convert.</p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a class="btn btn-outline-dark wm-cta-btn" href="<?php echo esc_url( $call_url ); ?>">View more examples</a>
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="wm-case-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="mb-0">Brightline CRM</h5>
+                            <span class="wm-case-metric">+42%</span>
+                        </div>
+                        <p class="wm-muted">Multi-section narrative that doubled demo requests with crisp proof moments.</p>
+                        <div class="wm-divider my-3"></div>
+                        <small class="text-uppercase text-secondary">Hero → Proof → Offer → CTA</small>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wm-case-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="mb-0">Northwind Solar</h5>
+                            <span class="wm-case-metric">-38%</span>
+                        </div>
+                        <p class="wm-muted">Speed-optimized storyline that lowered bounce rates while showcasing installs.</p>
+                        <div class="wm-divider my-3"></div>
+                        <small class="text-uppercase text-secondary">Story → Stats → Gallery → CTA</small>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wm-case-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="mb-0">Atlas Legal</h5>
+                            <span class="wm-case-metric">3x</span>
+                        </div>
+                        <p class="wm-muted">Loftfilm-inspired scroll with testimonials and rapid booking funnel.</p>
+                        <div class="wm-divider my-3"></div>
+                        <small class="text-uppercase text-secondary">Problem → Proof → Team → Booking</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 border-top">
+        <div class="container-lg">
+            <div class="text-center mx-auto mb-5" style="max-width: 720px;">
+                <span class="wm-pill mb-3">Webmakerr Production Flow</span>
+                <h2 class="display-6 fw-semibold text-dark lh-sm mb-3">A cinematic sequence from kickoff to launch.</h2>
+                <p class="wm-muted mb-0">Modeled after Loftfilm’s storyboards, executed with Webmakerr’s build discipline.</p>
+            </div>
+            <div class="row g-3">
+                <div class="col-md-6 col-lg-3">
+                    <div class="wm-step-card p-4 h-100 d-flex flex-column gap-2">
+                        <span class="step-number">1</span>
+                        <h5 class="mb-1">Kickoff & plot</h5>
+                        <p class="wm-muted mb-0">Audience, offer, and conversion goals mapped into a scrollable outline.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="wm-step-card p-4 h-100 d-flex flex-column gap-2">
+                        <span class="step-number">2</span>
+                        <h5 class="mb-1">Script & design</h5>
+                        <p class="wm-muted mb-0">Copy, visuals, and motion cues crafted to mirror Loftfilm pacing.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="wm-step-card p-4 h-100 d-flex flex-column gap-2">
+                        <span class="step-number">3</span>
+                        <h5 class="mb-1">Build & QA</h5>
+                        <p class="wm-muted mb-0">Performance-engineered sections, accessibility checks, and analytics wiring.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="wm-step-card p-4 h-100 d-flex flex-column gap-2">
+                        <span class="step-number">4</span>
+                        <h5 class="mb-1">Launch & learn</h5>
+                        <p class="wm-muted mb-0">A/B-ready modules, dashboards, and iteration sprints after go-live.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light border-top">
+        <div class="container-lg">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-7">
+                    <h2 class="display-6 fw-semibold text-dark lh-sm mb-3">Choose the Loft-inspired plan that fits.</h2>
+                    <p class="wm-muted mb-4">Each package uses the same cinematic layout logic and Webmakerr build quality. Pick the cadence that matches your roadmap.</p>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <div class="wm-grid-card p-3 h-100">
+                                <h5 class="mb-2">Launch Sprint</h5>
+                                <p class="wm-muted mb-2">One landing page, crafted and shipped in under three weeks.</p>
+                                <small class="text-secondary">Includes copy, design, build, QA.</small>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="wm-grid-card p-3 h-100">
+                                <h5 class="mb-2">Campaign System</h5>
+                                <p class="wm-muted mb-2">A reusable page system with variants for paid, product, and partner plays.</p>
+                                <small class="text-secondary">Includes analytics, personalization hooks.</small>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="wm-grid-card p-3 h-100">
+                                <h5 class="mb-2">Full Site Flow</h5>
+                                <p class="wm-muted mb-2">Loft-style storytelling across your entire site with modular sections.</p>
+                                <small class="text-secondary">Includes migration & CMS training.</small>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="wm-grid-card p-3 h-100">
+                                <h5 class="mb-2">Embedded Team</h5>
+                                <p class="wm-muted mb-2">Webmakerr strategists, designers, and engineers as your ongoing squad.</p>
+                                <small class="text-secondary">Includes sprint reviews & rapid tests.</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="wm-testimonial-card p-4 h-100">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="wm-icon-box">
+                                <strong>N</strong>
+                            </div>
+                            <div>
+                                <div class="fw-semibold text-dark">Nora Patel</div>
+                                <small class="text-secondary">CMO, Peakline AI</small>
+                            </div>
+                        </div>
+                        <p class="fw-semibold text-dark mb-2">“They rebuilt our landing flow with the drama of a film trailer and the rigor of a CRO lab. We saw lift in week one.”</p>
+                        <p class="wm-muted mb-0">We’ll help you pick a plan on the first call.</p>
+                        <div class="d-flex flex-wrap gap-2 mt-3">
+                            <a class="btn btn-dark wm-cta-btn" href="<?php echo esc_url( $call_url ); ?>">Book a call</a>
+                            <a class="btn btn-outline-dark wm-cta-btn" href="<?php echo esc_url( $register_url ); ?>">Start free</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 border-top">
+        <div class="container-lg">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-6">
+                    <div class="wm-testimonial-card p-4 h-100">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="wm-icon-box">
+                                <strong>J</strong>
+                            </div>
+                            <div>
+                                <div class="fw-semibold text-dark">Jamal Grant</div>
+                                <small class="text-secondary">VP Growth, Brightline CRM</small>
+                            </div>
+                        </div>
+                        <p class="fw-semibold text-dark">“Webmakerr choreographed the exact Loft-style flow we wanted. Every section tees up the next ask.”</p>
+                        <p class="wm-muted mb-0">Results: +42% demos, faster load times, and happy sales reps.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="wm-testimonial-card p-4 h-100">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="wm-icon-box">
+                                <strong>S</strong>
+                            </div>
+                            <div>
+                                <div class="fw-semibold text-dark">Sara Lin</div>
+                                <small class="text-secondary">Founder, Atlas Legal</small>
+                            </div>
+                        </div>
+                        <p class="fw-semibold text-dark">“They handled copy, visuals, and dev with a film producer’s mindset. The new page feels premium and books more calls.”</p>
+                        <p class="wm-muted mb-0">Results: 3x booked consultations with the same ad spend.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light border-top">
+        <div class="container-lg">
+            <div class="wm-cta-card p-4 p-md-5 d-flex flex-column flex-lg-row justify-content-between align-items-center gap-3">
+                <div>
+                    <h2 class="display-6 fw-semibold text-white lh-sm mb-2">Ready for a Loftfilm-style page with Webmakerr speed?</h2>
+                    <p class="mb-0">We’ll script, design, and build the full sequence. You just choose the CTA.</p>
+                </div>
+                <div class="d-flex flex-wrap gap-3">
+                    <a class="btn btn-light btn-lg wm-cta-btn" href="<?php echo esc_url( $register_url ); ?>">Start for free</a>
+                    <a class="btn btn-outline-light btn-lg wm-cta-btn" href="<?php echo esc_url( $call_url ); ?>">Talk with us</a>
                 </div>
             </div>
         </div>
