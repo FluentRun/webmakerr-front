@@ -9,12 +9,33 @@ Template Name: Sell Online Landing
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Online Store Landing Clone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <style>
-    body { background:#fff; }
-    .hero { background:#f5f5f5; }
-    .section-light { background:#f8f9fa; }
-    .faq-question { font-size: 1.1rem; font-weight: 500; }
+    :root {
+      --bs-border-radius: 4px;
+      --bs-border-radius-sm: 4px;
+      --bs-border-radius-lg: 4px;
+      --bs-border-radius-xl: 4px;
+      --bs-border-radius-xxl: 4px;
+      --bs-border-radius-pill: 4px;
+    }
+
+    body {
+      background:#fff;
+      color: #0f172a;
+      font-family: 'Inter', sans-serif;
+    }
+    h1, h2, h5 { color: #0f172a; }
+    p, .text-secondary { color: #475569 !important; }
+    .hero { background:#f8fafc; }
+    .section-light { background:#f8fafc; }
+    .faq-question { font-size: 1.1rem; font-weight: 600; color: #0f172a; }
+    .btn-dark { background-color: #000; border-color: #000; }
+    .btn-dark:hover { background-color: #111827; border-color: #111827; }
+    .btn { border-radius: 4px; }
 
     /* Sticky header */
     header {
@@ -23,6 +44,11 @@ Template Name: Sell Online Landing
       z-index: 1020;
       background: #fff;
     }
+
+    .page-header-logo img, .page-header-logo svg {
+      max-height: 36px;
+      width: auto;
+    }
   </style>
 </head>
 <body>
@@ -30,8 +56,10 @@ Template Name: Sell Online Landing
 <!-- HEADER -->
 <header class="py-3 bg-light border-bottom">
   <div class="container d-flex justify-content-between align-items-center">
-    <img src="https://via.placeholder.com/120x30?text=Logo" height="28" alt="Logo">
-    <a href="#" class="btn btn-dark rounded-pill px-4">Start for free</a>
+    <div class="page-header-logo d-flex align-items-center">
+      <?php do_action('adstm_logo_header'); ?>
+    </div>
+    <a href="#" class="btn btn-dark px-4">Start for free</a>
   </div>
 </header>
 
@@ -44,27 +72,27 @@ Template Name: Sell Online Landing
       <div class="col-lg-6 mb-5 mb-lg-0">
         <h1 class="fw-semibold display-5 mb-3">Start an online store for free</h1>
         <p class="text-secondary fs-5 mb-4">
-          Shopify is the all-in-one platform to build, run, and grow your online boutique.
+          Webmakerr is the all-in-one platform to build, run, and grow your online boutique.
           Start free, then get 3 months for €1/month.
         </p>
 
         <!-- LEAD CAPTURE FORM -->
         <form class="online-store-lead-form" data-online-store-lead-form style="max-width:420px;">
           <div class="input-group input-group-lg mb-2">
-            <input type="text" class="form-control rounded-pill ps-4" name="name" placeholder="Enter your name" required>
+            <input type="text" class="form-control ps-4" name="name" placeholder="Enter your name" required>
           </div>
           <div class="input-group input-group-lg mb-2">
-            <input type="email" class="form-control rounded-pill ps-4" name="email" placeholder="Enter your email address" required>
+            <input type="email" class="form-control ps-4" name="email" placeholder="Enter your email address" required>
           </div>
           <div class="d-flex align-items-center mb-2">
-            <button type="submit" class="btn btn-dark rounded-pill px-4" data-submit>
+            <button type="submit" class="btn btn-dark px-4" data-submit>
               <span class="spinner-border spinner-border-sm me-2 d-none" role="status" aria-hidden="true" data-spinner></span>
               Start free trial
             </button>
           </div>
           <div class="text-success small d-none" data-status="success">Thanks! Redirecting…</div>
           <div class="text-danger small d-none" data-status="error">Please enter a valid name and email.</div>
-          <small class="text-muted d-block mt-2">You agree to receive Shopify marketing emails.</small>
+          <small class="text-muted d-block mt-2">You agree to receive Webmakerr marketing emails.</small>
         </form>
       </div>
 
@@ -204,20 +232,20 @@ Template Name: Sell Online Landing
     <div class="d-flex justify-content-center mb-2">
       <form class="online-store-lead-form w-100" data-online-store-lead-form style="max-width:480px;">
         <div class="input-group input-group-lg mb-2">
-          <input type="text" class="form-control rounded-pill ps-4" name="name" placeholder="Enter your name" required>
+          <input type="text" class="form-control ps-4" name="name" placeholder="Enter your name" required>
         </div>
         <div class="input-group input-group-lg mb-2">
-          <input type="email" class="form-control rounded-pill ps-4" name="email" placeholder="Enter your email address" required>
+          <input type="email" class="form-control ps-4" name="email" placeholder="Enter your email address" required>
         </div>
         <div class="d-flex align-items-center mb-2">
-          <button type="submit" class="btn btn-dark rounded-pill px-4" data-submit>
+          <button type="submit" class="btn btn-dark px-4" data-submit>
             <span class="spinner-border spinner-border-sm me-2 d-none" role="status" aria-hidden="true" data-spinner></span>
             Start free trial
           </button>
         </div>
         <div class="text-success small d-none" data-status="success">Thanks! Redirecting…</div>
         <div class="text-danger small d-none" data-status="error">Please enter a valid name and email.</div>
-        <small class="text-muted d-block mt-2">You agree to receive Shopify marketing emails.</small>
+        <small class="text-muted d-block mt-2">You agree to receive Webmakerr marketing emails.</small>
       </form>
     </div>
 
