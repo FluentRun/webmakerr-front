@@ -37,7 +37,7 @@ Template Name: Sell Online Landing
 
     p,
     .text-secondary {
-      color: #475569 !important;
+      color: #475569;
     }
 
     .btn-dark {
@@ -85,6 +85,11 @@ Template Name: Sell Online Landing
     .hero {
       background: linear-gradient(135deg, #111827 0%, #0f172a 45%, #0b1220 100%);
       border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      color: #e2e8f0;
+    }
+
+    .hero p,
+    .hero .text-secondary {
       color: #e2e8f0;
     }
 
@@ -281,6 +286,11 @@ Template Name: Sell Online Landing
       border-radius: 12px;
       padding: 3rem 2rem;
       box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta-shell p,
+    .cta-shell .text-secondary {
+      color: #e2e8f0;
     }
   </style>
 </head>
