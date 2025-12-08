@@ -43,13 +43,24 @@
           Start free, then get 3 months for €1/month.
         </p>
 
-        <!-- EMAIL FIELD -->
-        <div class="input-group input-group-lg mb-2" style="max-width:420px;">
-          <input type="email" class="form-control rounded-pill ps-4" placeholder="Enter your email address">
-          <button class="btn btn-dark rounded-pill ms-2 px-4">Start free trial</button>
-        </div>
-
-        <small class="text-muted">You agree to receive Shopify marketing emails.</small>
+        <!-- LEAD CAPTURE FORM -->
+        <form class="online-store-lead-form" data-online-store-lead-form style="max-width:420px;">
+          <div class="input-group input-group-lg mb-2">
+            <input type="text" class="form-control rounded-pill ps-4" name="name" placeholder="Enter your name" required>
+          </div>
+          <div class="input-group input-group-lg mb-2">
+            <input type="email" class="form-control rounded-pill ps-4" name="email" placeholder="Enter your email address" required>
+          </div>
+          <div class="d-flex align-items-center mb-2">
+            <button type="submit" class="btn btn-dark rounded-pill px-4" data-submit>
+              <span class="spinner-border spinner-border-sm me-2 d-none" role="status" aria-hidden="true" data-spinner></span>
+              Start free trial
+            </button>
+          </div>
+          <div class="text-success small d-none" data-status="success">Thanks! Redirecting…</div>
+          <div class="text-danger small d-none" data-status="error">Please enter a valid name and email.</div>
+          <small class="text-muted d-block mt-2">You agree to receive Shopify marketing emails.</small>
+        </form>
       </div>
 
       <!-- RIGHT MOCKUP -->
@@ -186,13 +197,24 @@
     </h2>
 
     <div class="d-flex justify-content-center mb-2">
-      <div class="input-group input-group-lg" style="max-width:480px;">
-        <input type="email" class="form-control rounded-pill ps-4" placeholder="Enter your email address">
-        <button class="btn btn-dark rounded-pill ms-2 px-4">Start free trial</button>
-      </div>
+      <form class="online-store-lead-form w-100" data-online-store-lead-form style="max-width:480px;">
+        <div class="input-group input-group-lg mb-2">
+          <input type="text" class="form-control rounded-pill ps-4" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="input-group input-group-lg mb-2">
+          <input type="email" class="form-control rounded-pill ps-4" name="email" placeholder="Enter your email address" required>
+        </div>
+        <div class="d-flex align-items-center mb-2">
+          <button type="submit" class="btn btn-dark rounded-pill px-4" data-submit>
+            <span class="spinner-border spinner-border-sm me-2 d-none" role="status" aria-hidden="true" data-spinner></span>
+            Start free trial
+          </button>
+        </div>
+        <div class="text-success small d-none" data-status="success">Thanks! Redirecting…</div>
+        <div class="text-danger small d-none" data-status="error">Please enter a valid name and email.</div>
+        <small class="text-muted d-block mt-2">You agree to receive Shopify marketing emails.</small>
+      </form>
     </div>
-
-    <small class="text-muted">You agree to receive Shopify marketing emails.</small>
 
   </div>
 </section>
@@ -204,6 +226,89 @@
   </div>
 </footer>
 
+<script>
+  (function () {
+    var forms = document.querySelectorAll('[data-online-store-lead-form]');
+    var webhookUrl = 'https://webmakerr.com/?fluentcrm=1&route=contact&hash=62bf47c0-9f1a-4a70-8e7e-e11ef0acc748';
+
+    if (!forms.length) {
+      return;
+    }
+
+    forms.forEach(function (form) {
+      var nameInput = form.querySelector('input[name="name"]');
+      var emailInput = form.querySelector('input[name="email"]');
+      var successAlert = form.querySelector('[data-status="success"]');
+      var errorAlert = form.querySelector('[data-status="error"]');
+      var spinner = form.querySelector('[data-spinner]');
+      var submitBtn = form.querySelector('[data-submit]');
+
+      var showStatus = function (type) {
+        if (successAlert) {
+          successAlert.classList.toggle('d-none', type !== 'success');
+        }
+        if (errorAlert) {
+          errorAlert.classList.toggle('d-none', type !== 'error');
+        }
+      };
+
+      var setLoading = function (isLoading) {
+        if (submitBtn) {
+          submitBtn.disabled = isLoading;
+        }
+        if (spinner) {
+          spinner.classList.toggle('d-none', !isLoading);
+        }
+      };
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        var name = nameInput ? nameInput.value.trim() : '';
+        var email = emailInput ? emailInput.value.trim() : '';
+
+        showStatus('');
+
+        if (!name || !email) {
+          showStatus('error');
+          return;
+        }
+
+        setLoading(true);
+
+        fetch(webhookUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            email: email,
+            first_name: name
+          })
+        })
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json().catch(function () {
+              return {};
+            });
+          })
+          .then(function () {
+            form.reset();
+            showStatus('success');
+            window.location.href = '/thank-you-contact';
+          })
+          .catch(function () {
+            showStatus('error');
+          })
+          .finally(function () {
+            setLoading(false);
+          });
+      });
+    });
+  })();
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
