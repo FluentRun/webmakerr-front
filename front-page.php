@@ -125,12 +125,6 @@ get_header();
         border-radius: 4px !important;
     }
 
-    .hero-section {
-        background: radial-gradient(circle at 15% 20%, rgba(59, 130, 246, 0.08), transparent 38%),
-            radial-gradient(circle at 85% 10%, rgba(16, 185, 129, 0.08), transparent 32%),
-            linear-gradient(180deg, #f8fafc 0%, #ffffff 45%, #f8fafc 100%);
-    }
-
     .booking-ambient {
         background:
             radial-gradient(circle at 20% 20%, rgba(96, 165, 250, 0.08), transparent 45%),
@@ -181,68 +175,6 @@ get_header();
     .hero-info-row {
         gap: 1rem;
     }
-    .hero-eyebrow {
-        background: #0f172a;
-        color: #ffffff;
-        padding: 8px 14px;
-        border-radius: 999px;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        box-shadow: 0 12px 32px rgba(15, 23, 42, 0.18);
-    }
-    .hero-eyebrow small {
-        background: rgba(255, 255, 255, 0.12);
-        padding: 2px 8px;
-        border-radius: 999px;
-    }
-    .hero-checklist {
-        list-style: none;
-        padding: 0;
-        margin: 1.5rem 0 0;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 0.75rem;
-    }
-    .hero-checklist li {
-        display: flex;
-        align-items: flex-start;
-        gap: 10px;
-        padding: 12px 14px;
-        background: #fff;
-        border: 1px solid #e5e7eb;
-        border-radius: 4px;
-        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
-    }
-    .hero-check-icon {
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        background: #10b981;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        flex-shrink: 0;
-        box-shadow: 0 10px 24px rgba(16, 185, 129, 0.25);
-    }
-    .hero-metrics {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 0.75rem;
-        margin-top: 1.25rem;
-    }
-    .hero-metric-card {
-        background: #0f172a;
-        color: #fff;
-        border-radius: 4px;
-        padding: 14px 16px;
-        box-shadow: 0 14px 36px rgba(15, 23, 42, 0.18);
-    }
-    .hero-metric-card span {
-        display: block;
-        color: rgba(255, 255, 255, 0.8);
-    }
     .hero-pill {
         white-space: nowrap;
     }
@@ -289,55 +221,6 @@ get_header();
     .more-feature-grid {
         --bs-gutter-x: 1.25rem;
         --bs-gutter-y: 1.25rem;
-    }
-
-    .lead-capture-card {
-        background: #ffffff;
-        border: 1px solid #e5e7eb;
-        border-radius: 8px;
-        box-shadow: 0 20px 48px rgba(15, 23, 42, 0.16);
-        overflow: hidden;
-    }
-    .lead-capture-card__head {
-        padding: 18px 18px 0;
-    }
-    .lead-capture-card__body {
-        padding: 18px;
-    }
-    .lead-capture-card__pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 6px 10px;
-        background: #0f172a;
-        color: #fff;
-        border-radius: 999px;
-        font-size: 0.9rem;
-        box-shadow: 0 12px 24px rgba(15, 23, 42, 0.18);
-    }
-    .lead-form .form-control {
-        border-radius: 6px;
-        border: 1px solid #e2e8f0;
-        padding: 12px 14px;
-        box-shadow: none;
-    }
-    .lead-form .form-control:focus {
-        border-color: #2563eb;
-        box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.18);
-    }
-    .lead-form .btn {
-        border-radius: 6px;
-        padding: 12px;
-        box-shadow: 0 16px 32px rgba(15, 23, 42, 0.16);
-    }
-    .lead-form-note {
-        color: #475569;
-    }
-    .lead-form-status {
-        display: none;
-    }
-    .lead-form-status.is-visible {
-        display: block;
     }
 
     @media (min-width: 992px) {
@@ -633,141 +516,75 @@ get_header();
     }
 </style>
 
-<section class="pt-5 pb-5 hero-section">
+<section class="pt-5 pb-5 bg-light">
     <div class="container-lg">
-        <div class="p-4 p-md-5 bg-white border rounded-4 shadow-sm row g-5 align-items-start align-items-lg-center hero-row">
-            <div class="col-lg-7 hero-copy">
-                <span class="hero-eyebrow mb-3">
-                    Done-for-you growth engine
-                    <small>SEO • Ads • Video</small>
+        <div class="p-4 p-md-5 bg-white border rounded-4 shadow-sm row g-4 align-items-center hero-row">
+            <div class="col-lg-6 hero-copy">
+                <span class="d-inline-flex align-items-center small bg-light text-secondary px-3 py-1 rounded-pill mb-3">
+                    Full-Funnel Growth Services
+                    <svg width="12" height="12" class="ms-2" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M4 2l4 4-4 4" />
+                    </svg>
                 </span>
 
                 <h1 class="fw-semibold lh-sm text-dark hero-title">
-                    Convert more traffic into pipeline with one unified team
+                    Grow Faster With Services Built to Increase Traffic, Leads & Sales
                 </h1>
 
-                <p class="mt-3 text-secondary fs-5">
-                    We build the strategy, campaigns, and conversion-first experiences that compound your revenue—without adding headcount.
+                <p class="mt-3 text-secondary">
+                    We deliver proven SEO, ads management, video production, and conversion-first websites—everything you need to scale without the guesswork.
                 </p>
 
-                <ul class="hero-checklist">
-                    <li>
-                        <span class="hero-check-icon" aria-hidden="true">✓</span>
-                        <div>
-                            <strong>Channel playbooks, fast.</strong>
-                            <div class="text-muted">Get SEO, ad creative, video scripts, and landing pages built for your buyers.</div>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="hero-check-icon" aria-hidden="true">✓</span>
-                        <div>
-                            <strong>Hands-on optimization.</strong>
-                            <div class="text-muted">We ship tests weekly and report the wins that move CAC, LTV, and SQL volume.</div>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="hero-check-icon" aria-hidden="true">✓</span>
-                        <div>
-                            <strong>One lead form, one owner.</strong>
-                            <div class="text-muted">Specialists, designers, and editors in one pod so you never manage vendors.</div>
-                        </div>
-                    </li>
-                </ul>
+                <div class="d-flex flex-wrap hero-actions mt-4">
+                    <a href="<?php echo esc_url( $checkout_url ); ?>" class="btn btn-dark btn-lg d-flex align-items-center gap-2 w-100" style="max-width:260px;">
+                        <img src="<?php echo esc_url( $theme_dir . '/images/home/user3.png' ); ?>" width="18" alt="Google icon">
+                        Get Started — It’s Free
+                    </a>
 
-                <div class="hero-metrics">
-                    <div class="hero-metric-card">
-                        <div class="display-6 fw-semibold mb-1">42%</div>
-                        <span>Avg. lift in qualified pipeline</span>
-                    </div>
-                    <div class="hero-metric-card">
-                        <div class="display-6 fw-semibold mb-1">30 days</div>
-                        <span>To launch your first campaigns</span>
-                    </div>
-                    <div class="hero-metric-card">
-                        <div class="display-6 fw-semibold mb-1">90%</div>
-                        <span>Client retention across services</span>
-                    </div>
+                    <a href="#get-free-trial" class="btn btn-light border btn-lg d-flex align-items-center justify-content-between w-100" data-trial-open style="max-width:260px;">
+                        <span class="text-dark">Book a Strategy Call</span>
+                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.4">
+                            <path d="M4 2l6 5-6 5" />
+                        </svg>
+                    </a>
                 </div>
 
-                <div class="d-flex align-items-center gap-4 mt-4 flex-wrap">
-                    <div class="d-flex flex-wrap hero-actions">
-                        <a href="<?php echo esc_url( $checkout_url ); ?>" class="btn btn-dark btn-lg d-flex align-items-center gap-2 w-100" style="max-width:260px;">
-                            <img src="<?php echo esc_url( $theme_dir . '/images/home/user3.png' ); ?>" width="18" alt="Google icon">
-                            See plans & pricing
-                        </a>
+                <p class="small text-muted mt-2">Talk with specialists who plan, build, and optimize every channel for you.</p>
 
-                        <a href="#get-free-trial" class="btn btn-light border btn-lg d-flex align-items-center justify-content-between w-100" data-trial-open style="max-width:260px;">
-                            <span class="text-dark">Talk to a strategist</span>
-                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.4">
-                                <path d="M4 2l6 5-6 5" />
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="d-flex gap-3 align-items-center text-muted small">
-                        <img src="<?php echo esc_url( $theme_dir . '/images/trustf/sslupf.svg' ); ?>" height="20" alt="Trustpilot">
-                        <span>Rated 4.9/5 by modern marketing teams</span>
-                    </div>
+                <div class="d-flex gap-4 mt-4">
+                    <img src="<?php echo esc_url( $theme_dir . '/images/trustf/sslupf.svg' ); ?>" height="20" alt="Trustpilot">
+                    <img src="<?php echo esc_url( $theme_dir . '/images/trustf/nortonf.svg' ); ?>" height="20" alt="Google Reviews">
                 </div>
             </div>
-            <div class="col-lg-5">
-                <div class="lead-capture-card" id="get-free-trial">
-                    <div class="lead-capture-card__head">
-                        <span class="lead-capture-card__pill">
-                            <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8">
-                                <path d="M4 10.5l3 3 9-9" />
-                            </svg>
-                            Free Growth Plan
-                        </span>
-                        <h3 class="fw-semibold text-dark mt-3 mb-2" style="font-size: 1.6rem;">Claim your action plan</h3>
-                        <p class="text-muted mb-0">Tell us where to send the audit, campaign roadmap, and first creative concepts.</p>
-                    </div>
-
-                    <div class="lead-capture-card__body">
-                        <form class="lead-form" data-lead-form="hero" novalidate>
-                            <div class="row g-3">
-                                <div class="col-12 col-md-6">
-                                    <label for="heroName" class="form-label">Name</label>
-                                    <input type="text" class="form-control" id="heroName" name="heroName" placeholder="Jane Doe" required data-lead-name>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <label for="heroEmail" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="heroEmail" name="heroEmail" placeholder="you@company.com" required data-lead-email>
-                                </div>
+            <div class="col-lg-6">
+                <div class="position-relative bg-white border rounded-4 shadow-sm overflow-hidden booking-ambient">
+                    <div class="p-4 position-relative" style="z-index:2; min-height:350px;">
+                        <div class="d-flex justify-content-between align-items-start mb-3 hero-info-row">
+                            <div>
+                                <p class="fw-semibold text-dark mb-1">Growth plan built for your funnel</p>
+                                <p class="small text-muted mb-0">See exactly how SEO, ads, video, and conversion design work together to drive measurable revenue—without adding internal lift.</p>
                             </div>
+                            <span class="small text-muted fw-normal hero-pill">Specialist-led execution</span>
+                        </div>
 
-                            <button type="submit" class="btn btn-dark btn-lg w-100 d-flex justify-content-center align-items-center gap-2 mt-3" data-lead-submit>
-                                <span>Send me the plan</span>
-                                <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true" data-lead-spinner></span>
-                            </button>
+                        <div class="d-flex flex-wrap gap-2 small text-muted mb-3">
+                            <span class="border rounded-pill px-3 py-1">SEO & content roadmap</span>
+                            <span class="border rounded-pill px-3 py-1">Ad budget & creative plan</span>
+                            <span class="border rounded-pill px-3 py-1">Conversion-first landing pages</span>
+                        </div>
 
-                            <p class="small lead-form-note mt-2 mb-2">No spam. We reply with a clear plan and sample deliverables.</p>
-
-                            <div class="alert alert-success lead-form-status" role="status" data-lead-success>
-                                Thanks! Check your inbox for next steps.
-                            </div>
-                            <div class="alert alert-danger lead-form-status" role="alert" data-lead-error>
-                                Something went wrong. Please try again in a moment.
-                            </div>
-                        </form>
-
-                        <div class="mt-3 border rounded-3 p-3 bg-light">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="fw-semibold text-dark">Preview a paid social build</span>
-                                <span class="badge text-bg-dark">00:30</span>
-                            </div>
-                            <div class="position-relative border rounded-3 p-2 hero-animation-shell">
-                                <div class="ratio ratio-16x9 w-100">
-                                    <video
-                                        class="w-100 h-100 rounded-3"
-                                        data-src="https://cdn.webmakerr.com/website/facebook-ads-1.mp4"
-                                        autoplay
-                                        muted
-                                        playsinline
-                                        loop
-                                        controls
-                                        preload="none"
-                                    ></video>
-                                </div>
+                        <div class="position-relative border rounded-3 p-3 shadow-sm hero-animation-shell">
+                            <div class="ratio ratio-16x9 w-100">
+                                <video
+                                    class="w-100 h-100 rounded-3"
+                                    data-src="https://cdn.webmakerr.com/website/facebook-ads-1.mp4"
+                                    autoplay
+                                    muted
+                                    playsinline
+                                    loop
+                                    controls
+                                    preload="none"
+                                ></video>
                             </div>
                         </div>
                     </div>
@@ -825,26 +642,26 @@ get_header();
                 </div>
 
                 <div class="trial-modal__form mt-3">
-                    <form id="freeTrialForm" class="needs-validation" novalidate data-lead-form="modal">
+                    <form id="freeTrialForm" class="needs-validation" novalidate>
                         <div class="mb-3">
                             <label for="trialName" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="trialName" name="trialName" placeholder="Jane Doe" required data-lead-name>
+                            <input type="text" class="form-control" id="trialName" name="trialName" placeholder="Jane Doe" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="trialEmail" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="trialEmail" name="trialEmail" placeholder="you@company.com" required data-lead-email>
+                            <input type="email" class="form-control" id="trialEmail" name="trialEmail" placeholder="you@company.com" required>
                         </div>
 
-                        <button type="submit" class="btn btn-dark btn-lg w-100 d-flex justify-content-center align-items-center gap-2" data-trial-submit data-lead-submit>
+                        <button type="submit" class="btn btn-dark btn-lg w-100 d-flex justify-content-center align-items-center gap-2" data-trial-submit>
                             <span>Submit</span>
-                            <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true" data-trial-spinner data-lead-spinner></span>
+                            <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true" data-trial-spinner></span>
                         </button>
 
-                        <div class="alert alert-success trial-modal__status mt-3" role="status" data-trial-success data-lead-success>
+                        <div class="alert alert-success trial-modal__status mt-3" role="status" data-trial-success>
                             Thanks! Your request has been received. Check your inbox for next steps.
                         </div>
-                        <div class="alert alert-danger trial-modal__status mt-3" role="alert" data-trial-error data-lead-error>
+                        <div class="alert alert-danger trial-modal__status mt-3" role="alert" data-trial-error>
                             Something went wrong. Please try again in a moment.
                         </div>
                     </form>
@@ -1330,7 +1147,7 @@ get_header();
                 Start For Free
             </a>
             <a href="#get-free-trial" class="btn btn-light border btn-lg w-100 text-dark" data-trial-open>
-                Get Free Trial
+                Get Free Trail
             </a>
         </div>
     </div>
@@ -1339,19 +1156,20 @@ get_header();
 <script>
     (function () {
         var modalBackdrop = document.getElementById('freeTrialModal');
-        var modalForm = modalBackdrop ? modalBackdrop.querySelector('[data-lead-form="modal"]') : null;
-        var modalNameInput = modalForm ? modalForm.querySelector('[data-lead-name]') : null;
-        var modalEmailInput = modalForm ? modalForm.querySelector('[data-lead-email]') : null;
-        var successAlert = modalForm ? modalForm.querySelector('[data-trial-success]') : null;
-        var errorAlert = modalForm ? modalForm.querySelector('[data-trial-error]') : null;
+        var form = document.getElementById('freeTrialForm');
+        var nameInput = document.getElementById('trialName');
+        var emailInput = document.getElementById('trialEmail');
+        var successAlert = modalBackdrop ? modalBackdrop.querySelector('[data-trial-success]') : null;
+        var errorAlert = modalBackdrop ? modalBackdrop.querySelector('[data-trial-error]') : null;
+        var spinner = modalBackdrop ? modalBackdrop.querySelector('[data-trial-spinner]') : null;
+        var submitBtn = modalBackdrop ? modalBackdrop.querySelector('[data-trial-submit]') : null;
         var webhookUrl = 'https://webmakerr.com/?fluentcrm=1&route=contact&hash=62bf47c0-9f1a-4a70-8e7e-e11ef0acc748';
-        var redirectUrl = '/thank-you-contact';
+
+        if (!modalBackdrop || !form || !nameInput || !emailInput) {
+            return;
+        }
 
         var toggleModal = function (show) {
-            if (!modalBackdrop) {
-                return;
-            }
-
             modalBackdrop.classList.toggle('is-visible', show);
             modalBackdrop.setAttribute('aria-hidden', show ? 'false' : 'true');
             document.body.classList.toggle('overflow-hidden', show);
@@ -1359,92 +1177,12 @@ get_header();
             if (show) {
                 successAlert && successAlert.classList.remove('is-visible');
                 errorAlert && errorAlert.classList.remove('is-visible');
-                modalNameInput && modalNameInput.focus();
+                nameInput.focus();
             }
         };
 
         var closeModal = function () {
             toggleModal(false);
-        };
-
-        var setupLeadForm = function (form) {
-            if (!form) {
-                return;
-            }
-
-            var nameInput = form.querySelector('[data-lead-name]');
-            var emailInput = form.querySelector('[data-lead-email]');
-            var successEl = form.querySelector('[data-lead-success]') || successAlert;
-            var errorEl = form.querySelector('[data-lead-error]') || errorAlert;
-            var spinner = form.querySelector('[data-lead-spinner]');
-            var submitBtn = form.querySelector('[data-lead-submit]') || form.querySelector('[type="submit"]');
-
-            if (!nameInput || !emailInput) {
-                return;
-            }
-
-            var setLoading = function (isLoading) {
-                if (submitBtn) {
-                    submitBtn.disabled = isLoading;
-                }
-                if (spinner) {
-                    spinner.classList.toggle('d-none', !isLoading);
-                }
-            };
-
-            var showStatus = function (type) {
-                if (successEl) {
-                    successEl.classList.toggle('is-visible', type === 'success');
-                }
-                if (errorEl) {
-                    errorEl.classList.toggle('is-visible', type === 'error');
-                }
-            };
-
-            form.addEventListener('submit', function (event) {
-                event.preventDefault();
-
-                var name = nameInput.value.trim();
-                var email = emailInput.value.trim();
-
-                showStatus('');
-                if (!name || !email) {
-                    showStatus('error');
-                    return;
-                }
-
-                setLoading(true);
-
-                fetch(webhookUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        email: email,
-                        first_name: name
-                    })
-                })
-                    .then(function (response) {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok');
-                        }
-                        return response.json().catch(function () {
-                            return {};
-                        });
-                    })
-                    .then(function () {
-                        form.reset();
-                        showStatus('success');
-                        window.location.href = redirectUrl;
-                    })
-                    .catch(function () {
-                        showStatus('error');
-                    })
-                    .finally(function () {
-                        setLoading(false);
-                    });
-            });
         };
 
         var openButtons = document.querySelectorAll('[data-trial-open]');
@@ -1455,27 +1193,85 @@ get_header();
             });
         });
 
-        if (modalBackdrop) {
-            var closeButtons = modalBackdrop.querySelectorAll('[data-trial-close]');
-            closeButtons.forEach(function (btn) {
-                btn.addEventListener('click', closeModal);
-            });
+        var closeButtons = modalBackdrop.querySelectorAll('[data-trial-close]');
+        closeButtons.forEach(function (btn) {
+            btn.addEventListener('click', closeModal);
+        });
 
-            modalBackdrop.addEventListener('click', function (event) {
-                if (event.target === modalBackdrop) {
-                    closeModal();
-                }
-            });
+        modalBackdrop.addEventListener('click', function (event) {
+            if (event.target === modalBackdrop) {
+                closeModal();
+            }
+        });
 
-            document.addEventListener('keyup', function (event) {
-                if (event.key === 'Escape' && modalBackdrop.classList.contains('is-visible')) {
-                    closeModal();
-                }
-            });
-        }
+        document.addEventListener('keyup', function (event) {
+            if (event.key === 'Escape' && modalBackdrop.classList.contains('is-visible')) {
+                closeModal();
+            }
+        });
 
-        setupLeadForm(document.querySelector('[data-lead-form="hero"]'));
-        setupLeadForm(modalForm);
+        var setLoading = function (isLoading) {
+            if (!submitBtn || !spinner) {
+                return;
+            }
+
+            submitBtn.disabled = isLoading;
+            spinner.classList.toggle('d-none', !isLoading);
+        };
+
+        var showStatus = function (type) {
+            if (successAlert) {
+                successAlert.classList.toggle('is-visible', type === 'success');
+            }
+            if (errorAlert) {
+                errorAlert.classList.toggle('is-visible', type === 'error');
+            }
+        };
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            var name = nameInput.value.trim();
+            var email = emailInput.value.trim();
+
+            showStatus('');
+            if (!name || !email) {
+                showStatus('error');
+                return;
+            }
+
+            setLoading(true);
+
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: email,
+                    first_name: name
+                })
+            })
+                .then(function (response) {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json().catch(function () {
+                        return {};
+                    });
+                })
+                .then(function () {
+                    form.reset();
+                    showStatus('success');
+                    window.location.href = '/thank-you-contact';
+                })
+                .catch(function () {
+                    showStatus('error');
+                })
+                .finally(function () {
+                    setLoading(false);
+                });
+        });
     })();
 </script>
 
