@@ -1,3 +1,8 @@
+<?php
+/*
+Template Name: Sell Online Landing
+*/
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
