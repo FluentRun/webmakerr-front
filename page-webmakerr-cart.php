@@ -18,55 +18,23 @@ wp_enqueue_script(
     true
 );
 
-$webmakerr_cart_install_count_option = get_option('webmakerr_cart_active_installs', null);
-
-if (false === $webmakerr_cart_install_count_option) {
-    $webmakerr_cart_install_count_option = 0;
-    add_option('webmakerr_cart_active_installs', $webmakerr_cart_install_count_option);
-}
-
-$webmakerr_cart_install_count = absint($webmakerr_cart_install_count_option);
-
-if (!function_exists('webmakerr_cart_handle_increment')) {
-    function webmakerr_cart_handle_increment() {
-        $nonce = isset($_POST['nonce']) ? sanitize_text_field(wp_unslash($_POST['nonce'])) : '';
-
-        if (!wp_verify_nonce($nonce, 'webmakerr_cart_install_increment')) {
-            wp_send_json_error(['message' => 'Invalid request.'], 400);
-        }
-
-        $current = get_option('webmakerr_cart_active_installs', null);
-
-        if (false === $current) {
-            $current = 0;
-            add_option('webmakerr_cart_active_installs', $current);
-        }
-
-        $current = absint($current) + 1;
-
-        update_option('webmakerr_cart_active_installs', $current);
-
-        wp_send_json_success([
-            'count' => $current,
-        ]);
-    }
-}
-
-add_action('wp_ajax_webmakerr_cart_increment', 'webmakerr_cart_handle_increment');
-add_action('wp_ajax_nopriv_webmakerr_cart_increment', 'webmakerr_cart_handle_increment');
-
-$webmakerr_cart_nonce = wp_create_nonce('webmakerr_cart_install_increment');
-$webmakerr_cart_ajax_url = admin_url('admin-ajax.php');
+$webmakerr_cart_install_count = webmakerr_cart_get_install_count();
+$webmakerr_cart_nonce         = wp_create_nonce('webmakerr_cart_install_increment');
+$webmakerr_cart_ajax_url      = admin_url('admin-ajax.php');
 
 get_header();
 ?>
 
 <script>
-    var webmakerrCartData = {
-        count: <?php echo (int) $webmakerr_cart_install_count; ?>,
-        ajaxUrl: "<?php echo esc_url( $webmakerr_cart_ajax_url ); ?>",
-        nonce: "<?php echo esc_js( $webmakerr_cart_nonce ); ?>"
-    };
+    window.webmakerrCartData = <?php
+    echo wp_json_encode(
+        array(
+            'count'   => (int) $webmakerr_cart_install_count,
+            'ajaxUrl' => esc_url_raw( $webmakerr_cart_ajax_url ),
+            'nonce'   => $webmakerr_cart_nonce,
+        )
+    );
+    ?>;
 </script>
 
 <main>
@@ -706,96 +674,80 @@ get_header();
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        var counterValue = document.getElementById('install-count-value');
+        var counterNode = document.getElementById('install-count-value');
+        var counterData = window.webmakerrCartData;
 
-        if (!counterValue || typeof webmakerrCartData === 'undefined') {
+        if (!counterNode || typeof counterData !== 'object' || counterData === null) {
             return;
         }
 
-        var installCount = Number(webmakerrCartData.count);
-        if (!Number.isFinite(installCount)) {
-            var parsedFromDom = Number((counterValue.textContent || '').replace(/,/g, ''));
-            installCount = Number.isFinite(parsedFromDom) ? parsedFromDom : null;
+        var installCount = Number(counterData.count);
+        var ajaxUrl = typeof counterData.ajaxUrl === 'string' ? counterData.ajaxUrl : '';
+        var nonce = typeof counterData.nonce === 'string' ? counterData.nonce : '';
+
+        if (!Number.isFinite(installCount) || !ajaxUrl || !nonce) {
+            return;
         }
+
         var supportsHover = window.matchMedia('(hover: hover)').matches || window.matchMedia('(any-hover: hover)').matches;
+        var buttonSelector = 'button, .btn, .wmk-btn, input[type="button"], input[type="submit"], input[type="reset"]';
 
-        if (!Number.isFinite(installCount)) {
-            return;
-        }
-
-        var updateDisplay = function () {
-            counterValue.textContent = installCount.toLocaleString();
+        var renderCount = function (value) {
+            counterNode.textContent = Number(value).toLocaleString();
         };
 
-        var incrementCounter = function () {
-            var formData = new URLSearchParams({
+        var requestIncrement = function (eventType) {
+            if (eventType === 'hover' && !supportsHover) {
+                return;
+            }
+
+            var payload = new URLSearchParams({
                 action: 'webmakerr_cart_increment',
-                nonce: webmakerrCartData.nonce
+                nonce: nonce
             });
 
-            fetch(webmakerrCartData.ajaxUrl, {
+            fetch(ajaxUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
-                body: formData.toString()
+                body: payload.toString()
             })
                 .then(function (response) {
                     return response.json();
                 })
-                .then(function (data) {
-                    if (data && data.success && data.data && data.data.count) {
-                        installCount = Number(data.data.count);
-                        if (!Number.isFinite(installCount)) {
-                            return;
-                        }
-                        updateDisplay();
+                .then(function (responseData) {
+                    var nextCount = responseData && responseData.success && responseData.data
+                        ? Number(responseData.data.count)
+                        : NaN;
+
+                    if (!Number.isFinite(nextCount)) {
+                        return;
                     }
+
+                    installCount = nextCount;
+                    renderCount(installCount);
                 })
                 .catch(function () {
-                    // Swallow errors silently; counter persistence handled server-side.
+                    // Gracefully ignore transient network issues.
                 });
         };
 
-        var handleIncrement = function (eventType) {
-            if (eventType === 'mouseenter' && !supportsHover) {
-                return;
-            }
-
-            incrementCounter();
-        };
-
-        var buttonSelector = '.wmk-btn, .btn, button, input[type="button"], input[type="submit"], input[type="reset"]';
-
-        document.querySelectorAll(buttonSelector).forEach(function (button) {
-            if (!button.classList.contains('wmk-btn')) {
-                button.classList.add('wmk-btn');
-            }
-        });
-
         document.addEventListener('click', function (event) {
-            var target = event.target.closest(buttonSelector);
-
-            if (!target) {
-                return;
+            if (event.target.closest(buttonSelector)) {
+                requestIncrement('click');
             }
-
-            handleIncrement('click');
         });
 
         if (supportsHover) {
             document.addEventListener('mouseover', function (event) {
-                var target = event.target.closest(buttonSelector);
-
-                if (!target) {
-                    return;
+                if (event.target.closest(buttonSelector)) {
+                    requestIncrement('hover');
                 }
-
-                handleIncrement('mouseenter');
             });
         }
 
-        updateDisplay();
+        renderCount(installCount);
     });
 </script>
 

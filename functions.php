@@ -31,6 +31,7 @@ include( __DIR__ . '/hooks/init.hooks.php' );
 include( __DIR__ . '/inc/breadcrumbs.php' );
 include( __DIR__ . '/inc/review.php' );
 include( __DIR__ . '/inc/instagram.php' );
+include( __DIR__ . '/inc/webmakerr-cart-counter.php' );
 
 
 if ( ! function_exists( 'raphael_is_item_permalink' ) ) {
