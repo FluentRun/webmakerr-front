@@ -252,7 +252,7 @@ get_header();
     </section>
 
     <section class="py-5 py-lg-6 bg-white border-bottom" id="benefits">
-        <div class="container">
+        <div class="container-lg">
             <div class="row mb-4 align-items-center">
                 <div class="col-lg-8">
                     <h2 class="fw-bold mb-2">Benefits you can launch today</h2>
@@ -264,39 +264,93 @@ get_header();
             </div>
             <div class="row g-4 row-cols-1 row-cols-md-2 row-cols-lg-3">
                 <div class="col">
-                    <div class="h-100 p-4 bg-light rounded-3 border">
-                        <h5 class="fw-bold mb-2">Built for uncompromised speed</h5>
-                        <p class="text-secondary mb-0">Commerce data lives in dedicated tables, keeping backend operations quick even with large catalogs and campaign traffic.</p>
+                    <div class="bg-white border rounded-4 shadow-sm p-4 h-100 d-flex flex-column">
+                        <span class="d-flex justify-content-center align-items-center bg-light rounded-3 shadow-sm mb-3" style="width: 48px; height: 48px;">
+                            <span class="fw-bold text-secondary small">01</span>
+                        </span>
+
+                        <h5 class="fw-semibold text-dark">Built for uncompromised speed</h5>
+
+                        <p class="text-muted small mt-2">
+                            Commerce data lives in dedicated tables, keeping backend operations quick even with large catalogs and campaign traffic.
+                        </p>
+
+                        <img src="https://cdn.webmakerr.com/website/facebook-ads-3.png" alt="Performance tuned ecommerce" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
                     </div>
                 </div>
                 <div class="col">
-                    <div class="h-100 p-4 bg-light rounded-3 border">
-                        <h5 class="fw-bold mb-2">Checkout that converts</h5>
-                        <p class="text-secondary mb-0">Drag-and-drop checkout blocks, saved details, and frictionless payments reduce abandonment and keep buyers moving.</p>
+                    <div class="bg-white border rounded-4 shadow-sm p-4 h-100 d-flex flex-column">
+                        <span class="d-flex justify-content-center align-items-center bg-light rounded-3 shadow-sm mb-3" style="width: 48px; height: 48px;">
+                            <span class="fw-bold text-secondary small">02</span>
+                        </span>
+
+                        <h5 class="fw-semibold text-dark">Checkout that converts</h5>
+
+                        <p class="text-muted small mt-2">
+                            Drag-and-drop checkout blocks, saved details, and frictionless payments reduce abandonment and keep buyers moving.
+                        </p>
+
+                        <img src="https://cdn.webmakerr.com/website/facebook-ads-1.png" alt="Conversion-focused checkout" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
                     </div>
                 </div>
                 <div class="col">
-                    <div class="h-100 p-4 bg-light rounded-3 border">
-                        <h5 class="fw-bold mb-2">Smart catalog control</h5>
-                        <p class="text-secondary mb-0">Manage variations, bundles, and recommendations in one place so customers always see the right offer at the right time.</p>
+                    <div class="bg-white border rounded-4 shadow-sm p-4 h-100 d-flex flex-column">
+                        <span class="d-flex justify-content-center align-items-center bg-light rounded-3 shadow-sm mb-3" style="width: 48px; height: 48px;">
+                            <span class="fw-bold text-secondary small">03</span>
+                        </span>
+
+                        <h5 class="fw-semibold text-dark">Smart catalog control</h5>
+
+                        <p class="text-muted small mt-2">
+                            Manage variations, bundles, and recommendations in one place so customers always see the right offer at the right time.
+                        </p>
+
+                        <img src="https://cdn.webmakerr.com/website/facebook-ads-2.png" alt="Merchandising automation" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
                     </div>
                 </div>
                 <div class="col">
-                    <div class="h-100 p-4 bg-light rounded-3 border">
-                        <h5 class="fw-bold mb-2">Subscriptions & licensing on autopilot</h5>
-                        <p class="text-secondary mb-0">Generate licenses, manage renewals, and handle cancellations automatically—no third-party billing tools required.</p>
+                    <div class="bg-white border rounded-4 shadow-sm p-4 h-100 d-flex flex-column">
+                        <span class="d-flex justify-content-center align-items-center bg-light rounded-3 shadow-sm mb-3" style="width: 48px; height: 48px;">
+                            <span class="fw-bold text-secondary small">04</span>
+                        </span>
+
+                        <h5 class="fw-semibold text-dark">Subscriptions & licensing on autopilot</h5>
+
+                        <p class="text-muted small mt-2">
+                            Generate licenses, manage renewals, and handle cancellations automatically—no third-party billing tools required.
+                        </p>
+
+                        <img src="https://cdn.webmakerr.com/website/booking1.png" alt="Automated renewals" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
                     </div>
                 </div>
                 <div class="col">
-                    <div class="h-100 p-4 bg-light rounded-3 border">
-                        <h5 class="fw-bold mb-2">Developer-ready APIs</h5>
-                        <p class="text-secondary mb-0">Connect any payment gateway, build custom workflows, or go headless with REST APIs that keep performance intact.</p>
+                    <div class="bg-white border rounded-4 shadow-sm p-4 h-100 d-flex flex-column">
+                        <span class="d-flex justify-content-center align-items-center bg-light rounded-3 shadow-sm mb-3" style="width: 48px; height: 48px;">
+                            <span class="fw-bold text-secondary small">05</span>
+                        </span>
+
+                        <h5 class="fw-semibold text-dark">Developer-ready APIs</h5>
+
+                        <p class="text-muted small mt-2">
+                            Connect any payment gateway, build custom workflows, or go headless with REST APIs that keep performance intact.
+                        </p>
+
+                        <img src="https://cdn.webmakerr.com/website/facebook-ads-1.png" alt="API-first ecommerce" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
                     </div>
                 </div>
                 <div class="col">
-                    <div class="h-100 p-4 bg-light rounded-3 border">
-                        <h5 class="fw-bold mb-2">Insights that stay live</h5>
-                        <p class="text-secondary mb-0">Track revenue, order health, and customer activity in real time so you can move quickly on what’s working.</p>
+                    <div class="bg-white border rounded-4 shadow-sm p-4 h-100 d-flex flex-column">
+                        <span class="d-flex justify-content-center align-items-center bg-light rounded-3 shadow-sm mb-3" style="width: 48px; height: 48px;">
+                            <span class="fw-bold text-secondary small">06</span>
+                        </span>
+
+                        <h5 class="fw-semibold text-dark">Insights that stay live</h5>
+
+                        <p class="text-muted small mt-2">
+                            Track revenue, order health, and customer activity in real time so you can move quickly on what’s working.
+                        </p>
+
+                        <img src="https://cdn.webmakerr.com/website/facebook-ads-3.png" alt="Realtime store analytics" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
                     </div>
                 </div>
             </div>
@@ -363,23 +417,27 @@ get_header();
 
     <section class="py-5 bg-light border-top" id="cta">
         <div class="container-lg">
-            <div class="position-relative bg-white border rounded-4 shadow-sm p-4 p-md-5 text-center overflow-hidden">
+            <div class="position-relative bg-white border rounded-4 shadow-sm p-4 p-md-5 text-center overflow-hidden" style="min-height: 360px;">
                 <div class="position-absolute top-0 bottom-0 start-0 end-0 opacity-25"
                      style="background-image: radial-gradient(circle at center, #000 1px, transparent 1px), radial-gradient(circle at center, #000 1px, transparent 1px); background-size: 34px 34px; background-position: 0 0, 17px 17px; pointer-events: none;">
                 </div>
 
-                <div class="position-relative" style="z-index:2;">
-                    <h2 class="fw-semibold lh-sm text-dark mx-auto" style="font-size: 2.25rem; max-width: 700px;">
+                <div class="position-absolute start-0 end-0 top-0" style="height: 100%; background: radial-gradient(circle at 20% 20%, rgba(37, 99, 235, 0.08), transparent 40%), radial-gradient(circle at 80% 70%, rgba(16, 185, 129, 0.08), transparent 35%);"></div>
+
+                <div class="position-relative d-flex flex-column align-items-center" style="z-index:2;">
+                    <span class="d-inline-flex align-items-center bg-white border px-3 py-1 rounded-pill text-secondary small shadow-sm mb-3">Launch faster</span>
+
+                    <h2 class="fw-semibold lh-sm text-dark mx-auto" style="font-size: 2.25rem; max-width: 720px;">
                         Download Webmakerr Cart and launch faster
                     </h2>
 
-                    <p class="text-muted small mb-4 mx-auto" style="max-width: 600px;">
+                    <p class="text-muted small mb-4 mx-auto" style="max-width: 640px;">
                         Add the free plugin, activate the built-in checkout, and keep performance, payments, and fulfillment under your roof.
                     </p>
 
-                    <div class="d-flex flex-wrap gap-2 justify-content-center w-100" style="max-width: 440px;" id="cta-actions">
-                        <a class="btn btn-dark btn-lg shadow-sm w-100" style="max-width: 210px;" href="#">Get the plugin free</a>
-                        <a class="btn btn-light border btn-lg w-100" style="max-width: 210px;" href="#">Talk with our team</a>
+                    <div class="d-flex flex-wrap gap-3 justify-content-center w-100" style="max-width: 520px;" id="cta-actions">
+                        <a class="btn btn-dark btn-lg shadow-sm px-4" style="min-width: 220px;" href="#">Get the plugin free</a>
+                        <a class="btn btn-light border btn-lg px-4 text-dark" style="min-width: 220px;" href="#">Talk with our team</a>
                     </div>
                 </div>
             </div>
