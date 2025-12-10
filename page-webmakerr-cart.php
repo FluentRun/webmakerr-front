@@ -833,7 +833,7 @@ get_header();
         var popupOverlay = document.getElementById('webmakerr-cart-popup');
         var popupDialog = popupOverlay ? popupOverlay.querySelector('.wmk-modal-dialog') : null;
         var popupClose = document.getElementById('webmakerr-cart-popup-close');
-        var popupButtonSelector = 'button, a.btn, .btn, .wmk-btn, input[type="button"], input[type="submit"], input[type="reset"]';
+        var popupButtonSelector = '.download-primary-btn, [data-popup-trigger="premium"]';
         var pageButtons = Array.prototype.slice.call(document.querySelectorAll(popupButtonSelector));
 
         var openPopup = function (event) {
