@@ -18,8 +18,7 @@ wp_enqueue_script(
     true
 );
 
-$webmakerr_cart_install_count = max(1000, (int) get_option('webmakerr_cart_active_installs', 1000));
-update_option('webmakerr_cart_active_installs', $webmakerr_cart_install_count);
+$webmakerr_cart_install_count = (int) get_option('webmakerr_cart_active_installs');
 
 if (!function_exists('webmakerr_cart_handle_increment')) {
     function webmakerr_cart_handle_increment() {
@@ -29,8 +28,8 @@ if (!function_exists('webmakerr_cart_handle_increment')) {
             wp_send_json_error(['message' => 'Invalid request.'], 400);
         }
 
-        $current = max(250, (int) get_option('webmakerr_cart_active_installs', 250));
-        $current++;
+        $current = (int) get_option('webmakerr_cart_active_installs');
+        $current = max(0, $current + 1);
 
         update_option('webmakerr_cart_active_installs', $current);
 
@@ -695,49 +694,23 @@ get_header();
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var counterValue = document.getElementById('install-count-value');
-        var STORAGE_KEY = 'webmakerrCartInstallCount';
 
         if (!counterValue || typeof webmakerrCartData === 'undefined') {
             return;
         }
 
-        var installCount = parseInt(webmakerrCartData.count, 10) || 1000;
+        var installCount = Number(webmakerrCartData.count);
         var supportsHover = window.matchMedia('(hover: hover)').matches || window.matchMedia('(any-hover: hover)').matches;
 
-        var readStoredCount = function () {
-            try {
-                var stored = localStorage.getItem(STORAGE_KEY);
-                var parsed = stored ? parseInt(stored, 10) : NaN;
-
-                return Number.isFinite(parsed) ? parsed : null;
-            } catch (error) {
-                return null;
-            }
-        };
-
-        var writeStoredCount = function (value) {
-            try {
-                localStorage.setItem(STORAGE_KEY, String(value));
-            } catch (error) {
-                // Ignore storage failures (e.g., private mode restrictions)
-            }
-        };
-
-        var storedCount = readStoredCount();
-
-        if (storedCount && storedCount > installCount) {
-            installCount = storedCount;
+        if (!Number.isFinite(installCount)) {
+            return;
         }
 
         var updateDisplay = function () {
             counterValue.textContent = installCount.toLocaleString();
-            writeStoredCount(installCount);
         };
 
         var incrementCounter = function () {
-            installCount += 1;
-            updateDisplay();
-
             var formData = new URLSearchParams({
                 action: 'webmakerr_cart_increment',
                 nonce: webmakerrCartData.nonce
@@ -755,7 +728,10 @@ get_header();
                 })
                 .then(function (data) {
                     if (data && data.success && data.data && data.data.count) {
-                        installCount = parseInt(data.data.count, 10);
+                        installCount = Number(data.data.count);
+                        if (!Number.isFinite(installCount)) {
+                            return;
+                        }
                         updateDisplay();
                     }
                 })
