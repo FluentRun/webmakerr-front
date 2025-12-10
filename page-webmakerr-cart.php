@@ -59,19 +59,6 @@ get_header();
             gap: 1rem;
         }
 
-        .download-primary-btn {
-            min-width: 220px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .download-primary-btn.btn-lg {
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
-        }
-
         .hero-animation-shell {
             min-height: 260px;
             background: linear-gradient(135deg, #1877F2 50%, #000000 50%);
@@ -88,42 +75,6 @@ get_header();
 
         .hero-pill {
             white-space: nowrap;
-        }
-
-        .install-counter {
-            background: #fff;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
-            padding: 16px 18px;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-width: 220px;
-            cursor: default;
-        }
-
-        .hero-actions .install-counter {
-            min-height: 56px;
-            align-self: stretch;
-        }
-
-        .install-counter.counter-active {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-        }
-
-        .install-counter .count-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .install-counter .count-number {
-            font-size: clamp(1.9rem, 1.35rem + 1vw, 2.4rem);
-            font-weight: 700;
-            line-height: 1;
         }
 
         .live-indicator {
@@ -198,15 +149,15 @@ get_header();
                     <h1 class="fw-semibold lh-sm text-dark" style="font-size: clamp(2rem, 1.5rem + 2vw, 3.4rem);">Own your revenue with the Webmakerr Cart plugin</h1>
                     <p class="mt-3 text-secondary">Install the free, performance-first ecommerce engine built to keep every transaction fast, on-brand, and under your control—whether you sell physical products, digital downloads, or licenses.</p>
                     <div class="d-flex flex-wrap hero-actions mt-4">
-                        <a class="btn btn-dark btn-lg shadow-sm px-4 download-primary-btn" href="#cta" id="download-cart-button">Download Now</a>
-
-                        <div class="install-counter w-100" style="max-width:260px;" aria-live="polite" aria-label="Active installations" role="status">
-                            <div class="count-row">
+                        <div class="d-flex flex-column align-items-start">
+                            <a class="btn btn-dark btn-lg shadow-sm px-4 download-primary-btn" href="#cta" id="download-cart-button">Download Now</a>
+                            <div class="d-flex align-items-center gap-2 small text-secondary mt-2" aria-live="polite" aria-label="Active installations" role="status">
                                 <span class="live-indicator" aria-hidden="true"></span>
-                                <div class="count-number text-dark" id="install-count-value"><?php echo esc_html( number_format_i18n( $webmakerr_cart_install_count ) ); ?></div>
-                                <span class="text-secondary fw-semibold">+</span>
+                                <span>
+                                    <span class="text-dark" id="install-count-value"><?php echo esc_html( number_format_i18n( $webmakerr_cart_install_count ) ); ?></span>
+                                    <span class="text-secondary">+ Active installations</span>
+                                </span>
                             </div>
-                            <div class="small text-secondary mt-1">Active installations</div>
                         </div>
                     </div>
 
