@@ -677,41 +677,18 @@ get_header();
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        var counterContainer = document.querySelector('.install-counter');
         var counterValue = document.getElementById('install-count-value');
-        var downloadButton = document.getElementById('download-cart-button');
 
-        if (!counterContainer || !counterValue || !downloadButton || typeof webmakerrCartData === 'undefined') {
+        if (!counterValue || typeof webmakerrCartData === 'undefined') {
             return;
         }
 
         var installCount = parseInt(webmakerrCartData.count, 10) || 250;
-        var displayedCount = installCount;
-        var hasTriggeredIncrement = false;
         var supportsHover = window.matchMedia('(hover: hover)').matches || window.matchMedia('(any-hover: hover)').matches;
+        var processedButtons = new WeakSet();
 
         var updateDisplay = function () {
-            counterValue.textContent = displayedCount.toLocaleString();
-        };
-
-        var animateTo = function (target) {
-            if (target <= displayedCount) {
-                return;
-            }
-
-            counterContainer.classList.add('counter-active');
-
-            var step = function () {
-                if (displayedCount < target) {
-                    displayedCount += 1;
-                    updateDisplay();
-                    requestAnimationFrame(step);
-                } else {
-                    counterContainer.classList.remove('counter-active');
-                }
-            };
-
-            requestAnimationFrame(step);
+            counterValue.textContent = installCount.toLocaleString();
         };
 
         var incrementCounter = function () {
@@ -733,34 +710,55 @@ get_header();
                 .then(function (data) {
                     if (data && data.success && data.data && data.data.count) {
                         installCount = parseInt(data.data.count, 10);
-                        animateTo(installCount);
                     }
                 })
                 .catch(function () {
-                    hasTriggeredIncrement = false;
+                    // Swallow errors silently; counter persistence handled server-side.
                 });
         };
 
-        var handleIncrement = function (eventType) {
-            if (hasTriggeredIncrement) {
-                return;
-            }
-
+        var handleIncrement = function (button, eventType) {
             if (eventType === 'mouseenter' && !supportsHover) {
                 return;
             }
 
-            hasTriggeredIncrement = true;
+            if (processedButtons.has(button)) {
+                return;
+            }
+
+            processedButtons.add(button);
             incrementCounter();
         };
 
-        downloadButton.addEventListener('click', function () {
-            handleIncrement('click');
+        var buttonSelector = '.wmk-btn, .btn, button, input[type="button"], input[type="submit"], input[type="reset"]';
+
+        document.querySelectorAll(buttonSelector).forEach(function (button) {
+            if (!button.classList.contains('wmk-btn')) {
+                button.classList.add('wmk-btn');
+            }
         });
 
-        downloadButton.addEventListener('mouseenter', function () {
-            handleIncrement('mouseenter');
+        document.addEventListener('click', function (event) {
+            var target = event.target.closest(buttonSelector);
+
+            if (!target) {
+                return;
+            }
+
+            handleIncrement(target, 'click');
         });
+
+        if (supportsHover) {
+            document.addEventListener('mouseover', function (event) {
+                var target = event.target.closest(buttonSelector);
+
+                if (!target) {
+                    return;
+                }
+
+                handleIncrement(target, 'mouseenter');
+            });
+        }
 
         updateDisplay();
     });
