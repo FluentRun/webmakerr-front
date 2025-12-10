@@ -162,7 +162,7 @@ get_header();
         .wmk-modal-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(10, 15, 28, 0.75);
+            background: rgba(6, 15, 40, 0.42);
             backdrop-filter: blur(2px);
             display: flex;
             align-items: center;
@@ -183,11 +183,12 @@ get_header();
 
         .wmk-modal-dialog {
             position: relative;
-            background: linear-gradient(145deg, #0f172a, #0b1224);
-            color: #e5e7eb;
-            border-radius: 18px;
-            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
-            width: min(720px, 100%);
+            background: linear-gradient(140deg, #ffffff 0%, #f7f9fc 100%);
+            color: #0f172a;
+            border-radius: 20px;
+            box-shadow: 0 28px 70px rgba(7, 11, 30, 0.14);
+            border: 1px solid #e5e7eb;
+            width: min(720px, calc(100% - 24px));
             overflow: hidden;
             transform: translateY(12px) scale(0.98);
             opacity: 0;
@@ -203,17 +204,17 @@ get_header();
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.12), transparent 35%),
-                radial-gradient(circle at 80% 0%, rgba(167, 139, 250, 0.12), transparent 45%),
-                radial-gradient(circle at 50% 80%, rgba(16, 185, 129, 0.12), transparent 40%);
-            filter: blur(12px);
+                radial-gradient(circle at 18% 20%, rgba(37, 99, 235, 0.08), transparent 35%),
+                radial-gradient(circle at 85% 15%, rgba(16, 185, 129, 0.08), transparent 40%),
+                radial-gradient(circle at 45% 80%, rgba(125, 211, 252, 0.12), transparent 45%);
+            filter: blur(18px);
             pointer-events: none;
         }
 
         .wmk-modal-content {
             position: relative;
             z-index: 2;
-            padding: clamp(20px, 3vw, 32px);
+            padding: clamp(22px, 3vw, 36px);
         }
 
         .wmk-modal-header {
@@ -221,59 +222,126 @@ get_header();
             align-items: flex-start;
             justify-content: space-between;
             gap: 16px;
+            margin-bottom: 12px;
         }
 
         .wmk-modal-title {
-            font-size: clamp(1.35rem, 1.1rem + 1vw, 1.85rem);
-            font-weight: 700;
+            font-size: clamp(1.5rem, 1.1rem + 1vw, 2rem);
+            font-weight: 800;
             margin: 0;
-            color: #f8fafc;
+            color: #0f172a;
+            letter-spacing: -0.01em;
         }
 
         .wmk-modal-close {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #e5e7eb;
+            background: #eef2f7;
+            border: 1px solid #d0d7e2;
+            color: #0f172a;
             width: 38px;
             height: 38px;
             border-radius: 12px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            transition: background 0.2s ease, transform 0.2s ease;
+            transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
         }
 
         .wmk-modal-close:hover,
         .wmk-modal-close:focus-visible {
-            background: rgba(255, 255, 255, 0.16);
+            background: #e2e8f0;
+            box-shadow: 0 10px 22px rgba(15, 23, 42, 0.12);
             transform: translateY(-1px);
         }
 
         .wmk-modal-body {
             margin-top: 20px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.82);
+            border: 1px solid #e5e7eb;
             border-radius: 14px;
-            padding: clamp(16px, 2.5vw, 24px);
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+            padding: clamp(18px, 2.6vw, 26px);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
         }
 
         .wmk-modal-body form {
             color: #0f172a;
+            font-size: 1rem;
         }
 
         .wmk-modal-body .ff_submit_btn_wrapper .ff-btn-submit,
         .wmk-modal-body button,
         .wmk-modal-body .btn {
-            border-radius: 10px;
-            font-weight: 600;
-            padding: 0.75rem 1.25rem;
+            border-radius: 12px;
+            font-weight: 700;
+            padding: 0.85rem 1.35rem;
+            border: none;
+            background: linear-gradient(120deg, #111827, #1f2937);
+            color: #ffffff;
+            box-shadow: 0 12px 24px rgba(17, 24, 39, 0.18);
+            letter-spacing: 0.01em;
         }
 
         .wmk-modal-body input,
         .wmk-modal-body select,
         .wmk-modal-body textarea {
-            border-radius: 10px !important;
+            border-radius: 12px !important;
+            background: #ffffff;
+            border: 1px solid #d7dce5 !important;
+            color: #0f172a;
+            padding: 0.85rem 1rem !important;
+            box-shadow: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .wmk-modal-body input:focus,
+        .wmk-modal-body select:focus,
+        .wmk-modal-body textarea:focus {
+            border-color: #2563eb !important;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+            outline: none;
+        }
+
+        .wmk-modal-body label,
+        .wmk-modal-body .ff-el-title,
+        .wmk-modal-body .ff-el-input--content label {
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 0.35rem;
+        }
+
+        .wmk-modal-body .ff-el-group {
+            margin-bottom: 1rem;
+        }
+
+        .wmk-modal-body .ff-el-input--label label {
+            font-size: 0.95rem;
+        }
+
+        .wmk-modal-body .ff-el-input--content .text-danger,
+        .wmk-modal-body .ff-el-input--content .ff-el-required {
+            color: #dc2626;
+        }
+
+        .wmk-modal-body .ff-message-success,
+        .wmk-modal-body .ff-message-error {
+            border-radius: 12px;
+            padding: 0.85rem 1rem;
+        }
+
+        .wmk-modal-body .ff-message-success {
+            background: #ecfdf3;
+            color: #065f46;
+        }
+
+        .wmk-modal-body .ff-message-error {
+            background: #fef2f2;
+            color: #b91c1c;
+        }
+
+        .wmk-modal-body .ff-btn-submit:hover,
+        .wmk-modal-body .ff-btn-submit:focus-visible {
+            background: linear-gradient(120deg, #0f172a, #111827);
+            box-shadow: 0 14px 30px rgba(17, 24, 39, 0.22);
         }
 
         @media (max-width: 767.98px) {
