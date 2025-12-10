@@ -66,6 +66,25 @@ get_header();
             letter-spacing: 0.01em;
         }
 
+        .download-primary-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .download-primary-btn .download-icon {
+            width: 1.1rem;
+            height: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .download-primary-btn .download-icon svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
         .hero-animation-shell {
             min-height: 260px;
             background: linear-gradient(135deg, #1877F2 50%, #000000 50%);
@@ -182,7 +201,16 @@ get_header();
                     <p class="mt-3 text-secondary">Install the free, performance-first ecommerce engine built to keep every transaction fast, on-brand, and under your control—whether you sell physical products, digital downloads, or licenses.</p>
                     <div class="d-flex flex-wrap hero-actions mt-4">
                         <div class="d-flex flex-column align-items-start">
-                            <a class="btn btn-dark btn-lg shadow-sm px-4 download-primary-btn hero-download-btn" href="#cta" id="download-cart-button">Download Now</a>
+                            <a class="btn btn-dark btn-lg shadow-sm px-4 download-primary-btn hero-download-btn" href="#cta" id="download-cart-button">
+                                <span class="download-icon" aria-hidden="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 3v12" />
+                                        <path d="m6 11 6 6 6-6" />
+                                        <path d="M4 20h16" />
+                                    </svg>
+                                </span>
+                                <span>Download Now, Its Free</span>
+                            </a>
                             <div class="d-flex align-items-center gap-2 small text-secondary mt-2" aria-live="polite" aria-label="Active installations" role="status">
                                 <span class="live-indicator" aria-hidden="true"></span>
                                 <span>
@@ -645,7 +673,16 @@ get_header();
 
 <div class="mobile-sticky-bar d-md-none">
     <div class="container-lg">
-        <a href="#cta" class="btn btn-dark btn-lg w-100 shadow-sm px-4 download-primary-btn">Download Now</a>
+        <a href="#cta" class="btn btn-dark btn-lg w-100 shadow-sm px-4 download-primary-btn">
+            <span class="download-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3v12" />
+                    <path d="m6 11 6 6 6-6" />
+                    <path d="M4 20h16" />
+                </svg>
+            </span>
+            <span>Download Now, Its Free</span>
+        </a>
     </div>
 </div>
 
