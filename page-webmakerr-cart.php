@@ -64,11 +64,17 @@ get_header();
             max-width: 240px;
         }
 
-        .hero-download-btn {
-            padding: 0.75rem 1.25rem;
-            line-height: 1.35;
-            min-height: 52px;
-            font-size: 1rem;
+        .download-primary-btn {
+            min-width: 220px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .download-primary-btn.btn-lg {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
         }
 
         .hero-animation-shell {
@@ -202,7 +208,7 @@ get_header();
                     <h1 class="fw-semibold lh-sm text-dark" style="font-size: clamp(2rem, 1.5rem + 2vw, 3.4rem);">Own your revenue with the Webmakerr Cart plugin</h1>
                     <p class="mt-3 text-secondary">Install the free, performance-first ecommerce engine built to keep every transaction fast, on-brand, and under your control—whether you sell physical products, digital downloads, or licenses.</p>
                     <div class="d-flex flex-wrap hero-actions mt-4">
-                        <a class="btn btn-dark btn-lg d-flex align-items-center gap-2 w-100 hero-download-btn shadow-sm" href="#cta" id="download-cart-button">
+                        <a class="btn btn-dark btn-lg shadow-sm px-4 download-primary-btn w-100" href="#cta" id="download-cart-button">
                             <img src="<?php echo esc_url( get_template_directory_uri() . '/images/home/user3.png' ); ?>" width="18" alt="Download icon">
                             Download Now
                         </a>
@@ -652,7 +658,7 @@ get_header();
                     </p>
 
                     <div class="d-flex flex-wrap gap-3 justify-content-center w-100" style="max-width: 520px;" id="cta-actions">
-                        <a class="btn btn-dark btn-lg shadow-sm px-4" style="min-width: 220px;" href="#">Download Now</a>
+                        <a class="btn btn-dark btn-lg shadow-sm px-4 download-primary-btn" href="#">Download Now</a>
                         <a class="btn btn-light border btn-lg px-4 text-dark" style="min-width: 220px;" href="#">Download Now</a>
                     </div>
                 </div>
@@ -669,7 +675,7 @@ get_header();
 
 <div class="mobile-sticky-bar d-md-none">
     <div class="container-lg">
-        <a href="#cta" class="btn btn-dark btn-lg w-100 shadow-sm">Download Now</a>
+        <a href="#cta" class="btn btn-dark btn-lg w-100 shadow-sm px-4 download-primary-btn">Download Now</a>
     </div>
 </div>
 
