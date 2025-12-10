@@ -60,14 +60,15 @@ get_header();
         }
 
         .hero-actions > * {
-            flex: 1 1 240px;
-            max-width: 260px;
+            flex: 1 1 220px;
+            max-width: 240px;
         }
 
         .hero-download-btn {
-            padding: 0.85rem 1.25rem;
-            line-height: 1.4;
-            min-height: 56px;
+            padding: 0.75rem 1.25rem;
+            line-height: 1.35;
+            min-height: 52px;
+            font-size: 1rem;
         }
 
         .hero-animation-shell {
@@ -201,9 +202,9 @@ get_header();
                     <h1 class="fw-semibold lh-sm text-dark" style="font-size: clamp(2rem, 1.5rem + 2vw, 3.4rem);">Own your revenue with the Webmakerr Cart plugin</h1>
                     <p class="mt-3 text-secondary">Install the free, performance-first ecommerce engine built to keep every transaction fast, on-brand, and under your control—whether you sell physical products, digital downloads, or licenses.</p>
                     <div class="d-flex flex-wrap hero-actions mt-4">
-                        <a class="btn btn-dark btn-lg d-flex align-items-center gap-2 w-100 hero-download-btn" href="#cta" id="download-cart-button">
+                        <a class="btn btn-dark btn-lg d-flex align-items-center gap-2 w-100 hero-download-btn shadow-sm" href="#cta" id="download-cart-button">
                             <img src="<?php echo esc_url( get_template_directory_uri() . '/images/home/user3.png' ); ?>" width="18" alt="Download icon">
-                            Download Webmakerr Cart (Free)
+                            Download Now
                         </a>
 
                         <div class="install-counter w-100" style="max-width:260px;" aria-live="polite" aria-label="Active installations" role="status">
@@ -270,7 +271,7 @@ get_header();
                 </p>
 
                 <a class="btn btn-dark btn-lg mt-4 shadow-sm" href="#cta">
-                    Get the free plugin
+                    Download Now
                 </a>
             </div>
 
@@ -380,7 +381,7 @@ get_header();
                     <p class="text-secondary mb-0">Everything you need to run a modern store—already inside Webmakerr Cart, ready to activate the moment you download.</p>
                 </div>
                 <div class="col-lg-4 text-lg-end">
-                    <a class="btn btn-outline-dark" href="#cta">Start free</a>
+                    <a class="btn btn-outline-dark" href="#cta">Download Now</a>
                 </div>
             </div>
             <div class="row g-4 row-cols-1 row-cols-md-2 row-cols-lg-3">
@@ -486,7 +487,7 @@ get_header();
                     <h3 class="fw-bold mb-0">Store owners are shipping faster with Webmakerr Cart</h3>
                 </div>
                 <div class="col-lg-4 text-lg-end">
-                    <a class="btn btn-outline-dark" href="#cta">Download free</a>
+                    <a class="btn btn-outline-dark" href="#cta">Download Now</a>
                 </div>
             </div>
             <div class="row g-4 row-cols-1 row-cols-md-3">
@@ -651,8 +652,8 @@ get_header();
                     </p>
 
                     <div class="d-flex flex-wrap gap-3 justify-content-center w-100" style="max-width: 520px;" id="cta-actions">
-                        <a class="btn btn-dark btn-lg shadow-sm px-4" style="min-width: 220px;" href="#">Get the plugin free</a>
-                        <a class="btn btn-light border btn-lg px-4 text-dark" style="min-width: 220px;" href="#">Talk with our team</a>
+                        <a class="btn btn-dark btn-lg shadow-sm px-4" style="min-width: 220px;" href="#">Download Now</a>
+                        <a class="btn btn-light border btn-lg px-4 text-dark" style="min-width: 220px;" href="#">Download Now</a>
                     </div>
                 </div>
             </div>
@@ -668,7 +669,7 @@ get_header();
 
 <div class="mobile-sticky-bar d-md-none">
     <div class="container-lg">
-        <a href="#cta" class="btn btn-dark btn-lg w-100 shadow-sm">Download Now (100% Free)</a>
+        <a href="#cta" class="btn btn-dark btn-lg w-100 shadow-sm">Download Now</a>
     </div>
 </div>
 
