@@ -18,8 +18,44 @@ wp_enqueue_script(
     true
 );
 
+$webmakerr_cart_install_count = max(250, (int) get_option('webmakerr_cart_active_installs', 250));
+update_option('webmakerr_cart_active_installs', $webmakerr_cart_install_count);
+
+if (!function_exists('webmakerr_cart_handle_increment')) {
+    function webmakerr_cart_handle_increment() {
+        $nonce = isset($_POST['nonce']) ? sanitize_text_field(wp_unslash($_POST['nonce'])) : '';
+
+        if (!wp_verify_nonce($nonce, 'webmakerr_cart_install_increment')) {
+            wp_send_json_error(['message' => 'Invalid request.'], 400);
+        }
+
+        $current = max(250, (int) get_option('webmakerr_cart_active_installs', 250));
+        $current++;
+
+        update_option('webmakerr_cart_active_installs', $current);
+
+        wp_send_json_success([
+            'count' => $current,
+        ]);
+    }
+}
+
+add_action('wp_ajax_webmakerr_cart_increment', 'webmakerr_cart_handle_increment');
+add_action('wp_ajax_nopriv_webmakerr_cart_increment', 'webmakerr_cart_handle_increment');
+
+$webmakerr_cart_nonce = wp_create_nonce('webmakerr_cart_install_increment');
+$webmakerr_cart_ajax_url = admin_url('admin-ajax.php');
+
 get_header();
 ?>
+
+<script>
+    var webmakerrCartData = {
+        count: <?php echo (int) $webmakerr_cart_install_count; ?>,
+        ajaxUrl: "<?php echo esc_url( $webmakerr_cart_ajax_url ); ?>",
+        nonce: "<?php echo esc_js( $webmakerr_cart_nonce ); ?>"
+    };
+</script>
 
 <main>
     <style>
@@ -37,6 +73,10 @@ get_header();
                 radial-gradient(circle at 20% 20%, rgba(96, 165, 250, 0.08), transparent 45%),
                 radial-gradient(circle at 80% 0%, rgba(167, 139, 250, 0.08), transparent 35%),
                 radial-gradient(circle at 50% 80%, rgba(16, 185, 129, 0.08), transparent 40%);
+        }
+
+        .hero-actions {
+            gap: 1rem;
         }
 
         .hero-animation-shell {
@@ -58,12 +98,99 @@ get_header();
         }
 
         .install-counter {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
+            padding: 16px 18px;
             transition: transform 0.25s ease, box-shadow 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-width: 220px;
         }
 
         .install-counter.counter-active {
             transform: translateY(-2px);
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .install-counter .count-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .install-counter .count-number {
+            font-size: clamp(1.9rem, 1.35rem + 1vw, 2.4rem);
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .live-indicator {
+            position: relative;
+            width: 12px;
+            height: 12px;
+            background: #16a34a;
+            border-radius: 999px;
+            box-shadow: 0 0 0 6px rgba(22, 163, 74, 0.12);
+            flex-shrink: 0;
+        }
+
+        .live-indicator::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: inherit;
+            background: rgba(22, 163, 74, 0.28);
+            animation: livePulse 1.9s ease-out infinite;
+            transform-origin: center;
+        }
+
+        @keyframes livePulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1.8);
+                opacity: 0;
+            }
+        }
+
+        .mobile-sticky-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1030;
+            background: #fff;
+            border-top: 1px solid #e5e7eb;
+            box-shadow: 0 -4px 16px rgba(15, 23, 42, 0.08);
+            padding: 12px 16px;
+        }
+
+        @media (max-width: 767.98px) {
+            .mobile-sticky-bar {
+                display: block;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                gap: 0.75rem;
+            }
+
+            .hero-actions .btn {
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .hero-actions .btn + .btn {
+                margin-top: 0 !important;
+            }
         }
     </style>
 
@@ -82,16 +209,13 @@ get_header();
                             Download Webmakerr Cart (Free)
                         </a>
 
-                        <div class="btn btn-light border btn-lg d-flex align-items-center justify-content-between w-100 install-counter" style="max-width:260px;" aria-live="polite" aria-label="Active installations counter">
-                            <div class="text-start">
-                                <div class="small text-secondary">Active installations</div>
-                                <div class="fw-semibold text-dark" style="font-size: clamp(1rem, 0.6rem + 1vw, 1.35rem);">
-                                    <span id="install-count-value">250</span>+
-                                </div>
+                        <div class="install-counter w-100" style="max-width:260px;" aria-live="polite" aria-label="Active installations" role="status">
+                            <div class="count-row">
+                                <span class="live-indicator" aria-hidden="true"></span>
+                                <div class="count-number text-dark" id="install-count-value"><?php echo esc_html( number_format_i18n( $webmakerr_cart_install_count ) ); ?></div>
+                                <span class="text-secondary fw-semibold">+</span>
                             </div>
-                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
-                                <path d="M4 10l4-4 4 4" />
-                            </svg>
+                            <div class="small text-secondary mt-1">Active installations</div>
                         </div>
                     </div>
 
@@ -112,20 +236,6 @@ get_header();
                 <div class="col-lg-6">
                     <div class="position-relative bg-white border rounded-4 shadow-sm overflow-hidden booking-ambient">
                         <div class="p-4 position-relative" style="z-index:2; min-height:350px;">
-                            <div class="d-flex justify-content-between align-items-start mb-3 hero-info-row">
-                                <div>
-                                    <p class="fw-semibold text-dark mb-1">See the cart in action</p>
-                                    <p class="small text-muted mb-0">Checkout flow, digital licensing, and fulfillment updates—optimized to stay quick when traffic spikes.</p>
-                                </div>
-                                <span class="small text-muted fw-normal hero-pill">Performance preview</span>
-                            </div>
-
-                            <div class="d-flex flex-wrap gap-2 small text-muted mb-3">
-                                <span class="border rounded-pill px-3 py-1">Checkout & upsells</span>
-                                <span class="border rounded-pill px-3 py-1">Digital licenses</span>
-                                <span class="border rounded-pill px-3 py-1">Inventory & shipping</span>
-                            </div>
-
                             <div class="position-relative border rounded-3 p-3 shadow-sm hero-animation-shell">
                                 <div class="ratio ratio-16x9 w-100">
                                     <video
@@ -559,18 +669,26 @@ get_header();
     </section>
 </main>
 
+<div class="mobile-sticky-bar d-md-none">
+    <div class="container-lg">
+        <a href="#cta" class="btn btn-dark btn-lg w-100 shadow-sm">Download Now (100% Free)</a>
+    </div>
+</div>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var counterContainer = document.querySelector('.install-counter');
         var counterValue = document.getElementById('install-count-value');
         var downloadButton = document.getElementById('download-cart-button');
 
-        if (!counterContainer || !counterValue || !downloadButton) {
+        if (!counterContainer || !counterValue || !downloadButton || typeof webmakerrCartData === 'undefined') {
             return;
         }
 
-        var installCount = 250;
-        var displayedCount = 250;
+        var installCount = parseInt(webmakerrCartData.count, 10) || 250;
+        var displayedCount = installCount;
+        var hasTriggeredIncrement = false;
+        var supportsHover = window.matchMedia('(hover: hover)').matches || window.matchMedia('(any-hover: hover)').matches;
 
         var updateDisplay = function () {
             counterValue.textContent = displayedCount.toLocaleString();
@@ -597,13 +715,52 @@ get_header();
         };
 
         var incrementCounter = function () {
-            installCount += 1;
-            animateTo(installCount);
+            var formData = new URLSearchParams({
+                action: 'webmakerr_cart_increment',
+                nonce: webmakerrCartData.nonce
+            });
+
+            fetch(webmakerrCartData.ajaxUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: formData.toString()
+            })
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    if (data && data.success && data.data && data.data.count) {
+                        installCount = parseInt(data.data.count, 10);
+                        animateTo(installCount);
+                    }
+                })
+                .catch(function () {
+                    hasTriggeredIncrement = false;
+                });
         };
 
-        downloadButton.addEventListener('click', incrementCounter);
-        downloadButton.addEventListener('mouseenter', incrementCounter);
-        downloadButton.addEventListener('focus', incrementCounter);
+        var handleIncrement = function (eventType) {
+            if (hasTriggeredIncrement) {
+                return;
+            }
+
+            if (eventType === 'mouseenter' && !supportsHover) {
+                return;
+            }
+
+            hasTriggeredIncrement = true;
+            incrementCounter();
+        };
+
+        downloadButton.addEventListener('click', function () {
+            handleIncrement('click');
+        });
+
+        downloadButton.addEventListener('mouseenter', function () {
+            handleIncrement('mouseenter');
+        });
 
         updateDisplay();
     });
