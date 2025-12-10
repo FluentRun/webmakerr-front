@@ -155,6 +155,127 @@ get_header();
             padding: 12px 16px;
         }
 
+        .wmk-modal-open {
+            overflow: hidden;
+        }
+
+        .wmk-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 15, 28, 0.75);
+            backdrop-filter: blur(2px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(16px, 3vw, 32px);
+            z-index: 1050;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+        }
+
+        .wmk-modal-overlay.is-active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .wmk-modal-dialog {
+            position: relative;
+            background: linear-gradient(145deg, #0f172a, #0b1224);
+            color: #e5e7eb;
+            border-radius: 18px;
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+            width: min(720px, 100%);
+            overflow: hidden;
+            transform: translateY(12px) scale(0.98);
+            opacity: 0;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+        }
+
+        .wmk-modal-overlay.is-active .wmk-modal-dialog {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        .wmk-modal-aurora {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.12), transparent 35%),
+                radial-gradient(circle at 80% 0%, rgba(167, 139, 250, 0.12), transparent 45%),
+                radial-gradient(circle at 50% 80%, rgba(16, 185, 129, 0.12), transparent 40%);
+            filter: blur(12px);
+            pointer-events: none;
+        }
+
+        .wmk-modal-content {
+            position: relative;
+            z-index: 2;
+            padding: clamp(20px, 3vw, 32px);
+        }
+
+        .wmk-modal-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .wmk-modal-title {
+            font-size: clamp(1.35rem, 1.1rem + 1vw, 1.85rem);
+            font-weight: 700;
+            margin: 0;
+            color: #f8fafc;
+        }
+
+        .wmk-modal-close {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #e5e7eb;
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .wmk-modal-close:hover,
+        .wmk-modal-close:focus-visible {
+            background: rgba(255, 255, 255, 0.16);
+            transform: translateY(-1px);
+        }
+
+        .wmk-modal-body {
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: clamp(16px, 2.5vw, 24px);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+        }
+
+        .wmk-modal-body form {
+            color: #0f172a;
+        }
+
+        .wmk-modal-body .ff_submit_btn_wrapper .ff-btn-submit,
+        .wmk-modal-body button,
+        .wmk-modal-body .btn {
+            border-radius: 10px;
+            font-weight: 600;
+            padding: 0.75rem 1.25rem;
+        }
+
+        .wmk-modal-body input,
+        .wmk-modal-body select,
+        .wmk-modal-body textarea {
+            border-radius: 10px !important;
+        }
+
         @media (max-width: 767.98px) {
             .page-webmakerr-cart .btn {
                 margin-left: auto;
@@ -671,6 +792,27 @@ get_header();
     </section>
 </main>
 
+<div class="wmk-modal-overlay" id="webmakerr-cart-popup" aria-hidden="true">
+    <div class="wmk-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="webmakerr-cart-popup-title" tabindex="-1">
+        <div class="wmk-modal-aurora" aria-hidden="true"></div>
+        <div class="wmk-modal-content">
+            <div class="wmk-modal-header">
+                <h3 class="wmk-modal-title" id="webmakerr-cart-popup-title">Where shall we send the premium version for free?</h3>
+                <button type="button" class="wmk-modal-close" id="webmakerr-cart-popup-close" aria-label="Close popup">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px;">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="wmk-modal-body">
+                <?php echo do_shortcode('[fluentform id="3"]'); ?>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="mobile-sticky-bar d-md-none">
     <div class="container-lg">
         <a href="#cta" class="btn btn-dark btn-lg w-100 shadow-sm px-4 download-primary-btn">
@@ -688,6 +830,70 @@ get_header();
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+        var popupOverlay = document.getElementById('webmakerr-cart-popup');
+        var popupDialog = popupOverlay ? popupOverlay.querySelector('.wmk-modal-dialog') : null;
+        var popupClose = document.getElementById('webmakerr-cart-popup-close');
+        var popupButtonSelector = 'button, a.btn, .btn, .wmk-btn, input[type="button"], input[type="submit"], input[type="reset"]';
+        var pageButtons = Array.prototype.slice.call(document.querySelectorAll(popupButtonSelector));
+
+        var openPopup = function (event) {
+            if (!popupOverlay || !popupDialog) {
+                return;
+            }
+
+            if (event) {
+                var trigger = event.currentTarget || event.target;
+
+                if (trigger && trigger.tagName === 'A') {
+                    event.preventDefault();
+                }
+            }
+
+            popupOverlay.classList.add('is-active');
+            popupOverlay.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('wmk-modal-open');
+
+            if (typeof popupDialog.focus === 'function') {
+                popupDialog.focus({ preventScroll: true });
+            }
+        };
+
+        var closePopup = function () {
+            if (!popupOverlay || !popupDialog) {
+                return;
+            }
+
+            popupOverlay.classList.remove('is-active');
+            popupOverlay.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('wmk-modal-open');
+        };
+
+        pageButtons
+            .filter(function (btn) {
+                return !popupOverlay || !popupOverlay.contains(btn);
+            })
+            .forEach(function (btn) {
+                btn.addEventListener('click', openPopup);
+            });
+
+        if (popupOverlay) {
+            popupOverlay.addEventListener('click', function (event) {
+                if (event.target === popupOverlay) {
+                    closePopup();
+                }
+            });
+        }
+
+        if (popupClose) {
+            popupClose.addEventListener('click', closePopup);
+        }
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && popupOverlay && popupOverlay.classList.contains('is-active')) {
+                closePopup();
+            }
+        });
+
         var counterNode = document.getElementById('install-count-value');
         var counterData = window.webmakerrCartData;
         var heroSection = document.getElementById('webmakerr-cart-hero');
