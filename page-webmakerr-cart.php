@@ -18,7 +18,14 @@ wp_enqueue_script(
     true
 );
 
-$webmakerr_cart_install_count = (int) get_option('webmakerr_cart_active_installs');
+$webmakerr_cart_install_count_option = get_option('webmakerr_cart_active_installs', null);
+
+if (false === $webmakerr_cart_install_count_option) {
+    $webmakerr_cart_install_count_option = 0;
+    add_option('webmakerr_cart_active_installs', $webmakerr_cart_install_count_option);
+}
+
+$webmakerr_cart_install_count = absint($webmakerr_cart_install_count_option);
 
 if (!function_exists('webmakerr_cart_handle_increment')) {
     function webmakerr_cart_handle_increment() {
@@ -28,8 +35,14 @@ if (!function_exists('webmakerr_cart_handle_increment')) {
             wp_send_json_error(['message' => 'Invalid request.'], 400);
         }
 
-        $current = (int) get_option('webmakerr_cart_active_installs');
-        $current = max(0, $current + 1);
+        $current = get_option('webmakerr_cart_active_installs', null);
+
+        if (false === $current) {
+            $current = 0;
+            add_option('webmakerr_cart_active_installs', $current);
+        }
+
+        $current = absint($current) + 1;
 
         update_option('webmakerr_cart_active_installs', $current);
 
@@ -700,6 +713,10 @@ get_header();
         }
 
         var installCount = Number(webmakerrCartData.count);
+        if (!Number.isFinite(installCount)) {
+            var parsedFromDom = Number((counterValue.textContent || '').replace(/,/g, ''));
+            installCount = Number.isFinite(parsedFromDom) ? parsedFromDom : null;
+        }
         var supportsHover = window.matchMedia('(hover: hover)').matches || window.matchMedia('(any-hover: hover)').matches;
 
         if (!Number.isFinite(installCount)) {
