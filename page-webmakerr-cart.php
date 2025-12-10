@@ -104,6 +104,14 @@ get_header();
             transform-origin: center;
         }
 
+        .install-count-value {
+            transition: color 0.35s ease;
+        }
+
+        .install-count-value.is-behind {
+            color: #dc2626 !important;
+        }
+
         @keyframes livePulse {
             0% {
                 transform: scale(1);
@@ -178,7 +186,7 @@ get_header();
                             <div class="d-flex align-items-center gap-2 small text-secondary mt-2" aria-live="polite" aria-label="Active installations" role="status">
                                 <span class="live-indicator" aria-hidden="true"></span>
                                 <span>
-                                    <span class="text-dark" id="install-count-value"><?php echo esc_html( number_format_i18n( $webmakerr_cart_install_count ) ); ?></span>
+                                    <span class="text-dark install-count-value" id="install-count-value"><?php echo esc_html( number_format_i18n( $webmakerr_cart_install_count ) ); ?></span>
                                     <span class="text-secondary">+ Active installations</span>
                                 </span>
                             </div>
@@ -664,17 +672,31 @@ get_header();
 
         var supportsHover = window.matchMedia('(hover: hover)').matches || window.matchMedia('(any-hover: hover)').matches;
         var buttonSelector = 'button, .btn, .wmk-btn, input[type="button"], input[type="submit"], input[type="reset"]';
-        var baseInstallCount = installCount;
+        var baseDisplayInstallCount = installCount;
+        var storedInstallCount = installCount;
         var fluctuationTimer = null;
-        var displayedCount = baseInstallCount;
+        var displayedCount = baseDisplayInstallCount;
+
+        var applyCountColorState = function () {
+            if (!counterNode) {
+                return;
+            }
+
+            if (displayedCount < storedInstallCount) {
+                counterNode.classList.add('is-behind');
+            } else {
+                counterNode.classList.remove('is-behind');
+            }
+        };
 
         var renderCount = function (value) {
             counterNode.textContent = Number(value).toLocaleString();
+            applyCountColorState();
         };
 
         var clampDisplayValue = function (value) {
-            var min = baseInstallCount - 5;
-            var max = baseInstallCount + 5;
+            var min = baseDisplayInstallCount - 5;
+            var max = baseDisplayInstallCount + 5;
 
             return Math.min(Math.max(value, min), max);
         };
@@ -686,7 +708,7 @@ get_header();
 
             if (tentative === displayedCount) {
                 var randomOffset = Math.floor(Math.random() * 11) - 5;
-                tentative = clampDisplayValue(baseInstallCount + randomOffset);
+                tentative = clampDisplayValue(baseDisplayInstallCount + randomOffset);
             }
 
             return tentative;
@@ -779,11 +801,8 @@ get_header();
                         return;
                     }
 
-                    installCount = nextCount;
-                    baseInstallCount = installCount;
-                    displayedCount = clampDisplayValue(installCount);
-                    renderCount(displayedCount);
-                    startFluctuation();
+                    storedInstallCount = nextCount;
+                    applyCountColorState();
                 })
                 .catch(function () {
                     // Gracefully ignore transient network issues.
