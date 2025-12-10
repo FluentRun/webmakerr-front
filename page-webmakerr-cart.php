@@ -18,7 +18,7 @@ wp_enqueue_script(
     true
 );
 
-$webmakerr_cart_install_count = max(250, (int) get_option('webmakerr_cart_active_installs', 250));
+$webmakerr_cart_install_count = max(1000, (int) get_option('webmakerr_cart_active_installs', 1000));
 update_option('webmakerr_cart_active_installs', $webmakerr_cart_install_count);
 
 if (!function_exists('webmakerr_cart_handle_increment')) {
@@ -79,6 +79,17 @@ get_header();
             gap: 1rem;
         }
 
+        .hero-actions > * {
+            flex: 1 1 240px;
+            max-width: 260px;
+        }
+
+        .hero-download-btn {
+            padding: 0.85rem 1.25rem;
+            line-height: 1.4;
+            min-height: 56px;
+        }
+
         .hero-animation-shell {
             min-height: 260px;
             background: linear-gradient(135deg, #1877F2 50%, #000000 50%);
@@ -108,6 +119,12 @@ get_header();
             flex-direction: column;
             justify-content: center;
             min-width: 220px;
+            cursor: default;
+        }
+
+        .hero-actions .install-counter {
+            min-height: 56px;
+            align-self: stretch;
         }
 
         .install-counter.counter-active {
@@ -204,7 +221,7 @@ get_header();
                     <h1 class="fw-semibold lh-sm text-dark" style="font-size: clamp(2rem, 1.5rem + 2vw, 3.4rem);">Own your revenue with the Webmakerr Cart plugin</h1>
                     <p class="mt-3 text-secondary">Install the free, performance-first ecommerce engine built to keep every transaction fast, on-brand, and under your control—whether you sell physical products, digital downloads, or licenses.</p>
                     <div class="d-flex flex-wrap hero-actions mt-4">
-                        <a class="btn btn-dark btn-lg d-flex align-items-center gap-2 w-100" style="max-width:260px;" href="#cta" id="download-cart-button">
+                        <a class="btn btn-dark btn-lg d-flex align-items-center gap-2 w-100 hero-download-btn" href="#cta" id="download-cart-button">
                             <img src="<?php echo esc_url( get_template_directory_uri() . '/images/home/user3.png' ); ?>" width="18" alt="Download icon">
                             Download Webmakerr Cart (Free)
                         </a>
@@ -683,15 +700,17 @@ get_header();
             return;
         }
 
-        var installCount = parseInt(webmakerrCartData.count, 10) || 250;
+        var installCount = parseInt(webmakerrCartData.count, 10) || 1000;
         var supportsHover = window.matchMedia('(hover: hover)').matches || window.matchMedia('(any-hover: hover)').matches;
-        var processedButtons = new WeakSet();
 
         var updateDisplay = function () {
             counterValue.textContent = installCount.toLocaleString();
         };
 
         var incrementCounter = function () {
+            installCount += 1;
+            updateDisplay();
+
             var formData = new URLSearchParams({
                 action: 'webmakerr_cart_increment',
                 nonce: webmakerrCartData.nonce
@@ -710,6 +729,7 @@ get_header();
                 .then(function (data) {
                     if (data && data.success && data.data && data.data.count) {
                         installCount = parseInt(data.data.count, 10);
+                        updateDisplay();
                     }
                 })
                 .catch(function () {
@@ -717,16 +737,11 @@ get_header();
                 });
         };
 
-        var handleIncrement = function (button, eventType) {
+        var handleIncrement = function (eventType) {
             if (eventType === 'mouseenter' && !supportsHover) {
                 return;
             }
 
-            if (processedButtons.has(button)) {
-                return;
-            }
-
-            processedButtons.add(button);
             incrementCounter();
         };
 
@@ -745,7 +760,7 @@ get_header();
                 return;
             }
 
-            handleIncrement(target, 'click');
+            handleIncrement('click');
         });
 
         if (supportsHover) {
@@ -756,7 +771,7 @@ get_header();
                     return;
                 }
 
-                handleIncrement(target, 'mouseenter');
+                handleIncrement('mouseenter');
             });
         }
 
