@@ -162,8 +162,8 @@ get_header();
         .wmk-modal-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(6, 15, 40, 0.42);
-            backdrop-filter: blur(2px);
+            background: rgba(7, 14, 35, 0.42);
+            backdrop-filter: blur(6px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -172,7 +172,7 @@ get_header();
             opacity: 0;
             visibility: hidden;
             pointer-events: none;
-            transition: opacity 0.25s ease, visibility 0.25s ease;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
         .wmk-modal-overlay.is-active {
@@ -183,16 +183,16 @@ get_header();
 
         .wmk-modal-dialog {
             position: relative;
-            background: linear-gradient(140deg, #ffffff 0%, #f7f9fc 100%);
+            background: linear-gradient(140deg, #ffffff 0%, #f8fbff 100%);
             color: #0f172a;
-            border-radius: 20px;
-            box-shadow: 0 28px 70px rgba(7, 11, 30, 0.14);
-            border: 1px solid #e5e7eb;
-            width: min(720px, calc(100% - 24px));
+            border-radius: 22px;
+            box-shadow: 0 24px 80px rgba(7, 11, 30, 0.18);
+            border: 1px solid #e7ebf3;
+            width: min(780px, calc(100% - 24px));
             overflow: hidden;
-            transform: translateY(12px) scale(0.98);
+            transform: translateY(18px) scale(0.98);
             opacity: 0;
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
         }
 
         .wmk-modal-overlay.is-active .wmk-modal-dialog {
@@ -204,17 +204,17 @@ get_header();
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(circle at 18% 20%, rgba(37, 99, 235, 0.08), transparent 35%),
-                radial-gradient(circle at 85% 15%, rgba(16, 185, 129, 0.08), transparent 40%),
-                radial-gradient(circle at 45% 80%, rgba(125, 211, 252, 0.12), transparent 45%);
-            filter: blur(18px);
+                radial-gradient(circle at 18% 20%, rgba(37, 99, 235, 0.1), transparent 38%),
+                radial-gradient(circle at 82% 18%, rgba(16, 185, 129, 0.12), transparent 42%),
+                radial-gradient(circle at 45% 82%, rgba(125, 211, 252, 0.15), transparent 45%);
+            filter: blur(16px);
             pointer-events: none;
         }
 
         .wmk-modal-content {
             position: relative;
             z-index: 2;
-            padding: clamp(22px, 3vw, 36px);
+            padding: clamp(24px, 3vw, 40px);
         }
 
         .wmk-modal-header {
@@ -222,24 +222,64 @@ get_header();
             align-items: flex-start;
             justify-content: space-between;
             gap: 16px;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
+        }
+
+        .wmk-modal-brand {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .wmk-modal-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: linear-gradient(145deg, #0f172a, #111827);
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 18px 30px rgba(15, 23, 42, 0.2);
+            flex-shrink: 0;
+        }
+
+        .wmk-modal-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.35rem 0.65rem;
+            background: #e8edfb;
+            color: #1d4ed8;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.01em;
         }
 
         .wmk-modal-title {
-            font-size: clamp(1.5rem, 1.1rem + 1vw, 2rem);
+            font-size: clamp(1.55rem, 1.2rem + 0.9vw, 2.1rem);
             font-weight: 800;
-            margin: 0;
+            margin: 6px 0 4px;
             color: #0f172a;
             letter-spacing: -0.01em;
+        }
+
+        .wmk-modal-subtitle {
+            margin: 0;
+            color: #475569;
+            font-size: 0.97rem;
+            line-height: 1.6;
+            max-width: 560px;
         }
 
         .wmk-modal-close {
             background: #eef2f7;
             border: 1px solid #d0d7e2;
             color: #0f172a;
-            width: 38px;
-            height: 38px;
-            border-radius: 12px;
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -250,17 +290,51 @@ get_header();
         .wmk-modal-close:hover,
         .wmk-modal-close:focus-visible {
             background: #e2e8f0;
-            box-shadow: 0 10px 22px rgba(15, 23, 42, 0.12);
+            box-shadow: 0 12px 22px rgba(15, 23, 42, 0.12);
             transform: translateY(-1px);
         }
 
-        .wmk-modal-body {
-            margin-top: 20px;
-            background: rgba(255, 255, 255, 0.82);
+        .wmk-modal-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .wmk-modal-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 14px;
+            background: #ffffff;
             border: 1px solid #e5e7eb;
             border-radius: 14px;
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        .wmk-modal-chip svg {
+            width: 18px;
+            height: 18px;
+            color: #10b981;
+            flex-shrink: 0;
+        }
+
+        .wmk-modal-helper {
+            margin: 0 0 12px;
+            color: #0f172a;
+            font-weight: 600;
+            letter-spacing: -0.005em;
+        }
+
+        .wmk-modal-body {
+            margin-top: 22px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
             padding: clamp(18px, 2.6vw, 26px);
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 6px 24px rgba(15, 23, 42, 0.04);
         }
 
         .wmk-modal-body form {
@@ -865,7 +939,20 @@ get_header();
         <div class="wmk-modal-aurora" aria-hidden="true"></div>
         <div class="wmk-modal-content">
             <div class="wmk-modal-header">
-                <h3 class="wmk-modal-title" id="webmakerr-cart-popup-title">Where shall we send the premium version for free?</h3>
+                <div class="wmk-modal-brand">
+                    <div class="wmk-modal-icon" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px;">
+                            <path d="M3 4h18v6H3z" />
+                            <path d="M7 4v16" />
+                            <path d="M3 14h18v6H3z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="wmk-modal-label">Premium Cart Upgrade</span>
+                        <h3 class="wmk-modal-title" id="webmakerr-cart-popup-title">Experience Webmakerr Cart Premium</h3>
+                        <p class="wmk-modal-subtitle">Conversion-focused checkout, performance-first infrastructure, and dedicated onboarding for your store.</p>
+                    </div>
+                </div>
                 <button type="button" class="wmk-modal-close" id="webmakerr-cart-popup-close" aria-label="Close popup">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px;">
                         <line x1="18" y1="6" x2="6" y2="18" />
@@ -874,7 +961,29 @@ get_header();
                 </button>
             </div>
 
+            <div class="wmk-modal-highlights" aria-hidden="true">
+                <span class="wmk-modal-chip">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    Priority onboarding & support
+                </span>
+                <span class="wmk-modal-chip">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    High-speed checkout flows
+                </span>
+                <span class="wmk-modal-chip">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    Built-in licensing & analytics
+                </span>
+            </div>
+
             <div class="wmk-modal-body">
+                <p class="wmk-modal-helper">Share your best contact and we’ll deliver your premium-ready download instantly.</p>
                 <?php echo do_shortcode('[fluentform id="3"]'); ?>
             </div>
         </div>
