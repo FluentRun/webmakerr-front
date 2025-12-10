@@ -695,6 +695,7 @@ get_header();
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var counterValue = document.getElementById('install-count-value');
+        var STORAGE_KEY = 'webmakerrCartInstallCount';
 
         if (!counterValue || typeof webmakerrCartData === 'undefined') {
             return;
@@ -703,8 +704,34 @@ get_header();
         var installCount = parseInt(webmakerrCartData.count, 10) || 1000;
         var supportsHover = window.matchMedia('(hover: hover)').matches || window.matchMedia('(any-hover: hover)').matches;
 
+        var readStoredCount = function () {
+            try {
+                var stored = localStorage.getItem(STORAGE_KEY);
+                var parsed = stored ? parseInt(stored, 10) : NaN;
+
+                return Number.isFinite(parsed) ? parsed : null;
+            } catch (error) {
+                return null;
+            }
+        };
+
+        var writeStoredCount = function (value) {
+            try {
+                localStorage.setItem(STORAGE_KEY, String(value));
+            } catch (error) {
+                // Ignore storage failures (e.g., private mode restrictions)
+            }
+        };
+
+        var storedCount = readStoredCount();
+
+        if (storedCount && storedCount > installCount) {
+            installCount = storedCount;
+        }
+
         var updateDisplay = function () {
             counterValue.textContent = installCount.toLocaleString();
+            writeStoredCount(installCount);
         };
 
         var incrementCounter = function () {
