@@ -56,6 +56,15 @@ get_header();
         .hero-pill {
             white-space: nowrap;
         }
+
+        .install-counter {
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .install-counter.counter-active {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        }
     </style>
 
     <section class="pt-5 pb-5 bg-light">
@@ -68,17 +77,22 @@ get_header();
                     <h1 class="fw-semibold lh-sm text-dark" style="font-size: clamp(2rem, 1.5rem + 2vw, 3.4rem);">Own your revenue with the Webmakerr Cart plugin</h1>
                     <p class="mt-3 text-secondary">Install the free, performance-first ecommerce engine built to keep every transaction fast, on-brand, and under your control—whether you sell physical products, digital downloads, or licenses.</p>
                     <div class="d-flex flex-wrap hero-actions mt-4">
-                        <a class="btn btn-dark btn-lg d-flex align-items-center gap-2 w-100" style="max-width:260px;" href="#cta">
+                        <a class="btn btn-dark btn-lg d-flex align-items-center gap-2 w-100" style="max-width:260px;" href="#cta" id="download-cart-button">
                             <img src="<?php echo esc_url( get_template_directory_uri() . '/images/home/user3.png' ); ?>" width="18" alt="Download icon">
                             Download Webmakerr Cart (Free)
                         </a>
 
-                        <a class="btn btn-light border btn-lg d-flex align-items-center justify-content-between w-100" style="max-width:260px;" href="#product-types">
-                            <span class="text-dark">See how it works</span>
-                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.4">
-                                <path d="M4 2l6 5-6 5" />
+                        <div class="btn btn-light border btn-lg d-flex align-items-center justify-content-between w-100 install-counter" style="max-width:260px;" aria-live="polite" aria-label="Active installations counter">
+                            <div class="text-start">
+                                <div class="small text-secondary">Active installations</div>
+                                <div class="fw-semibold text-dark" style="font-size: clamp(1rem, 0.6rem + 1vw, 1.35rem);">
+                                    <span id="install-count-value">250</span>+
+                                </div>
+                            </div>
+                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                                <path d="M4 10l4-4 4 4" />
                             </svg>
-                        </a>
+                        </div>
                     </div>
 
                     <p class="small text-muted mt-2">Built for founders and teams who want fast checkout, flexible products, and zero platform fees.</p>
@@ -415,6 +429,100 @@ get_header();
         </div>
     </section>
 
+    <section class="py-5 bg-white border-top" id="faqs">
+        <div class="container-lg">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="text-center mb-4">
+                        <span class="d-inline-flex align-items-center bg-light border px-3 py-1 rounded-pill text-secondary small mb-3">Frequently Asked Questions</span>
+                        <h2 class="fw-semibold text-dark">Answers to keep your launch moving</h2>
+                        <p class="text-secondary mt-2">Everything you need to know about Webmakerr Cart before you install.</p>
+                    </div>
+
+                    <div class="accordion" id="cartFaqsAccordion">
+                        <div class="accordion-item border rounded-3 mb-3">
+                            <h2 class="accordion-header" id="cartFaqOneHeading">
+                                <button class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#cartFaqOne" aria-expanded="true" aria-controls="cartFaqOne">
+                                    What features does Webmakerr Cart include?
+                                </button>
+                            </h2>
+                            <div id="cartFaqOne" class="accordion-collapse collapse show" aria-labelledby="cartFaqOneHeading" data-bs-parent="#cartFaqsAccordion">
+                                <div class="accordion-body text-secondary">
+                                    Webmakerr Cart ships with checkout blocks, digital licensing, inventory controls, subscriptions, shipping tools, analytics, and API access—all tuned for speed.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item border rounded-3 mb-3">
+                            <h2 class="accordion-header" id="cartFaqTwoHeading">
+                                <button class="accordion-button fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cartFaqTwo" aria-expanded="false" aria-controls="cartFaqTwo">
+                                    How easy is it to set up and use?
+                                </button>
+                            </h2>
+                            <div id="cartFaqTwo" class="accordion-collapse collapse" aria-labelledby="cartFaqTwoHeading" data-bs-parent="#cartFaqsAccordion">
+                                <div class="accordion-body text-secondary">
+                                    Install, activate, and follow the guided setup to launch products, payments, and fulfillment in minutes—no extra extensions required.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item border rounded-3 mb-3">
+                            <h2 class="accordion-header" id="cartFaqThreeHeading">
+                                <button class="accordion-button fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cartFaqThree" aria-expanded="false" aria-controls="cartFaqThree">
+                                    Can I customize Webmakerr Cart to match my brand?
+                                </button>
+                            </h2>
+                            <div id="cartFaqThree" class="accordion-collapse collapse" aria-labelledby="cartFaqThreeHeading" data-bs-parent="#cartFaqsAccordion">
+                                <div class="accordion-body text-secondary">
+                                    Absolutely. Webmakerr Cart includes customizable Gutenberg blocks, Bricks integration, and supports custom CSS for advanced styling. You can even add action buttons to custom WordPress patterns, making it easy to align the cart with your brand’s visual identity.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item border rounded-3 mb-3">
+                            <h2 class="accordion-header" id="cartFaqFourHeading">
+                                <button class="accordion-button fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cartFaqFour" aria-expanded="false" aria-controls="cartFaqFour">
+                                    Is Webmakerr Cart compatible with my current WordPress theme?
+                                </button>
+                            </h2>
+                            <div id="cartFaqFour" class="accordion-collapse collapse" aria-labelledby="cartFaqFourHeading" data-bs-parent="#cartFaqsAccordion">
+                                <div class="accordion-body text-secondary">
+                                    Yes. It’s built to work with modern block themes and classic setups alike, inheriting your typography, colors, and layout choices automatically.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item border rounded-3 mb-3">
+                            <h2 class="accordion-header" id="cartFaqFiveHeading">
+                                <button class="accordion-button fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cartFaqFive" aria-expanded="false" aria-controls="cartFaqFive">
+                                    Can I sell unlimited products, and how well does it scale?
+                                </button>
+                            </h2>
+                            <div id="cartFaqFive" class="accordion-collapse collapse" aria-labelledby="cartFaqFiveHeading" data-bs-parent="#cartFaqsAccordion">
+                                <div class="accordion-body text-secondary">
+                                    You can add unlimited products. Dedicated commerce tables and performance-first queries keep the catalog and checkout responsive as traffic grows.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item border rounded-3">
+                            <h2 class="accordion-header" id="cartFaqSixHeading">
+                                <button class="accordion-button fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cartFaqSix" aria-expanded="false" aria-controls="cartFaqSix">
+                                    What payment methods are supported?
+                                </button>
+                            </h2>
+                            <div id="cartFaqSix" class="accordion-collapse collapse" aria-labelledby="cartFaqSixHeading" data-bs-parent="#cartFaqsAccordion">
+                                <div class="accordion-body text-secondary">
+                                    Connect Stripe, PayPal, and other gateways through Webmakerr Cart’s APIs to offer cards, wallets, and region-specific options without slowing checkout.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="py-5 bg-light border-top" id="cta">
         <div class="container-lg">
             <div class="position-relative bg-white border rounded-4 shadow-sm p-4 p-md-5 text-center overflow-hidden" style="min-height: 360px;">
@@ -446,9 +554,59 @@ get_header();
 
     <section class="py-5">
         <div class="container">
-            <?php the_content(); ?>
+        <?php the_content(); ?>
         </div>
     </section>
 </main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var counterContainer = document.querySelector('.install-counter');
+        var counterValue = document.getElementById('install-count-value');
+        var downloadButton = document.getElementById('download-cart-button');
+
+        if (!counterContainer || !counterValue || !downloadButton) {
+            return;
+        }
+
+        var installCount = 250;
+        var displayedCount = 250;
+
+        var updateDisplay = function () {
+            counterValue.textContent = displayedCount.toLocaleString();
+        };
+
+        var animateTo = function (target) {
+            if (target <= displayedCount) {
+                return;
+            }
+
+            counterContainer.classList.add('counter-active');
+
+            var step = function () {
+                if (displayedCount < target) {
+                    displayedCount += 1;
+                    updateDisplay();
+                    requestAnimationFrame(step);
+                } else {
+                    counterContainer.classList.remove('counter-active');
+                }
+            };
+
+            requestAnimationFrame(step);
+        };
+
+        var incrementCounter = function () {
+            installCount += 1;
+            animateTo(installCount);
+        };
+
+        downloadButton.addEventListener('click', incrementCounter);
+        downloadButton.addEventListener('mouseenter', incrementCounter);
+        downloadButton.addEventListener('focus', incrementCounter);
+
+        updateDisplay();
+    });
+</script>
 
 <?php get_footer(); ?>
