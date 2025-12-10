@@ -37,7 +37,7 @@ get_header();
     ?>;
 </script>
 
-<main>
+<main class="page-webmakerr-cart">
     <style>
         :root {
             --bs-border-radius: 4px;
@@ -57,6 +57,13 @@ get_header();
 
         .hero-actions {
             gap: 1rem;
+        }
+
+        .hero-download-btn {
+            font-size: 1.05rem;
+            padding: 0.95rem 2.25rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+            letter-spacing: 0.01em;
         }
 
         .hero-animation-shell {
@@ -122,8 +129,25 @@ get_header();
         }
 
         @media (max-width: 767.98px) {
+            .page-webmakerr-cart .btn {
+                margin-left: auto;
+                margin-right: auto;
+                display: flex;
+                justify-content: center;
+            }
+
             .mobile-sticky-bar {
                 display: block;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(6px);
+                transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+            }
+
+            .mobile-sticky-bar.is-visible {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
             }
 
             .hero-actions {
@@ -139,7 +163,7 @@ get_header();
         }
     </style>
 
-    <section class="pt-5 pb-5 bg-light">
+    <section class="pt-5 pb-5 bg-light" id="webmakerr-cart-hero">
         <div class="container-lg">
             <div class="p-4 p-md-5 bg-white border rounded-4 shadow-sm row g-4 align-items-center">
                 <div class="col-lg-6">
@@ -150,7 +174,7 @@ get_header();
                     <p class="mt-3 text-secondary">Install the free, performance-first ecommerce engine built to keep every transaction fast, on-brand, and under your control—whether you sell physical products, digital downloads, or licenses.</p>
                     <div class="d-flex flex-wrap hero-actions mt-4">
                         <div class="d-flex flex-column align-items-start">
-                            <a class="btn btn-dark btn-lg shadow-sm px-4 download-primary-btn" href="#cta" id="download-cart-button">Download Now</a>
+                            <a class="btn btn-dark btn-lg shadow-sm px-4 download-primary-btn hero-download-btn" href="#cta" id="download-cart-button">Download Now</a>
                             <div class="d-flex align-items-center gap-2 small text-secondary mt-2" aria-live="polite" aria-label="Active installations" role="status">
                                 <span class="live-indicator" aria-hidden="true"></span>
                                 <span>
@@ -621,6 +645,10 @@ get_header();
     document.addEventListener('DOMContentLoaded', function () {
         var counterNode = document.getElementById('install-count-value');
         var counterData = window.webmakerrCartData;
+        var heroSection = document.getElementById('webmakerr-cart-hero');
+        var mobileStickyBar = document.querySelector('.mobile-sticky-bar');
+        var mobileMediaQuery = window.matchMedia('(max-width: 767.98px)');
+        var heroObserver = null;
 
         if (!counterNode || typeof counterData !== 'object' || counterData === null) {
             return;
@@ -636,10 +664,91 @@ get_header();
 
         var supportsHover = window.matchMedia('(hover: hover)').matches || window.matchMedia('(any-hover: hover)').matches;
         var buttonSelector = 'button, .btn, .wmk-btn, input[type="button"], input[type="submit"], input[type="reset"]';
+        var baseInstallCount = installCount;
+        var fluctuationTimer = null;
+        var displayedCount = baseInstallCount;
 
         var renderCount = function (value) {
             counterNode.textContent = Number(value).toLocaleString();
         };
+
+        var clampDisplayValue = function (value) {
+            var min = baseInstallCount - 5;
+            var max = baseInstallCount + 5;
+
+            return Math.min(Math.max(value, min), max);
+        };
+
+        var nextDisplayValue = function () {
+            var stepOptions = [-1, 0, 1];
+            var step = stepOptions[Math.floor(Math.random() * stepOptions.length)];
+            var tentative = clampDisplayValue(displayedCount + step);
+
+            if (tentative === displayedCount) {
+                var randomOffset = Math.floor(Math.random() * 11) - 5;
+                tentative = clampDisplayValue(baseInstallCount + randomOffset);
+            }
+
+            return tentative;
+        };
+
+        var startFluctuation = function () {
+            if (fluctuationTimer) {
+                clearInterval(fluctuationTimer);
+            }
+
+            fluctuationTimer = window.setInterval(function () {
+                displayedCount = nextDisplayValue();
+                renderCount(displayedCount);
+            }, 3000);
+        };
+
+        var updateStickyVisibility = function (heroInView) {
+            if (!mobileStickyBar) {
+                return;
+            }
+
+            if (heroInView || !mobileMediaQuery.matches) {
+                mobileStickyBar.classList.remove('is-visible');
+                return;
+            }
+
+            mobileStickyBar.classList.add('is-visible');
+        };
+
+        var syncStickyObserver = function () {
+            if (!heroSection || !mobileStickyBar) {
+                return;
+            }
+
+            if (heroObserver) {
+                heroObserver.disconnect();
+            }
+
+            if (!mobileMediaQuery.matches) {
+                updateStickyVisibility(true);
+                return;
+            }
+
+            heroObserver = new IntersectionObserver(function (entries) {
+                var entry = entries && entries.length ? entries[0] : null;
+                var heroIsVisible = !!(entry && entry.isIntersecting);
+
+                updateStickyVisibility(heroIsVisible);
+            }, { threshold: 0 });
+
+            heroObserver.observe(heroSection);
+
+            var heroRect = heroSection.getBoundingClientRect();
+            var heroInView = heroRect.bottom > 0 && heroRect.top < window.innerHeight;
+            updateStickyVisibility(heroInView);
+        };
+
+        if (typeof mobileMediaQuery.addEventListener === 'function') {
+            mobileMediaQuery.addEventListener('change', syncStickyObserver);
+        } else if (typeof mobileMediaQuery.addListener === 'function') {
+            mobileMediaQuery.addListener(syncStickyObserver);
+        }
 
         var requestIncrement = function (eventType) {
             if (eventType === 'hover' && !supportsHover) {
@@ -671,7 +780,10 @@ get_header();
                     }
 
                     installCount = nextCount;
-                    renderCount(installCount);
+                    baseInstallCount = installCount;
+                    displayedCount = clampDisplayValue(installCount);
+                    renderCount(displayedCount);
+                    startFluctuation();
                 })
                 .catch(function () {
                     // Gracefully ignore transient network issues.
@@ -692,7 +804,10 @@ get_header();
             });
         }
 
-        renderCount(installCount);
+        displayedCount = clampDisplayValue(displayedCount);
+        renderCount(displayedCount);
+        startFluctuation();
+        syncStickyObserver();
     });
 </script>
 
