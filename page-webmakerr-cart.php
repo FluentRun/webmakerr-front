@@ -492,7 +492,7 @@ get_header();
                             Dedicated commerce tables, efficient request handling, and zero bloat keep every product page, cart, and checkout responsive.
                         </p>
 
-                        <img src="https://cdn.webmakerr.com/website/facebook-ads-3.png" alt="Performance engineered core" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
+                        <img src="https://cdn.webmakerr.com/website/wecart/performace-enginiered-core.png" alt="Performance engineered core" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
                     </div>
                 </div>
 
@@ -508,7 +508,7 @@ get_header();
                             Dynamic resource allocation keeps hosting lean while handling promo spikes, product drops, and campaign traffic without slowdowns.
                         </p>
 
-                        <img src="https://cdn.webmakerr.com/website/facebook-ads-1.png" alt="Scalable checkout and fulfillment" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
+                        <img src="https://cdn.webmakerr.com/website/wecart/scale-witout-extra-spends.png" alt="Scalable checkout and fulfillment" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
                     </div>
                 </div>
 
@@ -524,7 +524,7 @@ get_header();
                             Launch digital files, licenses, memberships, or shipped goods without duct-taping extensions. Everything runs from one dashboard.
                         </p>
 
-                        <img src="https://cdn.webmakerr.com/website/facebook-ads-2.png" alt="Flexible product experiences" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
+                        <img src="https://cdn.webmakerr.com/website/wecart/Flexible-selling-in-one-plugi.png" alt="Flexible product experiences" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
 
                     </div>
                 </div>
