@@ -676,7 +676,7 @@ get_header();
                             Track revenue, order health, and customer activity in real time so you can move quickly on what’s working.
                         </p>
 
-                        <img src="cdn.webmakerr.com/website/wecart/Insights-that-stay-live.png" alt="Realtime store analytics" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
+                        <img src="https://cdn.webmakerr.com/website/wecart/Insights-that-stay-live.png" alt="Realtime store analytics" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
                     </div>
                 </div>
             </div>
