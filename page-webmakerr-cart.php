@@ -616,7 +616,7 @@ get_header();
                             Drag-and-drop checkout blocks, saved details, and frictionless payments reduce abandonment and keep buyers moving.
                         </p>
 
-                        <img src="https://cdn.webmakerr.com/website/facebook-ads-1.png" alt="Conversion-focused checkout" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
+                        <img src="https://cdn.webmakerr.com/website/wecart/4.webp" alt="Conversion-focused checkout" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
                     </div>
                 </div>
                 <div class="col">
@@ -646,7 +646,7 @@ get_header();
                             Generate licenses, manage renewals, and handle cancellations automatically—no third-party billing tools required.
                         </p>
 
-                        <img src="https://cdn.webmakerr.com/website/booking1.png" alt="Automated renewals" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
+                        <img src="https://cdn.webmakerr.com/website/wecart/5.webp" alt="Automated renewals" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
                     </div>
                 </div>
                 <div class="col">
@@ -676,7 +676,7 @@ get_header();
                             Track revenue, order health, and customer activity in real time so you can move quickly on what’s working.
                         </p>
 
-                        <img src="https://cdn.webmakerr.com/website/facebook-ads-3.png" alt="Realtime store analytics" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
+                        <img src="https://cdn.webmakerr.com/website/wecart/5.png" alt="Realtime store analytics" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
                     </div>
                 </div>
             </div>
