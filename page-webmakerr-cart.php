@@ -48,6 +48,14 @@ get_header();
             --bs-border-radius-pill: 4px;
         }
 
+        .page-webmakerr-cart > section {
+            transition: box-shadow 0.35s ease, transform 0.35s ease;
+        }
+
+        .page-webmakerr-cart > section:hover {
+            box-shadow: 0 24px 64px rgba(15, 23, 42, 0.08);
+        }
+
         .booking-ambient {
             background:
                 radial-gradient(circle at 20% 20%, rgba(96, 165, 250, 0.08), transparent 45%),
@@ -183,7 +191,10 @@ get_header();
 
         .wmk-modal-dialog {
             position: relative;
-            background: linear-gradient(140deg, #ffffff 0%, #f7f9fc 100%);
+            background:
+                radial-gradient(circle at 20% 20%, rgba(37, 99, 235, 0.08), transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(16, 185, 129, 0.08), transparent 35%),
+                #ffffff;
             color: #0f172a;
             border-radius: 20px;
             box-shadow: 0 28px 70px rgba(7, 11, 30, 0.14);
@@ -220,7 +231,7 @@ get_header();
         .wmk-modal-header {
             display: flex;
             align-items: flex-start;
-            justify-content: space-between;
+            justify-content: flex-end;
             gap: 16px;
             margin-bottom: 12px;
         }
@@ -390,7 +401,7 @@ get_header();
                     <p class="mt-3 text-secondary">Install the free, performance-first ecommerce engine built to keep every transaction fast, on-brand, and under your control—whether you sell physical products, digital downloads, or licenses.</p>
                     <div class="d-flex flex-wrap hero-actions mt-4">
                         <div class="d-flex flex-column align-items-start">
-                            <a class="btn btn-dark btn-lg shadow-sm px-4 download-primary-btn hero-download-btn" href="#cta" id="download-cart-button">
+                            <a class="btn btn-dark btn-lg shadow-sm px-4 download-primary-btn hero-download-btn js-download-trigger" href="#cta" id="download-cart-button">
                                 <span class="download-icon" aria-hidden="true">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M12 3v12" />
@@ -463,7 +474,7 @@ get_header();
                     Turn your WordPress site into a performance-ready store with checkout, shipping, licensing, and analytics that stay fast under pressure.
                 </p>
 
-                <a class="btn btn-dark btn-lg mt-4 shadow-sm" href="#cta">
+                <a class="btn btn-dark btn-lg mt-4 shadow-sm js-download-trigger" href="#cta">
                     Download Now
                 </a>
             </div>
@@ -574,7 +585,7 @@ get_header();
                     <p class="text-secondary mb-0">Everything you need to run a modern store—already inside Webmakerr Cart, ready to activate the moment you download.</p>
                 </div>
                 <div class="col-lg-4 text-lg-end">
-                    <a class="btn btn-outline-dark" href="#cta">Download Now</a>
+                    <a class="btn btn-outline-dark js-download-trigger" href="#cta">Download Now</a>
                 </div>
             </div>
             <div class="row g-4 row-cols-1 row-cols-md-2 row-cols-lg-3">
@@ -680,7 +691,7 @@ get_header();
                     <h3 class="fw-bold mb-0">Store owners are shipping faster with Webmakerr Cart</h3>
                 </div>
                 <div class="col-lg-4 text-lg-end">
-                    <a class="btn btn-outline-dark" href="#cta">Download Now</a>
+                    <a class="btn btn-outline-dark js-download-trigger" href="#cta">Download Now</a>
                 </div>
             </div>
             <div class="row g-4 row-cols-1 row-cols-md-3">
@@ -845,8 +856,8 @@ get_header();
                     </p>
 
                     <div class="d-flex flex-wrap gap-3 justify-content-center w-100" style="max-width: 520px;" id="cta-actions">
-                        <a class="btn btn-dark btn-lg shadow-sm px-4 download-primary-btn" href="#">Download Now</a>
-                        <a class="btn btn-light border btn-lg px-4 text-dark" style="min-width: 220px;" href="#">Download Now</a>
+                        <a class="btn btn-dark btn-lg shadow-sm px-4 download-primary-btn js-download-trigger" href="#">Download Now</a>
+                        <a class="btn btn-light border btn-lg px-4 text-dark js-download-trigger" style="min-width: 220px;" href="#">Download Now</a>
                     </div>
                 </div>
             </div>
@@ -861,11 +872,10 @@ get_header();
 </main>
 
 <div class="wmk-modal-overlay" id="webmakerr-cart-popup" aria-hidden="true">
-    <div class="wmk-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="webmakerr-cart-popup-title" tabindex="-1">
+    <div class="wmk-modal-dialog" role="dialog" aria-modal="true" aria-label="Webmakerr Cart popup" tabindex="-1">
         <div class="wmk-modal-aurora" aria-hidden="true"></div>
         <div class="wmk-modal-content">
             <div class="wmk-modal-header">
-                <h3 class="wmk-modal-title" id="webmakerr-cart-popup-title">Where shall we send the premium version for free?</h3>
                 <button type="button" class="wmk-modal-close" id="webmakerr-cart-popup-close" aria-label="Close popup">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px;">
                         <line x1="18" y1="6" x2="6" y2="18" />
@@ -883,7 +893,7 @@ get_header();
 
 <div class="mobile-sticky-bar d-md-none">
     <div class="container-lg">
-        <a href="#cta" class="btn btn-dark btn-lg w-100 shadow-sm px-4 download-primary-btn">
+        <a href="#cta" class="btn btn-dark btn-lg w-100 shadow-sm px-4 download-primary-btn js-download-trigger">
             <span class="download-icon" aria-hidden="true">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 3v12" />
@@ -901,8 +911,7 @@ get_header();
         var popupOverlay = document.getElementById('webmakerr-cart-popup');
         var popupDialog = popupOverlay ? popupOverlay.querySelector('.wmk-modal-dialog') : null;
         var popupClose = document.getElementById('webmakerr-cart-popup-close');
-        var popupButtonSelector = 'button, a.btn, .btn, .wmk-btn, input[type="button"], input[type="submit"], input[type="reset"]';
-        var pageButtons = Array.prototype.slice.call(document.querySelectorAll(popupButtonSelector));
+        var downloadButtons = Array.prototype.slice.call(document.querySelectorAll('.js-download-trigger'));
 
         var openPopup = function (event) {
             if (!popupOverlay || !popupDialog) {
@@ -936,13 +945,13 @@ get_header();
             document.body.classList.remove('wmk-modal-open');
         };
 
-        pageButtons
-            .filter(function (btn) {
-                return !popupOverlay || !popupOverlay.contains(btn);
-            })
-            .forEach(function (btn) {
-                btn.addEventListener('click', openPopup);
-            });
+        downloadButtons.forEach(function (btn) {
+            if (!popupOverlay || popupOverlay.contains(btn)) {
+                return;
+            }
+
+            btn.addEventListener('click', openPopup);
+        });
 
         if (popupOverlay) {
             popupOverlay.addEventListener('click', function (event) {
