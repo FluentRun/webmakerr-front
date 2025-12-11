@@ -4,6 +4,20 @@
  * Template Post Type: page
  */
 
+if ( is_front_page() ) {
+    $front_page_id       = get_queried_object_id();
+    $front_page_template = $front_page_id ? get_page_template_slug( $front_page_id ) : '';
+
+    if ( $front_page_template === 'page-webmakerr-cart.php' ) {
+        $webmakerr_cart_template = locate_template( 'page-webmakerr-cart.php' );
+
+        if ( $webmakerr_cart_template ) {
+            include $webmakerr_cart_template;
+            return;
+        }
+    }
+}
+
 wp_enqueue_style(
     'bootstrap-5-landing',
     'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css',
