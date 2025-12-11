@@ -661,7 +661,7 @@ get_header();
                             Connect any payment gateway, build custom workflows, or go headless with REST APIs that keep performance intact.
                         </p>
 
-                        <img src="https://cdn.webmakerr.com/website/facebook-ads-1.png" alt="API-first ecommerce" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
+                        <img src="https://cdn.webmakerr.com/website/wecart/developer-ready-api.png" alt="API-first ecommerce" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
                     </div>
                 </div>
                 <div class="col">
