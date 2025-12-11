@@ -616,7 +616,7 @@ get_header();
                             Drag-and-drop checkout blocks, saved details, and frictionless payments reduce abandonment and keep buyers moving.
                         </p>
 
-                        <img src="https://cdn.webmakerr.com/website/wecart/4.webp" alt="Conversion-focused checkout" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
+                        <img src="https://cdn.webmakerr.com/website/wecart/Checkout-that-converts.png" alt="Conversion-focused checkout" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
                     </div>
                 </div>
                 <div class="col">
@@ -646,7 +646,7 @@ get_header();
                             Generate licenses, manage renewals, and handle cancellations automatically—no third-party billing tools required.
                         </p>
 
-                        <img src="https://cdn.webmakerr.com/website/wecart/5.webp" alt="Automated renewals" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
+                        <img src="https://cdn.webmakerr.com/website/wecart/subscription-and-licences.png" alt="Automated renewals" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
                     </div>
                 </div>
                 <div class="col">
