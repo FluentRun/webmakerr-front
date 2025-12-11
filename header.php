@@ -77,6 +77,8 @@
     $cta_link = trim( cz('tp_header_cta_link') );
     $cta_target = cz('tp_header_cta_target') ? ' target="_blank" rel="noopener"' : '';
     $account_url = adstm_home_url('/account/');
+    $current_path = isset($_SERVER['REQUEST_URI']) ? sanitize_text_field(wp_unslash($_SERVER['REQUEST_URI'])) : '';
+    $show_cart_icon = strpos($current_path, '/item/') !== false;
 
     $desktop_menu = wp_nav_menu([
         'theme_location' => 'top_menu',
@@ -117,19 +119,33 @@
             ?>
         </nav>
         <div class="codex-offcanvas-meta d-flex flex-column gap-3">
-            <a class="btn codex-start-btn codex-header-cta w-100" href="<?php echo esc_url( home_url('/contact-us') ); ?>"><?php esc_html_e('Start For Free', 'rap'); ?></a>
+            <button class="btn codex-start-btn codex-header-cta w-100 js-header-start-popup" type="button"><?php esc_html_e('Start For Free', 'rap'); ?></button>
             <div class="codex-offcanvas-card">
                 <div class="codex-offcanvas-card-label text-uppercase fw-semibold"><?php esc_html_e('Account', 'rap'); ?></div>
                 <div class="codex-offcanvas-card-content codex-offcanvas-account">
                     <?php do_action('adstm_loginButton'); ?>
                 </div>
             </div>
+            <?php if ( $show_cart_icon ) : ?>
             <div class="codex-offcanvas-card">
                 <div class="codex-offcanvas-card-label text-uppercase fw-semibold"><?php esc_html_e('Shopping bag', 'rap'); ?></div>
                 <div class="codex-offcanvas-card-content codex-offcanvas-cart">
-                    <?php do_action('adstm_cart_quantity_link'); ?>
+                    <div class="cart">
+                        <a class="codex-cart-button" href="<?php echo esc_url(adstm_home_url('/cart/')); ?>">
+                            <span class="cart__icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3.5 4.5h2.2l1.4 11h10.6l1.4-8.4H6.5" />
+                                    <circle cx="10" cy="19.5" r="1.6" />
+                                    <circle cx="17.2" cy="19.5" r="1.6" />
+                                </svg>
+                            </span>
+                            <span class="count_item" data-cart="quantity"></span>
+                            <span class="visually-hidden" data-cart="pluralize_items"></span>
+                        </a>
+                    </div>
                 </div>
             </div>
+            <?php endif; ?>
         </div>
     </div>
 </div>
@@ -160,26 +176,55 @@
                 ?>
             </div>
             <div class="d-flex align-items-center gap-2 ms-lg-auto flex-shrink-0 order-3 codex-header-actions">
-                <a class="btn btn-dark codex-start-btn codex-header-cta d-lg-none" href="<?php echo esc_url( home_url('/contact-us') ); ?>"><?php esc_html_e('Start For Free', 'rap'); ?></a>
+                <button class="btn btn-dark codex-start-btn codex-header-cta d-lg-none js-header-start-popup" type="button"><?php esc_html_e('Start For Free', 'rap'); ?></button>
                 <div class="codex-header-icons d-none d-lg-flex align-items-center gap-3">
                 <?php if(cz('tp_currency_switcher')){ ?>
                     <div class="codex-currency-switcher">
                         <?php do_action('adstm_dropdown_currency'); ?>
                     </div>
                 <?php } ?>
-                <a class="btn btn-outline-secondary btn-icon" href="<?php echo esc_url($account_url); ?>">
-                    <span class="visually-hidden"><?php _e('Account', 'rap'); ?></span>
-                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-4 0-7 2-7 4.44V21a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.56C19 16 16 14 12 14z"/></svg>
-                </a>
-                <div class="codex-cart-link">
-                    <?php do_action('adstm_cart_quantity_link'); ?>
+                <a class="codex-login-link" href="<?php echo esc_url($account_url); ?>"><?php esc_html_e('Login', 'rap'); ?></a>
+                <?php if ( $show_cart_icon ) : ?>
+                <div class="codex-cart-link" role="presentation">
+                    <a class="codex-cart-button" href="<?php echo esc_url(adstm_home_url('/cart/')); ?>">
+                        <span class="cart__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3.5 4.5h2.2l1.4 11h10.6l1.4-8.4H6.5" />
+                                <circle cx="10" cy="19.5" r="1.6" />
+                                <circle cx="17.2" cy="19.5" r="1.6" />
+                            </svg>
+                        </span>
+                        <span class="count_item" data-cart="quantity"></span>
+                        <span class="visually-hidden" data-cart="pluralize_items"></span>
+                    </a>
                 </div>
-                <a class="btn btn-dark codex-start-btn codex-header-cta d-none d-lg-inline-flex" href="<?php echo esc_url( home_url('/contact-us') ); ?>"><?php esc_html_e('Start For Free', 'rap'); ?></a>
+                <?php endif; ?>
+                <button class="btn btn-dark codex-start-btn codex-header-cta d-none d-lg-inline-flex js-header-start-popup" type="button"><?php esc_html_e('Start For Free', 'rap'); ?></button>
                 </div>
             </div>
         </div>
     </nav>
 </header>
+
+<div class="wmk-modal-overlay" id="header-start-popup" aria-hidden="true">
+    <div class="wmk-modal-dialog" role="dialog" aria-modal="true" aria-label="<?php esc_attr_e('Start for free form', 'rap'); ?>" tabindex="-1">
+        <div class="wmk-modal-aurora" aria-hidden="true"></div>
+        <div class="wmk-modal-content">
+            <div class="wmk-modal-header">
+                <button type="button" class="wmk-modal-close" id="header-start-popup-close" aria-label="<?php esc_attr_e('Close popup', 'rap'); ?>">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px;">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="wmk-modal-body">
+                <?php echo do_shortcode('[fluentform id="2"]'); ?>
+            </div>
+        </div>
+    </div>
+</div>
 
 <?php get_template_part( 'template/str_data_common' ); ?>
 <main id="site-content" class="site-content">

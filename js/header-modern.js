@@ -178,9 +178,79 @@
         });
     };
 
+    var initHeaderPopup = function () {
+        var popupOverlay = document.getElementById('header-start-popup');
+        if (!popupOverlay) {
+            return;
+        }
+
+        var popupDialog = popupOverlay.querySelector('.wmk-modal-dialog');
+        var popupClose = document.getElementById('header-start-popup-close');
+        var triggers = Array.prototype.slice.call(document.querySelectorAll('.js-header-start-popup'));
+
+        var openPopup = function (event) {
+            if (event && typeof event.preventDefault === 'function') {
+                event.preventDefault();
+            }
+
+            popupOverlay.classList.add('is-active');
+            popupOverlay.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('wmk-modal-open');
+
+            var offcanvasElement = document.getElementById('codexOffcanvas');
+            if (offcanvasElement) {
+                var bootstrapAvailable = typeof bootstrap !== 'undefined' && typeof bootstrap.Offcanvas !== 'undefined';
+                if (bootstrapAvailable) {
+                    var offcanvasInstance = bootstrap.Offcanvas.getInstance(offcanvasElement);
+                    if (offcanvasInstance && typeof offcanvasInstance.hide === 'function') {
+                        offcanvasInstance.hide();
+                    }
+                } else {
+                    offcanvasElement.classList.remove('is-open', 'show');
+                    document.body.classList.remove('codex-offcanvas-open');
+                    var fallbackBackdrop = document.querySelector('.codex-offcanvas-backdrop');
+                    if (fallbackBackdrop) {
+                        fallbackBackdrop.classList.remove('show');
+                    }
+                }
+            }
+
+            if (popupDialog && typeof popupDialog.focus === 'function') {
+                popupDialog.focus({ preventScroll: true });
+            }
+        };
+
+        var closePopup = function () {
+            popupOverlay.classList.remove('is-active');
+            popupOverlay.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('wmk-modal-open');
+        };
+
+        triggers.forEach(function (trigger) {
+            trigger.addEventListener('click', openPopup);
+        });
+
+        popupOverlay.addEventListener('click', function (event) {
+            if (event.target === popupOverlay) {
+                closePopup();
+            }
+        });
+
+        if (popupClose) {
+            popupClose.addEventListener('click', closePopup);
+        }
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && popupOverlay.classList.contains('is-active')) {
+                closePopup();
+            }
+        });
+    };
+
     var init = function () {
         initHeaderShadow();
         initOffcanvasMenu();
+        initHeaderPopup();
     };
 
     if (document.readyState === 'loading') {
