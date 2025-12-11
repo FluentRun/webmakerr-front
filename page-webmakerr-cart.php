@@ -601,7 +601,7 @@ get_header();
                             Commerce data lives in dedicated tables, keeping backend operations quick even with large catalogs and campaign traffic.
                         </p>
 
-                        <img src="https://cdn.webmakerr.com/website/facebook-ads-3.png" alt="Performance tuned ecommerce" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
+                        <img src="https://cdn.webmakerr.com/website/wecart/buils-for-speed.png" alt="Performance tuned ecommerce" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
                     </div>
                 </div>
                 <div class="col">
@@ -631,7 +631,7 @@ get_header();
                             Manage variations, bundles, and recommendations in one place so customers always see the right offer at the right time.
                         </p>
 
-                        <img src="https://cdn.webmakerr.com/website/facebook-ads-2.png" alt="Merchandising automation" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
+                        <img src="https://cdn.webmakerr.com/website/wecart/Smart-catalog-control.png" alt="Merchandising automation" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
                     </div>
                 </div>
                 <div class="col">
