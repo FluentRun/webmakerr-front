@@ -699,7 +699,7 @@ get_header();
                     <div class="card h-100 shadow-sm border-0">
                         <div class="card-body p-4">
                             <div class="d-flex align-items-center gap-3 mb-3">
-                                <div class="rounded-circle bg-dark" style="width:48px; height:48px;"></div>
+                                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:48px; height:48px; background-color: #f3f4f6; color: #0f172a; font-weight: 700; font-size: 1rem;">A</div>
                                 <div>
                                     <div class="fw-bold">Agency founder</div>
                                     <small class="text-secondary">Scaled client stores without replatforming</small>
@@ -713,7 +713,7 @@ get_header();
                     <div class="card h-100 shadow-sm border-0">
                         <div class="card-body p-4">
                             <div class="d-flex align-items-center gap-3 mb-3">
-                                <div class="rounded-circle bg-dark" style="width:48px; height:48px;"></div>
+                                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:48px; height:48px; background-color: #f3f4f6; color: #0f172a; font-weight: 700; font-size: 1rem;">D</div>
                                 <div>
                                     <div class="fw-bold">Digital product lead</div>
                                     <small class="text-secondary">Licensing-first business</small>
@@ -727,7 +727,7 @@ get_header();
                     <div class="card h-100 shadow-sm border-0">
                         <div class="card-body p-4">
                             <div class="d-flex align-items-center gap-3 mb-3">
-                                <div class="rounded-circle bg-dark" style="width:48px; height:48px;"></div>
+                                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:48px; height:48px; background-color: #f3f4f6; color: #0f172a; font-weight: 700; font-size: 1rem;">O</div>
                                 <div>
                                     <div class="fw-bold">Operations manager</div>
                                     <small class="text-secondary">Omnichannel catalog</small>
@@ -857,7 +857,6 @@ get_header();
 
                     <div class="d-flex flex-wrap gap-3 justify-content-center w-100" style="max-width: 520px;" id="cta-actions">
                         <a class="btn btn-dark btn-lg shadow-sm px-4 download-primary-btn js-download-trigger" href="#">Download Now</a>
-                        <a class="btn btn-light border btn-lg px-4 text-dark js-download-trigger" style="min-width: 220px;" href="#">Download Now</a>
                     </div>
                 </div>
             </div>
