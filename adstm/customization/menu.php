@@ -2,7 +2,7 @@
 return array(
     'customization' => array(
         'title' => __('Customization', 'rap'),
-        'icon'  => 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSJub25lIj4KICA8cmVjdCB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHJ4PSI2IiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwIi8+CiAgPHBhdGggZD0iTTQgNy41bDQuMjUgMTUgMy41LTkuNSAzLjUgOS41TDE5LjUgNy41SDI0bC01Ljc1IDE1aC0zLjVsLTMuMjUtOC42LTMuMjUgOC42SDQuMjVMLTAuMjUgNy41SDR6IiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K',
+        'icon'  => 'dashicons-admin-generic',
         'tmp' => 'tmplMode',
         'submenu' => array(
             'customization' => [
