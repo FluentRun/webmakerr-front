@@ -401,7 +401,7 @@ get_header();
                     <p class="mt-3 text-secondary">Our team configures checkout, products, and payments for you and delivers a working storefront in 7 days—no tech skills needed.</p>
                     <div class="d-flex flex-wrap hero-actions mt-4">
                         <div class="d-flex flex-column align-items-start">
-                            <a class="btn btn-dark btn-lg shadow-sm px-4 download-primary-btn hero-download-btn js-download-trigger" href="#cta" id="download-cart-button">
+                            <a class="btn btn-dark btn-lg shadow-sm px-4 download-primary-btn hero-download-btn js-download-trigger" href="https://webmakerr.com/?fluent-cart=instant_checkout&item_id=1&quantity=1" id="download-cart-button">
                                 <span class="download-icon" aria-hidden="true">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M12 3v12" />
@@ -409,7 +409,7 @@ get_header();
                                         <path d="M4 20h16" />
                                     </svg>
                                 </span>
-                                <span>Book my store launch</span>
+                                <span>Get Your Store Built</span>
                             </a>
                             <div class="d-flex align-items-center gap-2 small text-secondary mt-2" aria-live="polite" aria-label="Active installations" role="status">
                                 <span class="live-indicator" aria-hidden="true"></span>
@@ -474,8 +474,8 @@ get_header();
                     We install Webmakerr Cart for you—speed, checkout, fulfillment, licensing, and analytics tuned by our team—so you receive a sales-ready storefront instead of a DIY plugin.
                 </p>
 
-                <a class="btn btn-dark btn-lg mt-4 shadow-sm js-download-trigger" href="#cta">
-                    Book my store
+                <a class="btn btn-dark btn-lg mt-4 shadow-sm js-download-trigger" href="https://webmakerr.com/?fluent-cart=instant_checkout&item_id=1&quantity=1">
+                    Get Your Store Built
                 </a>
             </div>
 
@@ -585,7 +585,7 @@ get_header();
                         <p class="text-secondary mb-0">Checkout, catalog, and fulfillment are prebuilt inside Webmakerr Cart and configured by our team, so you start selling as soon as we hand over your store.</p>
                     </div>
                 <div class="col-lg-4 text-lg-end">
-                    <a class="btn btn-outline-dark js-download-trigger" href="#cta">Book my store</a>
+                    <a class="btn btn-outline-dark js-download-trigger" href="https://webmakerr.com/?fluent-cart=instant_checkout&item_id=1&quantity=1">Get Your Store Built</a>
                 </div>
             </div>
             <div class="row g-4 row-cols-1 row-cols-md-2 row-cols-lg-3">
@@ -691,7 +691,7 @@ get_header();
                     <h3 class="fw-bold mb-0">Store owners are selling sooner with Webmakerr</h3>
                 </div>
                 <div class="col-lg-4 text-lg-end">
-                    <a class="btn btn-outline-dark js-download-trigger" href="#cta">Book my store</a>
+                    <a class="btn btn-outline-dark js-download-trigger" href="https://webmakerr.com/?fluent-cart=instant_checkout&item_id=1&quantity=1">Get Your Store Built</a>
                 </div>
             </div>
             <div class="row g-4 row-cols-1 row-cols-md-3">
@@ -856,7 +856,7 @@ get_header();
                         </p>
 
                         <div class="d-flex flex-wrap gap-3 justify-content-center w-100" style="max-width: 520px;" id="cta-actions">
-                            <a class="btn btn-dark btn-lg shadow-sm px-4 download-primary-btn js-download-trigger" href="#">Book my 7-day launch</a>
+                            <a class="btn btn-dark btn-lg shadow-sm px-4 download-primary-btn js-download-trigger" href="https://webmakerr.com/?fluent-cart=instant_checkout&item_id=1&quantity=1">Get Your Store Built</a>
                         </div>
                 </div>
             </div>
@@ -892,7 +892,7 @@ get_header();
 
 <div class="mobile-sticky-bar d-md-none">
     <div class="container-lg">
-        <a href="#cta" class="btn btn-dark btn-lg w-100 shadow-sm px-4 download-primary-btn js-download-trigger">
+        <a href="https://webmakerr.com/?fluent-cart=instant_checkout&item_id=1&quantity=1" class="btn btn-dark btn-lg w-100 shadow-sm px-4 download-primary-btn js-download-trigger">
             <span class="download-icon" aria-hidden="true">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 3v12" />
@@ -900,7 +900,7 @@ get_header();
                     <path d="M4 20h16" />
                 </svg>
             </span>
-            <span>Book my 7-day setup</span>
+            <span>Get Your Store Built</span>
         </a>
     </div>
 </div>
@@ -921,6 +921,12 @@ get_header();
                 var trigger = event.currentTarget || event.target;
 
                 if (trigger && trigger.tagName === 'A') {
+                    var href = typeof trigger.getAttribute === 'function' ? trigger.getAttribute('href') : '';
+
+                    if (href && /^https?:\/\//i.test(href)) {
+                        return;
+                    }
+
                     event.preventDefault();
                 }
             }
