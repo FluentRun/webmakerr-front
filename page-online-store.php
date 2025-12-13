@@ -174,7 +174,7 @@ Template Name: Sell Online Landing
 <!-- FAQ SECTION -->
 <section class="section-light py-5">
   <div class="container">
-    <h2 class="fw-semibold text-center mb-5">Frequently asked questions</h2>
+        <h2 class="fw-semibold text-center mb-5">Frequently asked questions</h2>
 
     <div class="accordion" id="faqAccordion">
 
@@ -186,7 +186,7 @@ Template Name: Sell Online Landing
         </h2>
         <div id="faq1" class="accordion-collapse collapse show">
           <div class="accordion-body">
-            Start free, then get 3 months for €1/month. No credit card required to begin.
+            Start free, then get 3 months for €1/month. We build and launch for you; hosting and your domain are purchased separately so you control them, and you keep full ownership of the store from day one.
           </div>
         </div>
       </div>
@@ -199,7 +199,7 @@ Template Name: Sell Online Landing
         </h2>
         <div id="faq2" class="accordion-collapse collapse">
           <div class="accordion-body">
-            No. Everything is beginner-friendly with built-in guidance tools.
+            No. Our team handles the full setup—design, products, payments, tracking—so there’s nothing for you to configure. Simply share your products, brand assets, and required logins, and we deliver a live, functional store within 7 days.
           </div>
         </div>
       </div>
@@ -212,7 +212,7 @@ Template Name: Sell Online Landing
         </h2>
         <div id="faq3" class="accordion-collapse collapse">
           <div class="accordion-body">
-            Yes, you can sell globally with multi-currency and tax automation tools.
+            Yes. We configure global payments, multi-currency, and taxes for you. Your 7-day delivery guarantee starts once we receive your access and product details; missing assets or approvals are the only things that can slow the handoff of your live, fully functional store.
           </div>
         </div>
       </div>
