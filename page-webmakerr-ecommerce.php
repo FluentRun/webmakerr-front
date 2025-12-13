@@ -395,10 +395,10 @@ get_header();
             <div class="p-4 p-md-5 bg-white border rounded-4 shadow-sm row g-4 align-items-center">
                 <div class="col-lg-6">
                     <div class="d-inline-flex align-items-center small bg-light text-secondary px-3 py-1 rounded-pill mb-3">
-                        Webmakerr Ecommerce • WordPress store, ready to sell
+                        Done-for-you Webmakerr Ecommerce • WordPress store, ready to sell
                     </div>
-                    <h1 class="fw-semibold lh-sm text-dark" style="font-size: clamp(2rem, 1.5rem + 2vw, 3.4rem);">Launch a conversion-ready store on WordPress today</h1>
-                    <p class="mt-3 text-secondary">Install the prebuilt Webmakerr Ecommerce pack powered by Webmakerr Cart. Everything is wired for fast checkout, clear product pages, and selling physical or digital offers without setup headaches.</p>
+                    <h1 class="fw-semibold lh-sm text-dark" style="font-size: clamp(2rem, 1.5rem + 2vw, 3.4rem);">We install, configure, and hand you a live store in 7 days</h1>
+                    <p class="mt-3 text-secondary">Our team sets up Webmakerr Cart on your existing WordPress hosting, configures checkout, products, and payments, and delivers a working storefront—no tech skills needed. Hosting and domain stay yours and are not included.</p>
                     <div class="d-flex flex-wrap hero-actions mt-4">
                         <div class="d-flex flex-column align-items-start">
                             <a class="btn btn-dark btn-lg shadow-sm px-4 download-primary-btn hero-download-btn js-download-trigger" href="#cta" id="download-cart-button">
@@ -409,7 +409,7 @@ get_header();
                                         <path d="M4 20h16" />
                                     </svg>
                                 </span>
-                                <span>Get the store pack free</span>
+                                <span>Book my store setup</span>
                             </a>
                             <div class="d-flex align-items-center gap-2 small text-secondary mt-2" aria-live="polite" aria-label="Active installations" role="status">
                                 <span class="live-indicator" aria-hidden="true"></span>
@@ -421,7 +421,7 @@ get_header();
                         </div>
                     </div>
 
-                    <p class="small text-muted mt-2">Built for founders and teams who want a working storefront, not another plugin to configure.</p>
+                    <p class="small text-muted mt-2">Built for founders and teams who want experts to build the storefront, not another plugin to configure.</p>
 
                     <div class="d-flex gap-4 mt-4 align-items-center">
                         <div class="d-flex align-items-center gap-2 text-secondary">
@@ -467,15 +467,15 @@ get_header();
                 </span>
 
                 <h2 class="fw-semibold display-6 text-dark lh-sm">
-                    The fastest path from WordPress site to sales-ready store
+                    The fastest path from WordPress site to a store we launch for you
                 </h2>
 
                 <p class="mt-3 text-secondary">
-                    Webmakerr Cart handles the heavy lifting—speed, checkout, fulfillment, licensing, and analytics—so you start selling immediately instead of building.
+                    We install Webmakerr Cart for you—speed, checkout, fulfillment, licensing, and analytics tuned by our team—so you receive a sales-ready storefront instead of a DIY plugin.
                 </p>
 
                 <a class="btn btn-dark btn-lg mt-4 shadow-sm js-download-trigger" href="#cta">
-                    Download Now
+                    Book my setup
                 </a>
             </div>
 
@@ -538,7 +538,7 @@ get_header();
                 <div class="col-lg-5">
                     <p class="text-uppercase text-secondary fw-semibold mb-2">Product types</p>
                     <h3 class="fw-bold mb-3">One ready checkout for every kind of offer</h3>
-                    <p class="text-secondary mb-4">Launch digital, physical, subscription, and hybrid products from one Webmakerr Cart install. Inventory, fulfillment, and licensing stay synced without manual work.</p>
+                    <p class="text-secondary mb-4">We configure Webmakerr Cart on your current WordPress hosting so you can sell digital, physical, subscription, and hybrid products without stitching tools together.</p>
                     <div class="d-flex flex-wrap gap-2">
                         <span class="badge bg-dark">Digital products</span>
                         <span class="badge bg-outline-dark border border-dark text-dark">Physical items</span>
@@ -550,25 +550,25 @@ get_header();
                         <div class="col">
                             <div class="h-100 p-4 bg-light rounded-3 border">
                                   <h5 class="fw-bold mb-2">Digital downloads & licenses</h5>
-                                  <p class="text-secondary mb-0">Deliver files instantly, issue license keys automatically, and renew subscriptions without bolting on extra tools.</p>
+                                  <p class="text-secondary mb-0">We set up instant file delivery, license key automation, and renewals for you—no extra add-ons to wire up.</p>
                             </div>
                         </div>
                         <div class="col">
                             <div class="h-100 p-4 bg-light rounded-3 border">
                                   <h5 class="fw-bold mb-2">Physical products with fulfillment</h5>
-                                  <p class="text-secondary mb-0">Keep stock accurate, auto-mark items as sold out, and generate packing slips and invoices as orders arrive.</p>
+                                  <p class="text-secondary mb-0">We handle stock rules, sold-out states, packing slips, and invoices so fulfillment is ready on day one.</p>
                             </div>
                         </div>
                         <div class="col">
                             <div class="h-100 p-4 bg-light rounded-3 border">
                                   <h5 class="fw-bold mb-2">Hybrid bundles & upsells</h5>
-                                  <p class="text-secondary mb-0">Bundle physical kits with downloads, add service fees at checkout, and surface smart recommendations that raise order value.</p>
+                                  <p class="text-secondary mb-0">We configure hybrid bundles, service fees, and smart recommendations to raise order value without extra plugins.</p>
                             </div>
                         </div>
                         <div class="col">
                             <div class="h-100 p-4 bg-light rounded-3 border">
                                   <h5 class="fw-bold mb-2">Global-ready storefronts</h5>
-                                  <p class="text-secondary mb-0">Adjust taxes, currencies, and shipping by region while keeping the experience consistent and fast everywhere.</p>
+                                  <p class="text-secondary mb-0">We align taxes, currencies, and shipping by region while keeping your existing hosting fast and consistent.</p>
                             </div>
                         </div>
                     </div>
@@ -581,11 +581,11 @@ get_header();
         <div class="container-lg">
             <div class="row mb-4 align-items-center">
                     <div class="col-lg-8">
-                        <h2 class="fw-bold mb-2">Benefits you can launch today</h2>
-                        <p class="text-secondary mb-0">Checkout, catalog, and fulfillment are already connected inside Webmakerr Cart, so you start selling the day you install.</p>
+                        <h2 class="fw-bold mb-2">Benefits we deliver for you</h2>
+                        <p class="text-secondary mb-0">Checkout, catalog, and fulfillment are prebuilt inside Webmakerr Cart and configured by our team, so you start selling as soon as we hand over your store.</p>
                     </div>
                 <div class="col-lg-4 text-lg-end">
-                    <a class="btn btn-outline-dark js-download-trigger" href="#cta">Download Now</a>
+                    <a class="btn btn-outline-dark js-download-trigger" href="#cta">Book my setup</a>
                 </div>
             </div>
             <div class="row g-4 row-cols-1 row-cols-md-2 row-cols-lg-3">
@@ -598,7 +598,7 @@ get_header();
                         <h5 class="fw-semibold text-dark">Built for uncompromised speed</h5>
 
                         <p class="text-muted small mt-2">
-                            Dedicated commerce tables keep the catalog, orders, and checkout fast—even with large product sets or heavy promo traffic.
+                            Dedicated commerce tables keep the catalog, orders, and checkout fast—even with large product sets or heavy promo traffic on your existing hosting.
                         </p>
 
                         <img src="https://cdn.webmakerr.com/website/wecart/buils-for-speed.png" alt="Performance tuned ecommerce" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
@@ -613,7 +613,7 @@ get_header();
                         <h5 class="fw-semibold text-dark">Checkout that converts</h5>
 
                         <p class="text-muted small mt-2">
-                            Drag-and-drop checkout blocks, saved payment details, and distraction-free flows lower abandonment and keep buyers moving.
+                            We tune checkout blocks, saved payment details, and distraction-free flows to lower abandonment without you touching code.
                         </p>
 
                         <img src="https://cdn.webmakerr.com/website/wecart/Checkout-that-converts.png" alt="Conversion-focused checkout" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
@@ -628,7 +628,7 @@ get_header();
                         <h5 class="fw-semibold text-dark">Smart catalog control</h5>
 
                         <p class="text-muted small mt-2">
-                            Manage variations, bundles, and recommendations in one dashboard so shoppers always see the right offer.
+                            We configure variations, bundles, and recommendations so shoppers always see the right offer without you managing plugins.
                         </p>
 
                         <img src="https://cdn.webmakerr.com/website/wecart/Smart-catalog-control.png" alt="Merchandising automation" class="mt-auto pt-3 w-100" style="height: 250px; object-fit: cover;" />
@@ -691,7 +691,7 @@ get_header();
                     <h3 class="fw-bold mb-0">Store owners are selling sooner with Webmakerr</h3>
                 </div>
                 <div class="col-lg-4 text-lg-end">
-                    <a class="btn btn-outline-dark js-download-trigger" href="#cta">Download Now</a>
+                    <a class="btn btn-outline-dark js-download-trigger" href="#cta">Book my setup</a>
                 </div>
             </div>
             <div class="row g-4 row-cols-1 row-cols-md-3">
@@ -748,7 +748,7 @@ get_header();
                     <div class="text-center mb-4">
                         <span class="d-inline-flex align-items-center bg-light border px-3 py-1 rounded-pill text-secondary small mb-3">Frequently Asked Questions</span>
                         <h2 class="fw-semibold text-dark">Answers to keep your launch moving</h2>
-                        <p class="text-secondary mt-2">Everything you need to know before you install Webmakerr Ecommerce powered by Webmakerr Cart.</p>
+                        <p class="text-secondary mt-2">We install and configure Webmakerr Ecommerce for you, delivering a live, functional store within 7 days on your existing WordPress hosting. Delivery means your checkout, catalog, and payments are live; timing only shifts if we’re waiting on access or product details.</p>
                     </div>
 
                     <div class="accordion" id="cartFaqsAccordion">
@@ -760,7 +760,7 @@ get_header();
                             </h2>
                             <div id="cartFaqOne" class="accordion-collapse collapse show" aria-labelledby="cartFaqOneHeading" data-bs-parent="#cartFaqsAccordion">
                                 <div class="accordion-body text-secondary">
-                                    You get the Webmakerr Cart engine plus prebuilt storefront pages, conversion-focused product layouts, licensing, subscriptions, shipping, analytics, and APIs—ready out of the box.
+                                    We install Webmakerr Cart for you and hand over conversion-ready pages, product layouts, licensing, subscriptions, shipping, analytics, and APIs. Hosting and domain are not included—you keep and use your existing WordPress hosting.
                                 </div>
                             </div>
                         </div>
@@ -773,7 +773,7 @@ get_header();
                             </h2>
                             <div id="cartFaqTwo" class="accordion-collapse collapse" aria-labelledby="cartFaqTwoHeading" data-bs-parent="#cartFaqsAccordion">
                                 <div class="accordion-body text-secondary">
-                                    Install, activate, and follow the guided steps. Add your products and branding, turn on payments, and start selling in minutes—no extra extensions required.
+                                    We deliver your ready-to-sell storefront within 7 days once you share WordPress admin access, hosting access, and product details. The only delays happen if we’re waiting on credentials or content.
                                 </div>
                             </div>
                         </div>
@@ -786,7 +786,7 @@ get_header();
                             </h2>
                             <div id="cartFaqThree" class="accordion-collapse collapse" aria-labelledby="cartFaqThreeHeading" data-bs-parent="#cartFaqsAccordion">
                                 <div class="accordion-body text-secondary">
-                                    Yes. Use Gutenberg blocks, Bricks integration, and custom CSS to match your typography, colors, and layouts. Add calls-to-action anywhere with WordPress patterns and keep the cart on-brand.
+                                    Yes. We match your typography, colors, and layouts during setup. After delivery, you own the WordPress store and can adjust blocks or CSS without coding expertise.
                                 </div>
                             </div>
                         </div>
@@ -799,7 +799,7 @@ get_header();
                             </h2>
                             <div id="cartFaqFour" class="accordion-collapse collapse" aria-labelledby="cartFaqFourHeading" data-bs-parent="#cartFaqsAccordion">
                                 <div class="accordion-body text-secondary">
-                                    Yes. It inherits your typography, colors, and layout choices automatically across modern block themes and classic setups.
+                                    Yes. We set up Webmakerr Cart on your existing theme and hosting, verify layouts, and keep your brand styles intact. No theme change is required.
                                 </div>
                             </div>
                         </div>
@@ -812,7 +812,7 @@ get_header();
                             </h2>
                             <div id="cartFaqFive" class="accordion-collapse collapse" aria-labelledby="cartFaqFiveHeading" data-bs-parent="#cartFaqsAccordion">
                                 <div class="accordion-body text-secondary">
-                                    You can add unlimited products. Performance-first commerce tables and queries keep the catalog and checkout responsive as traffic grows.
+                                    You can sell unlimited products. We configure performance-first commerce tables so the catalog and checkout stay responsive as traffic grows.
                                 </div>
                             </div>
                         </div>
@@ -825,7 +825,7 @@ get_header();
                             </h2>
                             <div id="cartFaqSix" class="accordion-collapse collapse" aria-labelledby="cartFaqSixHeading" data-bs-parent="#cartFaqsAccordion">
                                 <div class="accordion-body text-secondary">
-                                    Connect Stripe, PayPal, and other gateways through Webmakerr Cart’s APIs to offer cards, wallets, and local options without slowing checkout.
+                                    We connect Stripe and PayPal for you using your credentials, and you can add other gateways through Webmakerr Cart’s APIs without slowing checkout.
                                 </div>
                             </div>
                         </div>
@@ -848,15 +848,15 @@ get_header();
                         <span class="d-inline-flex align-items-center bg-white border px-3 py-1 rounded-pill text-secondary small shadow-sm mb-3">Launch faster</span>
 
                         <h2 class="fw-semibold lh-sm text-dark mx-auto" style="font-size: 2.25rem; max-width: 720px;">
-                            Download Webmakerr Ecommerce and start selling
+                            We set up your Webmakerr Ecommerce store and hand it over ready to sell
                         </h2>
 
                         <p class="text-muted small mb-4 mx-auto" style="max-width: 640px;">
-                            Add the free pack, turn on the ready-made checkout, and keep performance, payments, and fulfillment under your control.
+                            Share your existing WordPress hosting access and product details—we configure Webmakerr Cart, connect payments, and deliver a live storefront within 7 days. Hosting and domain are not included, and delivery means your store is online and taking orders.
                         </p>
 
                         <div class="d-flex flex-wrap gap-3 justify-content-center w-100" style="max-width: 520px;" id="cta-actions">
-                            <a class="btn btn-dark btn-lg shadow-sm px-4 download-primary-btn js-download-trigger" href="#">Get the store pack free</a>
+                            <a class="btn btn-dark btn-lg shadow-sm px-4 download-primary-btn js-download-trigger" href="#">Book my 7-day setup</a>
                         </div>
                 </div>
             </div>
@@ -900,7 +900,7 @@ get_header();
                     <path d="M4 20h16" />
                 </svg>
             </span>
-            <span>Get the store pack free</span>
+            <span>Book my 7-day setup</span>
         </a>
     </div>
 </div>
