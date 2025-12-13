@@ -397,7 +397,7 @@ get_header();
                     <div class="d-inline-flex align-items-center small bg-light text-secondary px-3 py-1 rounded-pill mb-3">
                         Done-for-you Webmakerr Ecommerce • WordPress store, ready to sell
                     </div>
-                    <h1 class="fw-semibold lh-sm text-dark" style="font-size: clamp(2rem, 1.5rem + 2vw, 3.4rem);">We install, configure, and hand you a live store in 7 days</h1>
+                    <h1 class="fw-semibold lh-sm text-dark" style="font-size: clamp(2rem, 1.5rem + 2vw, 3.4rem);">We design, configure, and hand you a live store in 7 days</h1>
                     <p class="mt-3 text-secondary">Our team configures checkout, products, and payments for you and delivers a working storefront in 7 days—no tech skills needed.</p>
                     <div class="d-flex flex-wrap hero-actions mt-4">
                         <div class="d-flex flex-column align-items-start">
